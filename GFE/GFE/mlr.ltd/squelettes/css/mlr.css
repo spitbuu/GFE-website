@@ -1,0 +1,377 @@
+.spip-admin-float {
+  right: 2% !important;
+  top: auto !important;
+  bottom: 0 !important;
+}
+
+body {
+     /* background-color: #1C1F2B;*/
+      background-color: #172139;
+      color: #fff;
+      font-family: "Poppins", sans-serif !important;
+  }
+
+
+  p {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+  a {
+    color: #00A2FF;
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600;
+   }
+
+   .h2, h2 {
+    font-size: 3rem;
+}
+
+.img-fluid {
+  border-radius: 1em !important;
+}
+
+.spip_documents img {
+  border-radius: 1em !important;
+}
+
+
+  .navbar, .footer {
+      background-color: #131620;
+  }
+a.nav-link {
+    color: #fff;
+  }
+
+  a.nav-link:hover {
+    text-decoration: underline;
+  }
+
+  .navbar .nav-item {
+    margin-right: 1rem;
+  }
+
+.navbar-nav .dropdown-menu {
+    background: #0d6efd;
+}
+
+.navbar-nav a.dropdown-item {
+    color: #fff;
+}
+
+
+.navbar-nav a.dropdown-item:hover {
+    color: #fff;
+    background: #0546a5;
+}
+
+
+.lang .dropdown-menu {
+  background: #0d6efd;
+}
+
+.lang  .menu_lang_item a{
+  color: #fff;
+}
+.menu_lang_item {
+  display: block;
+  width: 100%;
+  padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+  clear: both;
+  font-weight: 400;
+  color: #fff;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--bs-dropdown-item-border-radius, 0);
+}
+
+.equipe {
+    background: #0b1223;
+}
+
+.partenaires {
+    background: #0b1223;
+}
+.partenaires img {
+    max-width: 100%;
+    text-align: center;
+}
+
+ .btn {
+    font-weight: 200;
+    padding: 1rem 2rem;
+  }
+
+
+  .hero {
+      background: url('../images/mlr1.html') center/cover no-repeat;
+      min-height: 600px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+  .hero h1 {
+      font-size: 3rem;
+      font-weight: 600;
+  }
+  .section-title {
+      color: #FFF;
+      margin-bottom: 1rem;
+  }
+
+  .section-title span{
+    color: #00A2FF;
+    margin-bottom: 1rem;
+}
+
+
+.hero-article {
+  background: -webkit-linear-gradient(0deg, #141520, #172139,);
+  background: linear-gradient(0deg, #141520, #172139);
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+
+
+.services {
+  background: url('../images/mlr3.html') top/cover no-repeat;
+}
+
+
+.carte {
+  padding: 1rem;
+  border: none;
+  border-radius: 0;
+  font-weight: 200;
+    font-size: 90%;
+    background: #101B2D;
+    color: #FFF;
+
+}
+
+.carte ul {
+    border-left: 1px solid #0546a5;
+    padding-left: 2rem;
+  }
+
+.carte li {
+  padding-bottom: 1rem;
+}
+
+.carte p {
+  color: #FFF;
+}
+
+.carte a:hover {
+  color: #FFF;
+}
+
+.carte:hover {
+  background-color: #141520;
+}
+
+
+  .team-member img {
+      border-radius: 10%;
+      width: 100%;
+      height: auto;
+      margin-bottom: 2rem;
+  }
+
+  .team-member p {
+    color:#00A2FF;
+    font-size: 1.3rem;
+  }
+
+
+  a:link.team  {
+    color:#00A2FF;
+    text-decoration: none;
+  }
+
+a:hover.team  {
+    text-decoration: underline;
+  }
+
+  .h5, h5 {
+    font-size: 1.5rem;
+    font-weight: 400 !important;
+}
+
+.article {
+  background: #141520 ;
+  font-weight: 200;
+  font-size: 110%;
+}
+
+a[hreflang]:after {
+  content: "";
+}
+ 
+  .footer {
+      padding: 20px 0;
+      text-align: center;
+      color: #aaa;
+  }
+  .footer a {
+      color: #00A2FF;
+      text-decoration: none;
+      display: inline-flex;
+  }
+
+  .texteencadre-spip {
+    color: #ffffff;
+    background: #444c5e;
+border:none;
+    margin: 1em 0;
+    padding: 1em;
+}
+
+
+span.sep.divider {
+  margin: 0 0.5em;
+  color: #00a0fc;
+}
+  
+.fil_ariane.hierarchie.breadcrumb, .fil_ariane.hierarchie.breadcrumb .on {
+  font-weight: 300;
+}
+
+/* Style de base pour le fieldset */
+fieldset {
+  border: none
+  padding: 20px;
+  margin-bottom: 20px;
+	color: #FFF;
+}
+
+/* Style pour la légende */
+legend {
+  font-size: 1.5em;
+  font-weight: 400;
+  margin-bottom: 10px;
+	
+}
+
+/* Conteneur général pour les groupes de saisie */
+.editer-groupe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Style commun pour chaque champ d'édition */
+.editer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  width: 48%; /* Pour aligner deux champs sur une même ligne */
+}
+
+.editer label {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 5px;
+	color: #00a2ff;
+}
+
+/* Style pour les champs de texte et textarea */
+.editer input.text, 
+.editer textarea {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  width: 100%; /* S'adapte à la largeur de l'élément parent */
+  box-sizing: border-box; /* Assure que le padding est pris en compte dans la largeur */
+	font-weight: 200;
+    padding: 1rem 2rem;
+}
+
+/* Style spécifique pour textarea */
+.editer textarea {
+  resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+/* Gestion de la largeur du champ de texte */
+.editer_texte {
+  width: 100%; /* Le textarea occupe toute la largeur */
+}
+
+/* Espacement des champs obligatoires */
+.obligatoire label {
+  color: #00a2ff;
+}
+
+.obligatoire strong {
+  font-weight: 300;
+  color: #00a2ff;
+}
+
+.formulaire_spip .boutons input, .formulaire_spip .boutons button {
+	font-weight: 200;
+    padding: 1rem 2rem;
+	  border: 1px solid rgb(13, 110, 253);
+  border-radius: 8px;
+	background: rgb(13, 110, 253);
+	color:#fff;
+}
+
+.formulaire_spip .boutons input:hover, .formulaire_spip .boutons button:hover {
+	background: #0b5ed7;
+}
+
+/* Adaptation responsive */
+@media (max-width: 768px) {
+  .editer {
+    width: 100%; /* Les champs prennent toute la largeur sur les petits écrans */
+  }
+}
+
+@media (max-width: 768px) {
+
+
+  img, svg {
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+}
+
+.spip_documents, .spip_doc_titre, .spip_doc_descriptif {
+  max-width: 100% !important;
+  width: 100%;
+}
+
+.hero {
+  min-height: 400px;
+}
+
+  .hero h1 {
+    font-size: 2rem;
+   /* height: 400px;*/
+  }
+
+  .btn {
+    font-weight: 200;
+    padding: 0.5rem 1rem;
+}
+
+  
+
+  .h2, h2 {
+    font-size: 2rem;
+    }
+
+  
+}

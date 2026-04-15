@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>GFE COMPANY LIMITED</title>
+		<meta
+			name="description"
+			content="GFE COMPANY LIMITED cung cấp giải pháp truyền thông giáo dục, nội dung học thuật, và chiến dịch tuyển sinh bền vững."
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				color-scheme: light;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				font-family: "Roboto", system-ui, -apple-system, sans-serif;
+			}
+
+			@keyframes fadeUp {
+				from {
+					opacity: 0;
+					transform: translateY(16px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.reveal {
+				animation: fadeUp 0.8s ease both;
+			}
+
+			.reveal-delay-1 {
+				animation-delay: 0.1s;
+			}
+
+			.reveal-delay-2 {
+				animation-delay: 0.2s;
+			}
+
+			.reveal-delay-3 {
+				animation-delay: 0.3s;
+			}
+
+			@keyframes marquee {
+				0% {
+					transform: translateX(0);
+				}
+				100% {
+					transform: translateX(-50%);
+				}
+			}
+
+			.marquee-track {
+				animation: marquee 18s linear infinite;
+			}
+		</style>
+	</head>
+	<body class="bg-white text-[#231F20]">
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:rounded-full focus:bg-[#D2232A] focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+		>
+			Bỏ qua nội dung
+		</a>
+
+		<header class="sticky top-0 z-40 bg-white/90 backdrop-blur">
+			<nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+				<div class="flex items-center gap-3">
+					<img
+						id="logo"
+						src="GFE.svg"
+						alt="Logo GFE COMPANY LIMITED"
+						class="h-10 w-10 rounded-xl border border-[#D2232A] bg-white object-contain p-1"
+					/>
+					<span class="text-sm font-semibold tracking-[0.2em] text-[#091851]">
+						GFE COMPANY LIMITED
+					</span>
+				</div>
+				<div class="hidden items-center gap-8 text-sm font-medium text-[#091851] md:flex">
+					<a href="#home" class="hover:text-[#D2232A]">Trang chủ</a>
+					<a href="#about" class="hover:text-[#D2232A]">Giới thiệu</a>
+					<a href="#services" class="hover:text-[#D2232A]">Dịch vụ</a>
+					<a href="#team" class="hover:text-[#D2232A]">Đội ngũ</a>
+					<a href="#contact" class="hover:text-[#D2232A]">Liên hệ</a>
+				</div>
+				<a
+					href="#contact"
+					class="hidden rounded-full bg-[#D2232A] px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-[#D2232A]/30 transition hover:translate-y-[-1px] hover:shadow-[#D2232A]/50 md:inline-flex"
+				>
+					Liên hệ
+				</a>
+				<button
+					class="inline-flex items-center justify-center rounded-full border border-[#091851]/20 px-4 py-2 text-xs font-semibold text-[#091851] md:hidden"
+					aria-label="Open menu"
+				>
+					Danh mục
+				</button>
+			</nav>
+		</header>
+
+		<main id="main">
+			<section id="home" class="relative overflow-hidden bg-[#091851]">
+				<div
+					class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(210,35,42,0.18),transparent_45%),radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.08),transparent_40%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_45%)]"
+					aria-hidden="true"
+				></div>
+				<div class="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-8">
+					<div class="reveal">
+						<p class="text-sm font-semibold uppercase tracking-[0.4em] text-white/70">
+							Đối tác truyền thông giáo dục
+						</p>
+						<h1 class="mt-4 text-4xl font-semibold leading-tight text-white sm:text-5xl">
+							Giải pháp truyền thông giáo dục toàn diện cho tăng trưởng bền vững
+						</h1>
+						<p class="mt-6 text-base leading-relaxed text-white/80">
+							GFE COMPANY LIMITED cam kết mang lại giá trị thực tiễn, chiến lược
+							truyền thông bền vững, và chất lượng dịch vụ xuất sắc để đồng hành
+							cùng thành công của đối tác.
+						</p>
+						<div class="mt-8 flex flex-wrap gap-4">
+							<a
+								href="#services"
+								class="rounded-full bg-[#D2232A] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#D2232A]/40 transition hover:translate-y-[-1px] hover:shadow-[#D2232A]/60"
+							>
+								Khám phá dịch vụ
+							</a>
+							<a
+								href="#contact"
+								class="rounded-full border border-white/60 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#D2232A] hover:text-[#D2232A]"
+							>
+								Liên hệ
+							</a>
+						</div>
+						<div class="mt-10 grid grid-cols-3 gap-6 text-white/80">
+							<div class="reveal reveal-delay-1">
+								<p class="text-2xl font-semibold text-white">15+</p>
+								<p class="text-xs uppercase tracking-[0.3em]">Chương trình</p>
+							</div>
+							<div class="reveal reveal-delay-2">
+								<p class="text-2xl font-semibold text-white">120+</p>
+								<p class="text-xs uppercase tracking-[0.3em]">Chiến dịch</p>
+							</div>
+							<div class="reveal reveal-delay-3">
+								<p class="text-2xl font-semibold text-white">98%</p>
+								<p class="text-xs uppercase tracking-[0.3em]">Hài lòng</p>
+							</div>
+						</div>
+					</div>
+					<div class="reveal reveal-delay-2">
+						<div class="rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur">
+							<div class="space-y-6">
+								<div class="rounded-2xl bg-white/90 p-5 text-[#091851]">
+									<p class="text-xs uppercase tracking-[0.2em] text-[#D2232A]">
+										Trọng tâm giáo dục
+									</p>
+									<h3 class="mt-3 text-lg font-semibold">Chiến lược nội dung</h3>
+									<p class="mt-2 text-sm text-[#231F20]">
+										Lộ trình nội dung rõ ràng, nhất quán và phù hợp đối tượng.
+									</p>
+								</div>
+								<div class="rounded-2xl border border-white/30 p-5 text-white">
+									<p class="text-xs uppercase tracking-[0.2em] text-white/60">
+										Triển khai chiến dịch
+									</p>
+									<h3 class="mt-3 text-lg font-semibold">Kỷ luật thực thi</h3>
+									<p class="mt-2 text-sm text-white/80">
+										Điều phối đa kênh để tạo ra kết quả đo lường được.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="about" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+				<div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+					<div class="reveal">
+						<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
+							Giới thiệu GFE
+						</p>
+						<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
+							Vững nền tảng, lan tỏa giá trị giáo dục.
+						</h2>
+						<p class="mt-6 text-base leading-relaxed text-[#231F20]">
+							GFE COMPANY LIMITED hoạt động trong lĩnh vực truyền thông giáo dục,
+							xây dựng nội dung học thuật, và triển khai chiến dịch tuyển sinh.
+							Chúng tôi giúp các đơn vị giáo dục định vị thương hiệu rõ ràng và
+							kết nối bền vững với học viên.
+						</p>
+						<p class="mt-4 text-base leading-relaxed text-[#231F20]">
+							Sứ mệnh của chúng tôi là đồng hành cùng các đối tác bằng giải pháp
+							truyền thông bền vững, chuẩn mực học thuật, và thực thi minh bạch.
+						</p>
+					</div>
+					<div class="grid gap-6 sm:grid-cols-2">
+						<div class="reveal rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#091851] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 2l3 7h7l-5.6 4.2 2.2 7.8-6.6-4.4-6.6 4.4 2.2-7.8L2 9h7z" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Sáng tạo</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Chiến lược khác biệt dựa trên dữ liệu và giá trị đo lường.
+							</p>
+						</div>
+						<div class="reveal reveal-delay-1 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D2232A] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M4 12h16M12 4v16" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Tận tâm</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Đồng hành lâu dài, thực thi đúng cam kết.
+							</p>
+						</div>
+						<div class="reveal reveal-delay-2 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#091851] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M4 12l4 4 12-12" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Tin cậy</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Đảm bảo chuẩn mực học thuật và bảo mật thông tin.
+							</p>
+						</div>
+						<div class="reveal reveal-delay-3 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D2232A] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 5v14M5 12h14" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Chính trực</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Minh bạch trong truyền thông và thực hành đạo đức.
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="services" class="bg-[#F7F7F8]">
+				<div class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+					<div class="flex flex-wrap items-end justify-between gap-6">
+						<div class="reveal">
+							<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
+								Dịch vụ
+							</p>
+							<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
+								Chuyên môn dành cho truyền thông giáo dục.
+							</h2>
+						</div>
+						<p class="max-w-md text-sm text-[#231F20]">
+							Chiến dịch được thiết kế để nâng cao hiệu quả truyền thông,
+							tăng giá trị thương hiệu và giữ chân học viên.
+						</p>
+					</div>
+					<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+						<article class="reveal rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#091851] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M3 12h18M12 3v18" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Chiến lược truyền thông giáo dục</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Xác định thông điệp, định vị và kế hoạch triển khai rõ ràng.
+							</p>
+						</article>
+						<article class="reveal reveal-delay-1 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#D2232A] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M5 12h14M12 5v14" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Nội dung học thuật &amp; truyền thông</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Sản xuất nội dung học thuật, tài liệu, và chương trình tuyển sinh.
+							</p>
+						</article>
+						<article class="reveal reveal-delay-2 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#091851] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M4 8h16M4 16h16" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Sự kiện &amp; tuyển sinh</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Thiết kế sự kiện, hội thảo và ngày hội tuyển sinh đồng hành.
+							</p>
+						</article>
+						<article class="reveal reveal-delay-3 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#D2232A] text-white">
+								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 3v18M3 12h18" />
+								</svg>
+							</div>
+							<h3 class="text-lg font-semibold text-[#091851]">Truyền thông số &amp; cộng đồng</h3>
+							<p class="mt-2 text-sm text-[#231F20]">
+								Vận hành kênh số và cộng đồng học viên một cách bền vững.
+							</p>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="team" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+				<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+					<div class="reveal">
+						<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
+							Đội ngũ
+						</p>
+						<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
+							Đội ngũ lãnh đạo giáo dục và truyền thông.
+						</h2>
+						<p class="mt-6 text-base leading-relaxed text-[#231F20]">
+							Đội ngũ GFE quy tụ chuyên gia về truyền thông giáo dục, nội dung học thuật,
+							và triển khai chiến dịch. Chúng tôi đồng hành như một phần của đối tác.
+						</p>
+					</div>
+					<div class="grid gap-4 sm:grid-cols-2">
+						<div class="reveal rounded-2xl border border-[#091851]/10 p-5">
+							<p class="text-sm font-semibold text-[#091851]">Giám đốc chiến lược</p>
+							<p class="mt-2 text-xs uppercase tracking-[0.3em] text-[#D2232A]">Định vị giáo dục</p>
+							<p class="mt-4 text-sm text-[#231F20]">Định vị thương hiệu và thông điệp cốt lõi.</p>
+						</div>
+						<div class="reveal reveal-delay-1 rounded-2xl border border-[#091851]/10 p-5">
+							<p class="text-sm font-semibold text-[#091851]">Giám đốc nội dung</p>
+							<p class="mt-2 text-xs uppercase tracking-[0.3em] text-[#D2232A]">Học thuật &amp; kể chuyện</p>
+							<p class="mt-4 text-sm text-[#231F20]">Xây dựng nội dung và kể chuyện thương hiệu.</p>
+						</div>
+						<div class="reveal reveal-delay-2 rounded-2xl border border-[#091851]/10 p-5">
+							<p class="text-sm font-semibold text-[#091851]">Quản lý dự án</p>
+							<p class="mt-2 text-xs uppercase tracking-[0.3em] text-[#D2232A]">Vận hành chiến dịch</p>
+							<p class="mt-4 text-sm text-[#231F20]">Điều phối thời gian, ngân sách, và kết quả.</p>
+						</div>
+						<div class="reveal reveal-delay-3 rounded-2xl border border-[#091851]/10 p-5">
+							<p class="text-sm font-semibold text-[#091851]">Quản lý đối tác</p>
+							<p class="mt-2 text-xs uppercase tracking-[0.3em] text-[#D2232A]">Liên kết giáo dục</p>
+							<p class="mt-4 text-sm text-[#231F20]">Mở rộng mạng lưới và phát triển bền vững.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="bg-[#091851]">
+				<div class="mx-auto max-w-6xl px-6 py-16 lg:px-8">
+					<div class="flex flex-wrap items-center justify-between gap-6">
+						<div class="reveal">
+							<p class="text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
+								Đối tác tin cậy
+							</p>
+							<h2 class="mt-4 text-3xl font-semibold text-white">
+								Đồng hành vì chất lượng giáo dục.
+							</h2>
+						</div>
+						<p class="max-w-md text-sm text-white/70">
+							Mối quan hệ đối tác được xây dựng trên minh bạch, hiệu quả đo lường,
+							và hợp tác lâu dài.
+						</p>
+					</div>
+					<div class="mt-10 overflow-hidden rounded-2xl bg-white/10 py-6">
+						<div class="flex gap-8 whitespace-nowrap px-6 marquee-track">
+							<span class="text-lg font-semibold text-white/40">AURORA GROUP</span>
+							<span class="text-lg font-semibold text-white/40">NORTHRIDGE</span>
+							<span class="text-lg font-semibold text-white/40">KINETIC CO</span>
+							<span class="text-lg font-semibold text-white/40">SENTINEL</span>
+							<span class="text-lg font-semibold text-white/40">VERITAS</span>
+							<span class="text-lg font-semibold text-white/40">ORBITA</span>
+							<span class="text-lg font-semibold text-white/40">AURORA GROUP</span>
+							<span class="text-lg font-semibold text-white/40">NORTHRIDGE</span>
+							<span class="text-lg font-semibold text-white/40">KINETIC CO</span>
+							<span class="text-lg font-semibold text-white/40">SENTINEL</span>
+							<span class="text-lg font-semibold text-white/40">VERITAS</span>
+							<span class="text-lg font-semibold text-white/40">ORBITA</span>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="contact" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+				<div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+					<div class="reveal">
+						<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
+							Liên hệ
+						</p>
+						<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
+							Bắt đầu chiến dịch truyền thông giáo dục với GFE.
+						</h2>
+						<p class="mt-6 text-base leading-relaxed text-[#231F20]">
+							Chia sẻ mục tiêu và GFE sẽ phản hồi bằng giải pháp phù hợp với ưu tiên.
+						</p>
+						<div class="mt-8 space-y-4 text-sm text-[#231F20]">
+							<p><strong>Địa chỉ:</strong> 28 Thảo Điền</p>
+							<p><strong>Điện thoại:</strong> 0902 417 744</p>
+							<p><strong>Email:</strong> email@gfe.vn</p>
+						</div>
+					</div>
+					<form class="reveal reveal-delay-1 rounded-3xl border border-[#091851]/10 bg-white p-8 shadow-sm">
+						<div class="grid gap-4">
+							<div>
+								<label class="text-xs font-semibold uppercase tracking-[0.3em] text-[#091851]">Họ và tên</label>
+								<input
+									type="text"
+									placeholder="Nhập họ và tên"
+									class="mt-2 w-full rounded-xl border border-[#091851]/20 px-4 py-3 text-sm focus:border-[#D2232A] focus:outline-none"
+								/>
+							</div>
+							<div>
+								<label class="text-xs font-semibold uppercase tracking-[0.3em] text-[#091851]">Email</label>
+								<input
+									type="email"
+									placeholder="email@gfe.vn"
+									class="mt-2 w-full rounded-xl border border-[#091851]/20 px-4 py-3 text-sm focus:border-[#D2232A] focus:outline-none"
+								/>
+							</div>
+							<div>
+								<label class="text-xs font-semibold uppercase tracking-[0.3em] text-[#091851]">Số điện thoại</label>
+								<input
+									type="tel"
+									placeholder="0902 417 744"
+									class="mt-2 w-full rounded-xl border border-[#091851]/20 px-4 py-3 text-sm focus:border-[#D2232A] focus:outline-none"
+								/>
+							</div>
+							<div>
+								<label class="text-xs font-semibold uppercase tracking-[0.3em] text-[#091851]">Nội dung</label>
+								<textarea
+									rows="4"
+									placeholder="Chia sẻ mục tiêu của bạn"
+									class="mt-2 w-full rounded-xl border border-[#091851]/20 px-4 py-3 text-sm focus:border-[#D2232A] focus:outline-none"
+								></textarea>
+							</div>
+						</div>
+						<button
+							type="submit"
+							class="mt-6 w-full rounded-full bg-[#D2232A] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#D2232A]/30 transition hover:translate-y-[-1px] hover:shadow-[#D2232A]/50"
+						>
+							Gửi thông tin
+						</button>
+					</form>
+				</div>
+			</section>
+		</main>
+
+		<footer class="bg-[#091851] text-white">
+			<div class="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-3 lg:px-8">
+				<div>
+					<h3 class="text-lg font-semibold">GFE COMPANY LIMITED</h3>
+					<p class="mt-4 text-sm text-white/70">
+						28 Thảo Điền
+					</p>
+					<p class="mt-2 text-sm text-white/70">0902 417 744</p>
+					<p class="mt-2 text-sm text-white/70">email@gfe.vn</p>
+				</div>
+				<div>
+					<h3 class="text-lg font-semibold">Liên kết nhanh</h3>
+					<ul class="mt-4 space-y-2 text-sm text-white/70">
+						<li><a href="#home" class="hover:text-white">Trang chủ</a></li>
+						<li><a href="#about" class="hover:text-white">Giới thiệu</a></li>
+						<li><a href="#services" class="hover:text-white">Dịch vụ</a></li>
+						<li><a href="#team" class="hover:text-white">Đội ngũ</a></li>
+						<li><a href="#contact" class="hover:text-white">Liên hệ</a></li>
+					</ul>
+				</div>
+				<div>
+					<h3 class="text-lg font-semibold">Kết nối</h3>
+					<p class="mt-4 text-sm text-white/70">
+						Theo dõi cập nhật và hoạt động của GFE.
+					</p>
+					<div class="mt-4 flex items-center gap-3">
+						<a
+							href="https://www.linkedin.com/company/gfe-company-limited/"
+							class="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/80 hover:border-[#D2232A] hover:text-white"
+						>
+							LinkedIn
+						</a>
+						<a
+							href="#"
+							class="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/80 hover:border-[#D2232A] hover:text-white"
+						>
+							Mạng xã hội khác
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="border-t border-white/10">
+				<div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-white/60 md:flex-row lg:px-8">
+					<p>Copyright © <span id="year"></span> GFE COMPANY LIMITED. All rights reserved.</p>
+					<p>Truyền thông giáo dục. Đồng hành tin cậy.</p>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			document.getElementById("year").textContent = new Date().getFullYear();
+		</script>
+	</body>
+</html>
+
+
