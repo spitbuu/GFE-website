@@ -91,17 +91,65 @@
 						id="logo"
 						src="GFE.svg"
 						alt="Logo GFE COMPANY LIMITED"
-						class="h-10 w-10 rounded-xl border border-[#D2232A] bg-white object-contain p-1"
+						class="h-20 w-20"
 					/>
-					<span class="text-sm font-semibold tracking-[0.2em] text-[#091851]">
-						GFE COMPANY LIMITED
+					<span class="text-sm font-semibold italic tracking-[0.2em] text-[#091851]">
+						Education communication partner
 					</span>
 				</div>
 				<div class="hidden items-center gap-8 text-sm font-medium text-[#091851] md:flex">
 					<a href="#home" class="hover:text-[#D2232A]">Home</a>
-					<a href="#about" class="hover:text-[#D2232A]">About Us</a>
-					<a href="#services" class="hover:text-[#D2232A]">Services</a>
-					<a href="#team" class="hover:text-[#D2232A]">Our Team</a>
+					<div class="group relative">
+						<button
+							type="button"
+							class="inline-flex items-center gap-2 hover:text-[#D2232A]"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							The Company
+							<span class="text-xs">▾</span>
+						</button>
+						<div class="pointer-events-none absolute left-0 top-full mt-3 w-52 rounded-2xl border border-[#091851]/10 bg-white p-3 text-sm shadow-lg opacity-0 transition group-hover:pointer-events-auto group-hover:opacity-100">
+							<a href="#who-we-are" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Who we are</a>
+							<a href="#values" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Our values</a>
+							<a href="#management" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Management</a>
+						</div>
+					</div>
+					<div class="group relative">
+						<button
+							type="button"
+							class="inline-flex items-center gap-2 hover:text-[#D2232A]"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							Services
+							<span class="text-xs">▾</span>
+						</button>
+						<div class="pointer-events-none absolute left-0 top-full mt-3 w-56 rounded-2xl border border-[#091851]/10 bg-white p-3 text-sm shadow-lg opacity-0 transition group-hover:pointer-events-auto group-hover:opacity-100">
+							<a href="#services" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">All services</a>
+							<a href="#risk-advisory" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Risk advisory</a>
+							<a href="#compliance" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Compliance</a>
+							<a href="#economic-intelligence" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Economic intelligence</a>
+							<a href="#public-affairs" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Public affairs</a>
+						</div>
+					</div>
+					<div class="group relative">
+						<button
+							type="button"
+							class="inline-flex items-center gap-2 hover:text-[#D2232A]"
+							aria-haspopup="true"
+							aria-expanded="false"
+						>
+							Partners
+							<span class="text-xs">▾</span>
+						</button>
+						<div class="pointer-events-none absolute left-0 top-full mt-3 w-60 rounded-2xl border border-[#091851]/10 bg-white p-3 text-sm shadow-lg opacity-0 transition group-hover:pointer-events-auto group-hover:opacity-100">
+							<a href="#partners" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">All partners</a>
+							<a href="#french-institutions" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">French institutions</a>
+							<a href="#european-institutions" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">European institutions</a>
+							<a href="#vietnamese-institutions" class="block rounded-lg px-3 py-2 hover:bg-[#F7F7F8]">Vietnamese institutions</a>
+						</div>
+					</div>
 					<a href="#contact" class="hover:text-[#D2232A]">Contact</a>
 				</div>
 				<a
@@ -197,11 +245,11 @@
 				</div>
 			</section>
 
-			<section id="about" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+			<section id="company" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
 				<div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-					<div class="reveal">
+					<div id="who-we-are" class="reveal scroll-mt-28">
 						<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
-							About GFE
+							Who we are
 						</p>
 						<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
 							Building credibility for education brands.
@@ -216,50 +264,60 @@
 							build trust, and convert interest into long-term engagement.
 						</p>
 					</div>
-					<div class="grid gap-6 sm:grid-cols-2">
-						<div class="reveal rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
-							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#091851] text-white">
-								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M12 2l3 7h7l-5.6 4.2 2.2 7.8-6.6-4.4-6.6 4.4 2.2-7.8L2 9h7z" />
-								</svg>
-							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Innovation</h3>
-							<p class="mt-2 text-sm text-[#231F20]">
-								Distinct strategies grounded in measurable market insight.
+					<div id="values" class="space-y-6 scroll-mt-28">
+						<div class="reveal">
+							<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
+								Our values
 							</p>
+							<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
+								Principles that guide our work.
+							</h2>
 						</div>
-						<div class="reveal reveal-delay-1 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
-							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D2232A] text-white">
-								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M4 12h16M12 4v16" />
-								</svg>
+						<div class="grid gap-6 sm:grid-cols-2">
+							<div class="reveal rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+								<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#091851] text-white">
+									<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M12 2l3 7h7l-5.6 4.2 2.2 7.8-6.6-4.4-6.6 4.4 2.2-7.8L2 9h7z" />
+									</svg>
+								</div>
+								<h3 class="text-lg font-semibold text-[#091851]">Innovation</h3>
+								<p class="mt-2 text-sm text-[#231F20]">
+									Distinct strategies grounded in measurable market insight.
+								</p>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Dedication</h3>
-							<p class="mt-2 text-sm text-[#231F20]">
-								Long-term partnership with disciplined delivery.
-							</p>
-						</div>
-						<div class="reveal reveal-delay-2 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
-							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#091851] text-white">
-								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M4 12l4 4 12-12" />
-								</svg>
+							<div class="reveal reveal-delay-1 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+								<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D2232A] text-white">
+									<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M4 12h16M12 4v16" />
+									</svg>
+								</div>
+								<h3 class="text-lg font-semibold text-[#091851]">Dedication</h3>
+								<p class="mt-2 text-sm text-[#231F20]">
+									Long-term partnership with disciplined delivery.
+								</p>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Reliability</h3>
-							<p class="mt-2 text-sm text-[#231F20]">
-								Academic rigor, confidentiality, and consistent quality.
-							</p>
-						</div>
-						<div class="reveal reveal-delay-3 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
-							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D2232A] text-white">
-								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
-									<path d="M12 5v14M5 12h14" />
-								</svg>
+							<div class="reveal reveal-delay-2 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+								<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#091851] text-white">
+									<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M4 12l4 4 12-12" />
+									</svg>
+								</div>
+								<h3 class="text-lg font-semibold text-[#091851]">Reliability</h3>
+								<p class="mt-2 text-sm text-[#231F20]">
+									Academic rigor, confidentiality, and consistent quality.
+								</p>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Integrity</h3>
-							<p class="mt-2 text-sm text-[#231F20]">
-								Transparent communication and ethical execution.
-							</p>
+							<div class="reveal reveal-delay-3 rounded-2xl border border-[#091851]/10 p-6 shadow-sm">
+								<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#D2232A] text-white">
+									<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
+										<path d="M12 5v14M5 12h14" />
+									</svg>
+								</div>
+								<h3 class="text-lg font-semibold text-[#091851]">Integrity</h3>
+								<p class="mt-2 text-sm text-[#231F20]">
+									Transparent communication and ethical execution.
+								</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -270,74 +328,74 @@
 					<div class="flex flex-wrap items-end justify-between gap-6">
 						<div class="reveal">
 							<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
-								Our Services
+								Services
 							</p>
 							<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
-								Expertise built for education communication.
+								Capabilities for education communication.
 							</h2>
 						</div>
 						<p class="max-w-md text-sm text-[#231F20]">
-							Tailored engagements that elevate education brands and improve
-							recruitment performance across local markets.
+							Focused advisory and execution that strengthen visibility and market
+							traction.
 						</p>
 					</div>
 					<div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-						<article class="reveal rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+						<article id="risk-advisory" class="reveal rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
 							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#091851] text-white">
 								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M3 12h18M12 3v18" />
 								</svg>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Education communication strategy</h3>
+							<h3 class="text-lg font-semibold text-[#091851]">Risk advisory</h3>
 							<p class="mt-2 text-sm text-[#231F20]">
-								Positioning, messaging, and strategy aligned with institutional goals.
+								Governance, risk mapping, and mitigation planning for education ventures.
 							</p>
 						</article>
-						<article class="reveal reveal-delay-1 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+						<article id="compliance" class="reveal reveal-delay-1 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
 							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#D2232A] text-white">
 								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M5 12h14M12 5v14" />
 								</svg>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Academic content &amp; storytelling</h3>
+							<h3 class="text-lg font-semibold text-[#091851]">Compliance</h3>
 							<p class="mt-2 text-sm text-[#231F20]">
-								Content systems that translate academic value into clear narratives.
+								Regulatory alignment, compliance checks, and reporting support.
 							</p>
 						</article>
-						<article class="reveal reveal-delay-2 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+						<article id="economic-intelligence" class="reveal reveal-delay-2 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
 							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#091851] text-white">
 								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M4 8h16M4 16h16" />
 								</svg>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Enrollment events &amp; outreach</h3>
+							<h3 class="text-lg font-semibold text-[#091851]">Economic intelligence</h3>
 							<p class="mt-2 text-sm text-[#231F20]">
-								On-site engagement programs that convert interest into applications.
+								Market insight, competitor mapping, and sector analysis.
 							</p>
 						</article>
-						<article class="reveal reveal-delay-3 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
+						<article id="public-affairs" class="reveal reveal-delay-3 rounded-2xl bg-white p-6 shadow-sm transition hover:-translate-y-1">
 							<div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#D2232A] text-white">
 								<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M12 3v18M3 12h18" />
 								</svg>
 							</div>
-							<h3 class="text-lg font-semibold text-[#091851]">Digital presence &amp; community</h3>
+							<h3 class="text-lg font-semibold text-[#091851]">Public affairs</h3>
 							<p class="mt-2 text-sm text-[#231F20]">
-								Always-on digital and community engagement to build trust.
+								Stakeholder engagement, advocacy, and institutional relations.
 							</p>
 						</article>
 					</div>
 				</div>
 			</section>
 
-			<section id="team" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
+			<section id="management" class="mx-auto max-w-6xl px-6 py-20 lg:px-8">
 				<div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
 					<div class="reveal">
 						<p class="text-sm font-semibold uppercase tracking-[0.4em] text-[#D2232A]">
-							Our Team
+							Management
 						</p>
 						<h2 class="mt-4 text-3xl font-semibold text-[#091851]">
-							Education-focused leaders and strategists.
+							Education leaders guiding execution.
 						</h2>
 						<p class="mt-6 text-base leading-relaxed text-[#231F20]">
 							GFE brings together specialists in education communication, academic
@@ -370,36 +428,46 @@
 				</div>
 			</section>
 
-			<section class="bg-[#091851]">
+			<section id="partners" class="bg-[#091851]">
 				<div class="mx-auto max-w-6xl px-6 py-16 lg:px-8">
 					<div class="flex flex-wrap items-center justify-between gap-6">
 						<div class="reveal">
 							<p class="text-sm font-semibold uppercase tracking-[0.4em] text-white/60">
-								Trusted By
+								Partners
 							</p>
 							<h2 class="mt-4 text-3xl font-semibold text-white">
-								Partners who value education impact.
+								Institutional partners across regions.
 							</h2>
 						</div>
 						<p class="max-w-md text-sm text-white/70">
-							Relationships built on transparency, measurable outcomes, and
-							long-term collaboration.
+							We connect global institutions with local stakeholders and trusted
+							networks.
 						</p>
 					</div>
-					<div class="mt-10 overflow-hidden rounded-2xl bg-white/10 py-6">
-						<div class="flex gap-8 whitespace-nowrap px-6 marquee-track">
-							<span class="text-lg font-semibold text-white/40">AURORA GROUP</span>
-							<span class="text-lg font-semibold text-white/40">NORTHRIDGE</span>
-							<span class="text-lg font-semibold text-white/40">KINETIC CO</span>
-							<span class="text-lg font-semibold text-white/40">SENTINEL</span>
-							<span class="text-lg font-semibold text-white/40">VERITAS</span>
-							<span class="text-lg font-semibold text-white/40">ORBITA</span>
-							<span class="text-lg font-semibold text-white/40">AURORA GROUP</span>
-							<span class="text-lg font-semibold text-white/40">NORTHRIDGE</span>
-							<span class="text-lg font-semibold text-white/40">KINETIC CO</span>
-							<span class="text-lg font-semibold text-white/40">SENTINEL</span>
-							<span class="text-lg font-semibold text-white/40">VERITAS</span>
-							<span class="text-lg font-semibold text-white/40">ORBITA</span>
+					<div class="mt-10 grid gap-6 md:grid-cols-3">
+						<div id="french-institutions" class="reveal rounded-2xl border border-white/10 bg-white/5 p-6 scroll-mt-28">
+							<h3 class="text-lg font-semibold text-white">French institutions</h3>
+							<ul class="mt-4 space-y-2 text-sm text-white/70">
+								<li>Institution A</li>
+								<li>Institution B</li>
+								<li>Institution C</li>
+							</ul>
+						</div>
+						<div id="european-institutions" class="reveal reveal-delay-1 rounded-2xl border border-white/10 bg-white/5 p-6 scroll-mt-28">
+							<h3 class="text-lg font-semibold text-white">European institutions</h3>
+							<ul class="mt-4 space-y-2 text-sm text-white/70">
+								<li>Institution D</li>
+								<li>Institution E</li>
+								<li>Institution F</li>
+							</ul>
+						</div>
+						<div id="vietnamese-institutions" class="reveal reveal-delay-2 rounded-2xl border border-white/10 bg-white/5 p-6 scroll-mt-28">
+							<h3 class="text-lg font-semibold text-white">Vietnamese institutions</h3>
+							<ul class="mt-4 space-y-2 text-sm text-white/70">
+								<li>Institution G</li>
+								<li>Institution H</li>
+								<li>Institution I</li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -483,9 +551,9 @@
 					<h3 class="text-lg font-semibold">Quick Links</h3>
 					<ul class="mt-4 space-y-2 text-sm text-white/70">
 						<li><a href="#home" class="hover:text-white">Home</a></li>
-						<li><a href="#about" class="hover:text-white">About Us</a></li>
+						<li><a href="#company" class="hover:text-white">The Company</a></li>
 						<li><a href="#services" class="hover:text-white">Services</a></li>
-						<li><a href="#team" class="hover:text-white">Our Team</a></li>
+						<li><a href="#partners" class="hover:text-white">Partners</a></li>
 						<li><a href="#contact" class="hover:text-white">Contact</a></li>
 					</ul>
 				</div>
