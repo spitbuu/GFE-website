@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GFE Company Limited</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --red:#D2232A;
+  --red-dark:#b01e24;
+  --navy:#091851;
+  --navy-light:#0d2265;
+  --grey:#231F20;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--grey);overflow-x:hidden;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#f0f0f0;}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px;}
+
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh;}
+.page.active{display:block;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:200;background:#fff;box-shadow:0 2px 20px rgba(9,24,81,0.08);}
+.logo-wrap{display:flex;align-items:center;cursor:pointer;}
+.logo-img{height:40px;width:auto;display:block;}
+.logo-text{font-weight:900;font-size:1rem;letter-spacing:0.15em;color:var(--red);white-space:nowrap;cursor:pointer;text-transform:uppercase;}
+.logo-text span{opacity:0.75;font-weight:400;}
+
+/* NAV */
+.nav-item{position:relative;}
+.nav-link{
+  display:flex;align-items:center;gap:4px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+  color:var(--red);text-transform:uppercase;
+  padding:8px 2px;cursor:pointer;white-space:nowrap;
+  transition:color 0.2s;border:none;background:none;
+  border-bottom:2px solid transparent;
+}
+.nav-link:hover,.nav-link.act{color:var(--red-dark);border-bottom-color:var(--red);}
+.arrow{font-size:0.52rem;margin-top:1px;transition:transform 0.2s;}
+
+/* DROPDOWN */
+.dropdown{
+  position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#fff;border-radius:6px;min-width:230px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.18);
+  opacity:0;visibility:hidden;transition:all 0.22s;
+  border-top:3px solid var(--red);overflow:hidden;pointer-events:none;
+}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;top:calc(100% + 2px);pointer-events:auto;}
+.nav-item:hover .arrow{transform:rotate(180deg);}
+.drop-item{
+  display:block;padding:11px 20px;
+  font-size:0.71rem;font-weight:600;letter-spacing:0.06em;
+  color:var(--grey);text-transform:uppercase;
+  transition:all 0.15s;cursor:pointer;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+}
+.drop-item:last-child{border-bottom:none;}
+.drop-item:hover{background:var(--red);color:#fff;padding-left:26px;}
+
+/* BUTTONS */
+.btn-navy{
+  display:inline-block;background:var(--navy);color:#fff;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:all 0.25s;box-shadow:0 4px 16px rgba(9,24,81,0.3);
+}
+.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(9,24,81,0.4);}
+.btn-navy-sm{padding:9px 22px;font-size:0.68rem;}
+.btn-outline-white{
+  display:inline-block;background:transparent;color:#fff;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:12px 30px;border-radius:4px;border:2px solid rgba(255,255,255,0.45);cursor:pointer;transition:all 0.25s;
+}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.1);}
+.btn-outline-navy{
+  display:inline-block;background:transparent;color:var(--navy);
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:12px 30px;border-radius:4px;border:2px solid var(--navy);cursor:pointer;transition:all 0.25s;
+}
+.btn-outline-navy:hover{background:var(--navy);color:#fff;}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--red);}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(140deg,rgba(210,35,42,0.97) 0%,rgba(170,18,24,0.88) 40%,rgba(9,24,81,0.92) 100%),
+    url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=80') center/cover;
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.07) 0%,transparent 70%);bottom:-200px;right:-150px;pointer-events:none;}
+.hero-content{position:relative;text-align:center;max-width:1020px;padding:0 1.5rem;}
+.hero-pill{display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.88);border:1px solid rgba(255,255,255,0.32);padding:5px 20px;border-radius:50px;margin-bottom:1.8rem;}
+.hero h1{font-weight:900;font-size:clamp(2.2rem,5vw,4rem);line-height:1.1;color:#fff;margin-bottom:1.5rem;text-shadow:0 2px 30px rgba(0,0,0,0.25);}
+.hero h1 em{font-style:normal;border-bottom:3px solid rgba(255,255,255,0.45);}
+.hero p{font-size:0.95rem;color:rgba(255,255,255,0.75);line-height:1.85;margin-bottom:2.5rem;max-width:580px;margin-left:auto;margin-right:auto;}
+.scroll-hint{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0.4;}
+.scroll-hint span{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#fff;}
+.scroll-bar{width:1px;height:40px;background:linear-gradient(#fff,transparent);animation:sb 2s ease-in-out infinite;}
+@keyframes sb{0%,100%{opacity:0.3}50%{opacity:1}}
+
+/* SECTIONS */
+.section-divider{width:44px;height:3px;background:var(--red);border-radius:2px;margin-bottom:1.2rem;}
+.section-title{font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:0.6rem;}
+.section-title.wh{color:#fff;}
+.section-sub{font-size:0.88rem;color:rgba(9,24,81,0.58);line-height:1.85;max-width:620px;}
+.section-sub.wh{color:rgba(255,255,255,0.65);}
+
+/* INNER HERO (subpages) */
+.inner-hero{background:var(--red);padding:90px 24px 70px;position:relative;overflow:hidden;}
+.inner-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(170,18,24,0.95),rgba(9,24,81,0.72));}
+.ihgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:50px 50px;}
+.ihc{position:relative;}
+.breadcrumb{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.8rem;}
+.breadcrumb span{color:rgba(255,255,255,0.88);}
+.inner-hero h1{font-weight:800;font-size:clamp(2rem,4vw,3.2rem);color:#fff;line-height:1.15;}
+.inner-hero p{font-size:0.9rem;color:rgba(255,255,255,0.68);margin-top:1rem;max-width:540px;line-height:1.8;}
+
+/* CARDS */
+.card-white{background:#fff;border-radius:8px;padding:2rem;border:1px solid rgba(9,24,81,0.08);box-shadow:0 4px 20px rgba(9,24,81,0.06);transition:all 0.3s;position:relative;overflow:hidden;}
+.card-white::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.card-white:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(9,24,81,0.13);}
+.card-white:hover::before{transform:scaleX(1);}
+.icon-box{width:52px;height:52px;border-radius:10px;background:rgba(210,35,42,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;font-size:1.4rem;}
+
+/* SERVICE CARD */
+.svc-card{background:#fff;border-radius:8px;padding:2rem;border:1px solid rgba(9,24,81,0.08);box-shadow:0 4px 20px rgba(9,24,81,0.06);transition:all 0.3s;display:flex;flex-direction:column;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(9,24,81,0.14);border-color:rgba(210,35,42,0.18);}
+.svc-card h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;}
+.svc-card p{font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;margin-bottom:1.2rem;flex:1;}
+.check-item{display:flex;align-items:center;gap:10px;font-size:0.8rem;color:var(--grey);padding:4px 0;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;}
+
+/* PROFILE */
+.pcard{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(9,24,81,0.08);transition:all 0.3s;text-align:center;border:1px solid rgba(9,24,81,0.06);}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(9,24,81,0.15);}
+.pimg{height:200px;overflow:hidden;background:#e8e8e8;}
+.pimg img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.pinfo{padding:1.3rem 1rem 1.5rem;}
+.pname{font-size:0.9rem;font-weight:700;color:var(--red);margin-bottom:4px;}
+.prole{font-size:0.7rem;color:rgba(9,24,81,0.55);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem;}
+.li{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:5px;background:rgba(9,24,81,0.08);transition:background 0.2s;cursor:pointer;}
+.li:hover{background:#0077b5;}
+.li svg{width:15px;height:15px;fill:var(--navy);}
+.li:hover svg{fill:#fff;}
+
+/* PARTNER BOX */
+.pbox{background:#fff;border:1px solid rgba(9,24,81,0.08);border-radius:6px;padding:1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:110px;transition:all 0.25s;text-align:center;}
+.pbox:hover{border-color:var(--red);box-shadow:0 4px 16px rgba(210,35,42,0.1);}
+
+/* FORM */
+.flabel{display:block;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.5);margin-bottom:6px;}
+.finput,.ftextarea{width:100%;background:#f7f8fc;color:var(--grey);border:1.5px solid rgba(9,24,81,0.1);border-radius:5px;padding:12px 16px;font-family:'Montserrat',sans-serif;font-size:0.85rem;outline:none;transition:all 0.2s;}
+.finput:focus,.ftextarea:focus{border-color:var(--red);background:#fff;box-shadow:0 0 0 3px rgba(210,35,42,0.07);}
+.ftextarea{resize:vertical;min-height:150px;}
+
+/* STAT */
+.stat-num{font-weight:900;font-size:2.8rem;color:var(--red);line-height:1;}
+.stat-label{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.45);margin-top:6px;}
+
+/* MOBILE NAV */
+#mob-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid rgba(9,24,81,0.08);}
+#mob-menu.open{display:flex;}
+.mob-parent{padding:12px 20px;font-size:0.73rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(9,24,81,0.08);}
+.mob-children{display:none;background:#f7f8fc;}
+.mob-children.open{display:block;}
+.mob-child{display:block;padding:10px 32px;font-size:0.71rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--red-dark);cursor:pointer;border-bottom:1px solid rgba(9,24,81,0.06);transition:color 0.15s;}
+.mob-child:hover{color:var(--red);}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.fade-up.vis{opacity:1;transform:translateY(0);}
+
+/* LANG BTN */
+.lbtn{font-size:0.7rem;font-weight:700;letter-spacing:0.08em;color:var(--red);border:1.5px solid var(--red);padding:5px 14px;border-radius:4px;cursor:pointer;transition:all 0.2s;background:transparent;white-space:nowrap;}
+.lbtn:hover{border-color:var(--red-dark);color:var(--red-dark);}
+
+/* MENU ICON */
+.menu-btn{color:var(--red);}
+
+/* FOOTER */
+footer{background:#050f33;padding:2rem 1rem;text-align:center;border-top:1px solid rgba(255,255,255,0.06);}
+footer p{font-size:0.72rem;color:rgba(255,255,255,0.28);margin-bottom:6px;letter-spacing:0.04em;}
+footer a{font-size:0.7rem;color:rgba(255,255,255,0.28);transition:color 0.2s;}
+footer a:hover{color:var(--red);}
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
+    <div class="logo-wrap" onclick="go('home')">
+      <img class="logo-img h-20 w-auto" src="GFE-Tagline.svg" alt="GFE Company Limited"/>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-7">
+      <div class="nav-item"><button class="nav-link" onclick="go('home')">Home</button></div>
+
+      <div class="nav-item">
+        <button class="nav-link">The Company <span class="arrow">▼</span></button>
+        <div class="dropdown">
+          <div class="drop-item" onclick="go('who-we-are')">Who We Are</div>
+          <div class="drop-item" onclick="go('our-values')">Our Values</div>
+          <div class="drop-item" onclick="go('management')">Management</div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link">Services <span class="arrow">▼</span></button>
+        <div class="dropdown">
+          <div class="drop-item" onclick="go('risk-advisory')">Risk Advisory</div>
+          <div class="drop-item" onclick="go('compliance')">Compliance</div>
+          <div class="drop-item" onclick="go('economic-intelligence')">Economic Intelligence</div>
+          <div class="drop-item" onclick="go('public-affairs')">Public Affairs</div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link">Partners <span class="arrow">▼</span></button>
+        <div class="dropdown">
+          <div class="drop-item" onclick="go('french-institutions')">French Institutions</div>
+          <div class="drop-item" onclick="go('european-institutions')">European Institutions</div>
+          <div class="drop-item" onclick="go('vietnamese-institutions')">Vietnamese Institutions</div>
+        </div>
+      </div>
+
+      <div class="nav-item"><button class="nav-link" onclick="go('contact')">CSR projects</button></div>
+
+      <div class="nav-item"><button class="nav-link" onclick="go('contact')">Contact</button></div>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button class="lbtn hidden lg:block">EN ▾</button>
+      <button class="lg:hidden menu-btn p-1" onclick="mobToggle()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile -->
+  <div id="mob-menu">
+    <div><div class="mob-parent" onclick="go('home');mobToggle()">Home</div></div>
+    <div>
+      <div class="mob-parent" onclick="mobSub(this)">The Company <span>▼</span></div>
+      <div class="mob-children">
+        <div class="mob-child" onclick="go('who-we-are');mobToggle()">Who We Are</div>
+        <div class="mob-child" onclick="go('our-values');mobToggle()">Our Values</div>
+        <div class="mob-child" onclick="go('management');mobToggle()">Management</div>
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="mobSub(this)">Services <span>▼</span></div>
+      <div class="mob-children">
+        <div class="mob-child" onclick="go('risk-advisory');mobToggle()">Risk Advisory</div>
+        <div class="mob-child" onclick="go('compliance');mobToggle()">Compliance</div>
+        <div class="mob-child" onclick="go('economic-intelligence');mobToggle()">Economic Intelligence</div>
+        <div class="mob-child" onclick="go('public-affairs');mobToggle()">Public Affairs</div>
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="mobSub(this)">Partners <span>▼</span></div>
+      <div class="mob-children">
+        <div class="mob-child" onclick="go('french-institutions');mobToggle()">French Institutions</div>
+        <div class="mob-child" onclick="go('european-institutions');mobToggle()">European Institutions</div>
+        <div class="mob-child" onclick="go('vietnamese-institutions');mobToggle()">Vietnamese Institutions</div>
+      </div>
+    </div>
+    <div><div class="mob-parent" onclick="go('contact');mobToggle()">Contact</div></div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HOME
+═══════════════════════════════════════ -->
+<div id="p-home" class="page active">
+  <section class="hero">
+    <div class="hero-bg"></div><div class="hero-grid"></div><div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-pill">Trusted Advisory · Southeast Asia</div>
+      <h1>GFE, Your Trusted Partner for Project Success</h1>
+      <p>Navigate the complexities of Southeast Asia with GFE's expertise. From due diligence and compliance to business intelligence and public affairs, we offer tailored support to help your business thrive.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-navy" onclick="go('who-we-are')">Learn More</button>
+        <button class="btn-outline-white" onclick="go('contact')">Contact Us</button>
+      </div>
+    </div>
+    <div class="scroll-hint"><span>Scroll</span><div class="scroll-bar"></div></div>
+  </section>
+
+  <!-- Stats -->
+  <section style="background:#fff;border-bottom:1px solid rgba(9,24,81,0.06);">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+      <div style="text-align:center;padding:2rem 1rem;"><div class="stat-num">12+</div><div class="stat-label">Years Experience</div></div>
+      <div style="text-align:center;padding:2rem 1rem;"><div class="stat-num">200+</div><div class="stat-label">Clients Served</div></div>
+      <div style="text-align:center;padding:2rem 1rem;"><div class="stat-num">3</div><div class="stat-label">Countries</div></div>
+      <div style="text-align:center;padding:2rem 1rem;"><div class="stat-num">4</div><div class="stat-label">Core Services</div></div>
+    </div>
+  </section>
+
+  <!-- Who We Are teaser -->
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Who We Are</h2>
+        <p class="section-sub mb-4">As a true "glocal" player, we encourage and promote the growth of companies entering or expanding across emerging markets in Southeast Asia.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">With in-depth local knowledge and a steadfast commitment to excellence, GFE bridges international ambitions with ground-level realities — delivering actionable strategies that create lasting value.</p>
+        <button class="btn-navy" onclick="go('who-we-are')">Discover GFE</button>
+      </div>
+      <div class="fade-up" style="border-radius:8px;overflow:hidden;height:380px;box-shadow:0 20px 60px rgba(9,24,81,0.14);">
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=900&q=80" alt="Meeting" style="width:100%;height:100%;object-fit:cover;"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services teaser -->
+  <section class="py-24 px-6" style="background:#f7f8fc;">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <div class="section-divider mx-auto"></div>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub mx-auto" style="text-align:center;">Committed to delivering value through mindfulness, loyalty, and reliability across Southeast Asia.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="svc-card fade-up" onclick="go('risk-advisory')" style="cursor:pointer;">
+          <div class="icon-box">🔍</div>
+          <h3>Risk Advisory</h3>
+          <p>Bringing various risks to light and supporting clients to adapt the right strategy.</p>
+          <button class="btn-navy btn-navy-sm" onclick="go('risk-advisory')">See the section</button>
+        </div>
+        <div class="svc-card fade-up" onclick="go('compliance')" style="cursor:pointer;">
+          <div class="icon-box">⚖️</div>
+          <h3>Compliance</h3>
+          <p>Facilitating sustainable growth in complex regulatory environments.</p>
+          <button class="btn-navy btn-navy-sm" onclick="go('compliance')">See the section</button>
+        </div>
+        <div class="svc-card fade-up" onclick="go('economic-intelligence')" style="cursor:pointer;">
+          <div class="icon-box">📊</div>
+          <h3>Economic Intelligence</h3>
+          <p>Strategic information for sound decisions in uncertain markets.</p>
+          <button class="btn-navy btn-navy-sm" onclick="go('economic-intelligence')">See the section</button>
+        </div>
+        <div class="svc-card fade-up" onclick="go('public-affairs')" style="cursor:pointer;">
+          <div class="icon-box">🏛️</div>
+          <h3>Public Affairs</h3>
+          <p>Confidently navigating the public sector and complex regulatory landscapes.</p>
+          <button class="btn-navy btn-navy-sm" onclick="go('public-affairs')">See the section</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Member -->
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14 fade-up"><div class="section-divider"></div><h2 class="section-title">Management</h2></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Nguyen Van An</div><div class="prole">General Director</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Marc Dubois</div><div class="prole">Director (Risk Advisory)</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Tran Hoang Nam</div><div class="prole">Director (Public Affairs)</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Le Minh Khoa</div><div class="prole">Director (Compliance)</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners strip -->
+  <!-- <section style="background:var(--navy);padding:60px 24px;">
+    <div class="max-w-7xl mx-auto text-center fade-up">
+      <p style="font-size:0.68rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:2rem;">Trusted by leading institutions</p>
+      <div class="flex flex-wrap items-center justify-center gap-8">
+        <div style="opacity:0.35;color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;">Business France</div>
+        <div style="opacity:0.35;color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;">CCI France Vietnam</div>
+        <div style="opacity:0.35;color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;">EuroCham</div>
+        <div style="opacity:0.35;color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;">Stralexio</div>
+        <div style="opacity:0.35;color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;">VN Blockchain Assoc.</div>
+        <div style="opacity:0.35;color:#fff;font-size:0.82rem;font-weight:700;letter-spacing:0.06em;">AmCham Vietnam</div>
+      </div>
+      <button class="btn-outline-white" style="margin-top:2.5rem;font-size:0.7rem;padding:10px 28px;" onclick="go('french-institutions')">See all partners →</button>
+    </div>
+  </section> -->
+
+  <!-- CTA -->
+  <section style="background:var(--red);padding:80px 24px;text-align:center;">
+    <div class="max-w-2xl mx-auto fade-up">
+      <h2 style="font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:1rem;">Ready to Start Your Project?</h2>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.75);margin-bottom:2.5rem;line-height:1.8;">Let's discuss how GFE can support your growth across Southeast Asia.</p>
+      <button class="btn-navy" onclick="go('contact')">Get in Touch</button>
+    </div>
+  </section>
+
+  <!-- Get In Touch -->
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
+    <div class="fade-up">
+      <div class="section-divider"></div>
+      <h2 class="section-title" style="font-size:1.6rem;">Get in Touch</h2>
+      <p style="font-size:0.85rem;color:rgba(9,24,81,0.5);line-height:1.85;margin-bottom:2rem;">Whether you have a project in mind or want to learn more about our services, we'd love to hear from you.</p>
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">📍</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Address</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">Ho Chi Minh City, Vietnam</div></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">✉️</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Email</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">contact@gfe-advisory.com</div></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🌏</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Countries</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">Vietnam · Thailand · Myanmar</div></div></div>
+      </div>
+    </div>
+    <div class="md:col-span-2 fade-up">
+      <div class="grid md:grid-cols-2 gap-5 mb-5">
+        <div><label class="flabel">First Name</label><input type="text" class="finput" placeholder="Your first name"/></div>
+        <div><label class="flabel">Last Name</label><input type="text" class="finput" placeholder="Your last name"/></div>
+      </div>
+      <div class="mb-5"><label class="flabel">Email address <span style="color:var(--red)">*</span></label><input type="email" class="finput" placeholder="you@company.com"/></div>
+      <div class="mb-5"><label class="flabel">Subject <span style="color:var(--red)">*</span></label><input type="text" class="finput" placeholder="How can we help?"/></div>
+      <div class="mb-8"><label class="flabel">Message <span style="color:var(--red)">*</span></label><textarea class="ftextarea" placeholder="Describe your project or question..."></textarea></div>
+      <div style="display:flex;justify-content:flex-end;"><button class="btn-navy">Send Message →</button></div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     WHO WE ARE
+═══════════════════════════════════════ -->
+<div id="p-who-we-are" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div>
+    <div class="ihc max-w-7xl mx-auto px-6">
+      <div class="breadcrumb">Home › The Company › <span>Who We Are</span></div>
+      <h1>Who We Are</h1>
+      <p>A glocal advisory firm deeply rooted in Southeast Asia's business landscape.</p>
+    </div>
+  </div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">A True Glocal Player</h2>
+        <p class="section-sub mb-5">Founded on the principle that local expertise and global standards are not mutually exclusive, GFE Company Limited serves as a bridge between international corporations and the complex business environments of Vietnam, Thailand, and Myanmar.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1.5rem;">We combine on-the-ground intelligence with international best practices to deliver insights and strategies that are both actionable and culturally informed. Our team includes local experts, compliance specialists, and industry veterans who understand the nuances of Southeast Asian markets.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">With a network spanning government institutions, business chambers, and private enterprises across the region, GFE is uniquely positioned to accelerate your business success.</p>
+        <button class="btn-navy" onclick="go('our-values')">Our Values →</button>
+      </div>
+      <div class="fade-up" style="border-radius:8px;overflow:hidden;height:420px;box-shadow:0 20px 60px rgba(9,24,81,0.13);">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&q=80" alt="Office" style="width:100%;height:100%;object-fit:cover;"/>
+      </div>
+    </div>
+  </section>
+  <section style="background:#f7f8fc;padding:4rem 1.5rem;">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div><div class="stat-num">12+</div><div class="stat-label">Years Active</div></div>
+      <div><div class="stat-num">200+</div><div class="stat-label">Projects</div></div>
+      <div><div class="stat-num">3</div><div class="stat-label">Countries</div></div>
+      <div><div class="stat-num">50+</div><div class="stat-label">Partners</div></div>
+    </div>
+  </section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     OUR VALUES
+═══════════════════════════════════════ -->
+<div id="p-our-values" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div>
+    <div class="ihc max-w-7xl mx-auto px-6">
+      <div class="breadcrumb">Home › The Company › <span>Our Values</span></div>
+      <h1>Our Values</h1>
+      <p>The principles that guide everything we do at GFE.</p>
+    </div>
+  </div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-14 fade-up">
+        <div class="section-divider mx-auto"></div>
+        <h2 class="section-title">Built on Three Pillars</h2>
+        <p class="section-sub mx-auto" style="text-align:center;">Our work is grounded in core values that define our relationships with clients, partners, and the communities we serve.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div class="card-white fade-up"><div class="icon-box">🧭</div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Mindfulness</h3><p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">We approach every engagement with careful consideration of all stakeholders. Understanding context — cultural, regulatory, and commercial — is at the heart of our advisory process.</p></div>
+        <div class="card-white fade-up"><div class="icon-box">🤝</div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Loyalty</h3><p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">Long-term partnerships define our success. We invest deeply in understanding our clients' businesses and remain committed through every challenge. Trust is earned through consistent performance.</p></div>
+        <div class="card-white fade-up"><div class="icon-box">✅</div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Reliability</h3><p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">In complex markets, certainty is rare — but our commitment to delivering on our promises is absolute. We set realistic expectations and exceed them consistently.</p></div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card-white fade-up"><div class="icon-box">🌏</div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Local Expertise</h3><p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">Our deep roots in Vietnam, Thailand, and Myanmar give us unparalleled insight into regulatory environments, cultural nuances, and market dynamics that shape business outcomes.</p></div>
+        <div class="card-white fade-up"><div class="icon-box">🏆</div><h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Excellence</h3><p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">We maintain the highest standards in everything we deliver — from our research methodology to our client communications. Excellence is not an aspiration; it is our baseline expectation.</p></div>
+      </div>
+    </div>
+  </section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MANAGEMENT
+═══════════════════════════════════════ -->
+<div id="p-management" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div>
+    <div class="ihc max-w-7xl mx-auto px-6">
+      <div class="breadcrumb">Home › The Company › <span>Management</span></div>
+      <h1>Management</h1>
+      <p>Meet the experienced leaders driving GFE's mission across Southeast Asia.</p>
+    </div>
+  </div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14 fade-up"><div class="section-divider"></div><h2 class="section-title">Our Leadership Team</h2><p class="section-sub">A diverse team of seasoned professionals combining international expertise with deep regional knowledge.</p></div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Nguyen Van An</div><div class="prole">General Director</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Marc Dubois</div><div class="prole">Director (Risk Advisory)</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Tran Hoang Nam</div><div class="prole">Director (Public Affairs)</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+        <div class="pcard fade-up"><div class="pimg"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" alt=""/></div><div class="pinfo"><div class="pname">Le Minh Khoa</div><div class="prole">Director (Compliance)</div><div class="li"><svg viewBox="0 0 24 24"><path d="M20.447 20.452H17.21v-5.569c0-1.328-.024-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.987V9h3.102v1.561h.046c.433-.82 1.49-1.685 3.065-1.685 3.277 0 3.881 2.156 3.881 4.961v6.615H20.447zM5.337 7.433a1.8 1.8 0 1 1 0-3.6 1.8 1.8 0 0 1 0 3.6zM6.892 20.452H3.779V9h3.113v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div></div></div>
+      </div>
+    </div>
+  </section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SERVICE PAGES (macro)
+═══════════════════════════════════════ -->
+
+<!-- Risk Advisory -->
+<div id="p-risk-advisory" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Services › <span>Risk Advisory</span></div><h1>Risk Advisory</h1><p>Illuminating risks, empowering smarter decisions across Southeast Asia's complex markets.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+    <div class="fade-up"><div class="section-divider"></div><h2 class="section-title">Our Approach</h2><p class="section-sub mb-5">In the course of our Risk Advisory missions, we support our clients by bringing various risks to light so they can adapt the right strategy and course of action — before risks become liabilities.</p><p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">Our experienced team combines on-the-ground intelligence with rigorous analytical frameworks to deliver comprehensive risk assessments that are both actionable and regionally relevant.</p><button class="btn-navy" onclick="go('contact')">Request a Consultation</button></div>
+    <div class="fade-up" style="background:#f7f8fc;border-radius:8px;padding:2rem;">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">Services Include</div>
+      <div class="check-item"><span class="dot"></span>Background Check & Integrity Due Diligence</div>
+      <div class="check-item"><span class="dot"></span>Commercial Due Diligence</div>
+      <div class="check-item"><span class="dot"></span>Financial Due Diligence</div>
+      <div class="check-item"><span class="dot"></span>Country Risk Assessment</div>
+      <div class="check-item"><span class="dot"></span>Partner & Supplier Vetting</div>
+      <div class="check-item"><span class="dot"></span>Competitive Intelligence</div>
+      <div class="check-item"><span class="dot"></span>Pre-Investment Screening</div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- Compliance -->
+<div id="p-compliance" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Services › <span>Compliance</span></div><h1>Compliance</h1><p>Sustainable business growth built on solid regulatory foundations.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+    <div class="fade-up"><div class="section-divider"></div><h2 class="section-title">Compliance Advisory</h2><p class="section-sub mb-5">Compliance facilitates sustainable business growth in complex countries like Vietnam, Thailand, and Myanmar — where regulatory environments are evolving rapidly and the cost of non-compliance can be severe.</p><p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">GFE's compliance team helps companies navigate anti-corruption laws, sanctions regimes, AML requirements, and sector-specific regulations with confidence and clarity.</p><button class="btn-navy" onclick="go('contact')">Request a Consultation</button></div>
+    <div class="fade-up" style="background:#f7f8fc;border-radius:8px;padding:2rem;">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">Services Include</div>
+      <div class="check-item"><span class="dot"></span>Anti-corruption Compliance (FCPA, UK Bribery Act)</div>
+      <div class="check-item"><span class="dot"></span>Anti-money Laundering (AML)</div>
+      <div class="check-item"><span class="dot"></span>Sanctions Screening & Advisory</div>
+      <div class="check-item"><span class="dot"></span>Cryptocurrency Compliance</div>
+      <div class="check-item"><span class="dot"></span>Fraud Prevention Programs</div>
+      <div class="check-item"><span class="dot"></span>Compliance Program Design</div>
+      <div class="check-item"><span class="dot"></span>Regulatory Change Monitoring</div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- Economic Intelligence -->
+<div id="p-economic-intelligence" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Services › <span>Economic Intelligence</span></div><h1>Economic Intelligence</h1><p>Strategic information that transforms uncertainty into competitive advantage.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+    <div class="fade-up"><div class="section-divider"></div><h2 class="section-title">Intelligence-Driven Strategy</h2><p class="section-sub mb-5">In an uncertain future, strategic information is paramount and indispensable. Our Economic Intelligence service equips leaders with the insight they need to make confident decisions in complex, fast-moving environments.</p><p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">From market entry analysis to industrial zone expertise, we provide the intelligence foundation for your Southeast Asia strategy.</p><button class="btn-navy" onclick="go('contact')">Request a Consultation</button></div>
+    <div class="fade-up" style="background:#f7f8fc;border-radius:8px;padding:2rem;">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">Services Include</div>
+      <div class="check-item"><span class="dot"></span>Market Entry Intelligence</div>
+      <div class="check-item"><span class="dot"></span>Industrial Zone Expertise (Vietnam, Thailand)</div>
+      <div class="check-item"><span class="dot"></span>Sector & Competitive Mapping</div>
+      <div class="check-item"><span class="dot"></span>Regulatory Landscape Analysis</div>
+      <div class="check-item"><span class="dot"></span>Business Environment Monitoring</div>
+      <div class="check-item"><span class="dot"></span>Investment Climate Reports</div>
+      <div class="check-item"><span class="dot"></span>Economic Watch Briefings</div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- Public Affairs -->
+<div id="p-public-affairs" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Services › <span>Public Affairs</span></div><h1>Public Affairs</h1><p>Navigating the public sector with confidence, strategy, and local expertise.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+    <div class="fade-up"><div class="section-divider"></div><h2 class="section-title">Public Affairs Advisory</h2><p class="section-sub mb-5">Government relations and public affairs are critical success factors in Southeast Asia. GFE's team helps you build meaningful relationships with key stakeholders and navigate institutional frameworks effectively.</p><p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">From strategic consulting to government affairs, we provide the guidance and network access needed to advance your interests in complex regulatory and political environments.</p><button class="btn-navy" onclick="go('contact')">Request a Consultation</button></div>
+    <div class="fade-up" style="background:#f7f8fc;border-radius:8px;padding:2rem;">
+      <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">Services Include</div>
+      <div class="check-item"><span class="dot"></span>Strategic Consulting</div>
+      <div class="check-item"><span class="dot"></span>Institutional Relations</div>
+      <div class="check-item"><span class="dot"></span>Government Affairs</div>
+      <div class="check-item"><span class="dot"></span>Stakeholder Engagement</div>
+      <div class="check-item"><span class="dot"></span>Policy Monitoring & Analysis</div>
+      <div class="check-item"><span class="dot"></span>Crisis Communications Support</div>
+      <div class="check-item"><span class="dot"></span>Regulatory Advocacy</div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PARTNER PAGES
+═══════════════════════════════════════ -->
+
+<!-- French Institutions -->
+<div id="p-french-institutions" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Partners › <span>French Institutions</span></div><h1>French Institutions</h1><p>Our partnerships with France's leading trade and diplomatic institutions.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto">
+    <div class="mb-12 fade-up"><div class="section-divider"></div><h2 class="section-title">French Institutional Partners</h2><p class="section-sub">GFE works in close collaboration with French government and trade institutions to support French companies expanding into Southeast Asia.</p></div>
+    <div class="grid md:grid-cols-3 gap-6 fade-up">
+      <div class="pbox"><div style="font-size:2rem;">🇫🇷</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">Business France</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">France's national agency supporting international development of French companies</div></div>
+      <div class="pbox"><div style="font-size:2rem;">🏛️</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">CCI France Vietnam</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">French Chamber of Commerce and Industry in Vietnam</div></div>
+      <div class="pbox"><div style="font-size:2rem;">🤝</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">French Embassy Vietnam</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">Diplomatic and economic cooperation with the French mission</div></div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- European Institutions -->
+<div id="p-european-institutions" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Partners › <span>European Institutions</span></div><h1>European Institutions</h1><p>Pan-European partnerships driving business excellence in Southeast Asia.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto">
+    <div class="mb-12 fade-up"><div class="section-divider"></div><h2 class="section-title">European Institutional Partners</h2><p class="section-sub">GFE is a trusted partner for European chambers and institutions seeking to support their member companies in Vietnam, Thailand, and Myanmar.</p></div>
+    <div class="grid md:grid-cols-3 gap-6 fade-up">
+      <div class="pbox"><div style="font-size:2rem;">🇪🇺</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">EuroCham Vietnam</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">European Chamber of Commerce in Vietnam</div></div>
+      <div class="pbox"><div style="font-size:2rem;">📋</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">Stralexio</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">European legal and compliance network partner</div></div>
+      <div class="pbox"><div style="font-size:2rem;">🏦</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">EU Delegation</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">Cooperation with EU diplomatic missions in Southeast Asia</div></div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- Vietnamese Institutions -->
+<div id="p-vietnamese-institutions" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › Partners › <span>Vietnamese Institutions</span></div><h1>Vietnamese Institutions</h1><p>Deep-rooted relationships with Vietnam's leading business and government bodies.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto">
+    <div class="mb-12 fade-up"><div class="section-divider"></div><h2 class="section-title">Vietnamese Institutional Partners</h2><p class="section-sub">Our network of Vietnamese institutional partners enables GFE to provide unmatched market access and regulatory insight.</p></div>
+    <div class="grid md:grid-cols-3 gap-6 fade-up">
+      <div class="pbox"><div style="font-size:2rem;">🇻🇳</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">VCCI</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">Vietnam Chamber of Commerce and Industry</div></div>
+      <div class="pbox"><div style="font-size:2rem;">⛓️</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">VN Blockchain Association</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">Vietnam Blockchain Association — digital asset ecosystem</div></div>
+      <div class="pbox"><div style="font-size:2rem;">🏭</div><div style="font-weight:800;color:var(--navy);font-size:0.9rem;">Industrial Zones Authority</div><div style="font-size:0.75rem;color:rgba(9,24,81,0.5);">Collaboration with Vietnam's economic zone management bodies</div></div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════ -->
+<div id="p-contact" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6"><div class="breadcrumb">Home › <span>Contact</span></div><h1>Contact Us</h1><p>Our team is ready to assist you. Send us a message and we'll get back to you shortly.</p></div></div>
+  <section class="py-20 px-6"><div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16">
+    <div class="fade-up">
+      <div class="section-divider"></div>
+      <h2 class="section-title" style="font-size:1.6rem;">Get in Touch</h2>
+      <p style="font-size:0.85rem;color:rgba(9,24,81,0.5);line-height:1.85;margin-bottom:2rem;">Whether you have a project in mind or want to learn more about our services, we'd love to hear from you.</p>
+      <div style="display:flex;flex-direction:column;gap:1.2rem;">
+        <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">📍</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Address</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">Ho Chi Minh City, Vietnam</div></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">✉️</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Email</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">contact@gfe-advisory.com</div></div></div>
+        <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">🌏</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Countries</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">Vietnam · Thailand · Myanmar</div></div></div>
+      </div>
+    </div>
+    <div class="md:col-span-2 fade-up">
+      <div class="grid md:grid-cols-2 gap-5 mb-5">
+        <div><label class="flabel">First Name</label><input type="text" class="finput" placeholder="Your first name"/></div>
+        <div><label class="flabel">Last Name</label><input type="text" class="finput" placeholder="Your last name"/></div>
+      </div>
+      <div class="mb-5"><label class="flabel">Email address <span style="color:var(--red)">*</span></label><input type="email" class="finput" placeholder="you@company.com"/></div>
+      <div class="mb-5"><label class="flabel">Subject <span style="color:var(--red)">*</span></label><input type="text" class="finput" placeholder="How can we help?"/></div>
+      <div class="mb-8"><label class="flabel">Message <span style="color:var(--red)">*</span></label><textarea class="ftextarea" placeholder="Describe your project or question..."></textarea></div>
+      <div style="display:flex;justify-content:flex-end;"><button class="btn-navy">Send Message →</button></div>
+    </div>
+  </div></section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCRIPT
+═══════════════════════════════════════ -->
+<script>
+const pageMap={
+  'home':'p-home','who-we-are':'p-who-we-are','our-values':'p-our-values',
+  'management':'p-management','risk-advisory':'p-risk-advisory','compliance':'p-compliance',
+  'economic-intelligence':'p-economic-intelligence','public-affairs':'p-public-affairs',
+  'french-institutions':'p-french-institutions','european-institutions':'p-european-institutions',
+  'vietnamese-institutions':'p-vietnamese-institutions','contact':'p-contact'
+};
+
+function go(key){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const t=document.getElementById(pageMap[key]);
+  if(t){t.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});
+    t.querySelectorAll('.fade-up').forEach(el=>el.classList.remove('vis'));
+    setTimeout(()=>observe(t),60);}
+}
+
+function mobToggle(){document.getElementById('mob-menu').classList.toggle('open');}
+function mobSub(el){const s=el.nextElementSibling;s.classList.toggle('open');el.querySelector('span').textContent=s.classList.contains('open')?'▲':'▼';}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*80);});
+},{threshold:0.1});
+
+function observe(c){c.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));}
+observe(document.querySelector('.page.active'));
+</script>
+</body>
+</html>
