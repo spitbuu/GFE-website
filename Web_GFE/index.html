@@ -146,7 +146,7 @@ header{position:sticky;top:0;z-index:200;background:#fff;box-shadow:0 2px 20px r
 .pcard:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(9,24,81,0.15);}
 /* .pimg{height:260px;overflow:hidden;background:#e8e8e8;} */
 .pimg{overflow:hidden;background:#e8e8e8;}
-.pimg img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.pimg img{width:100%;height:100%;object-fit:cover;object-position:top;border: radius 50%;}
 .pinfo{padding:1.5rem 1.5rem 2rem;}
 .pname{font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;}
 .prole{font-size:0.72rem;color:rgba(9,24,81,0.55);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem;font-weight:700;}
@@ -207,6 +207,17 @@ footer a:hover{color:var(--red);}
 .path-step::before{content:'';position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);}
 .path-step::after{content:'';position:absolute;left:5px;top:22px;bottom:-10px;width:2px;background:rgba(210,35,42,0.2);}
 .path-step:last-child::after{display:none;}
+
+/* center justified */
+.center-justified {
+text-align: justify;
+-moz-text-align-last: center;
+text-align-last: center;
+}
+
+.center-justified-left {
+text-align: justify;
+}
 </style>
 </head>
 <body>
@@ -302,9 +313,9 @@ footer a:hover{color:var(--red);}
   <section class="hero">
     <div class="hero-bg"></div><div class="hero-grid"></div><div class="hero-glow"></div>
     <div class="hero-content">
-      <div class="hero-pill">Communication & Consulting · Education Industry</div>
+      <!-- <div class="hero-pill">Communication & Consulting · Education Industry</div> -->
       <h1>Bridging global institutions with Southeast Asia's education landscape</h1>
-      <p>GFE is a communication and consulting company dedicated to the education industry. We support international institutions, organizations, and partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia — while also providing students with tailored guidance for their academic and career journeys.</p>
+      <p class="center-justified">GFE is a communication and consulting company dedicated to the education industry. We support international institutions, organizations, and partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia — while also providing students with tailored guidance for their academic and career journeys.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
         <button class="btn-navy" onclick="go('who-we-are')">Learn More</button>
         <button class="btn-outline-white" onclick="go('contact')">Contact Us</button>
@@ -319,9 +330,9 @@ footer a:hover{color:var(--red);}
       <div class="fade-up">
         <div class="section-divider"></div>
         <h2 class="section-title">Who We Are</h2>
-        <p style="font-size:0.82rem;font-weight:700;color:var(--red);font-style:italic;margin-bottom:1rem;">A trusted partner in strategic communication and development for international education. A reliable guide for future talents and leaders. A contributor to community growth.</p>
-        <p class="section-sub mb-4">GFE is a communication and consulting company dedicated to the education industry. We support international education partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia.</p>
-        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">With a strong understanding of both international standards and local contexts, GFE delivers tailored, practical, and results-driven solutions to support sustainable growth in the education sector.</p>
+        <p style="font-size:1.2rem;font-weight:700;color:var(--red);font-style:italic;margin-bottom:1rem;text-align: justify">A trusted partner in strategic communication and development for international education. A reliable guide for future talents and leaders. A contributor to community growth.</p>
+        <p class="section-sub mb-4 center-justified-left">GFE is a communication and consulting company dedicated to the education industry. We support international education partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;text-align: justify;">With a strong understanding of both international standards and local contexts, GFE delivers tailored, practical, and results-driven solutions to support sustainable growth in the education sector.</p>
         <button class="btn-navy" onclick="go('who-we-are')">Discover GFE</button>
       </div>
       <div class="fade-up" style="border-radius:12px;overflow:hidden;height:400px;box-shadow:0 20px 60px rgba(9,24,81,0.14);">
@@ -343,7 +354,7 @@ footer a:hover{color:var(--red);}
         <!-- For Institutions -->
         <div class="svc-card fade-up" onclick="go('communication-consultancy')" style="cursor:pointer;">
           <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">For Institutions</div>
-          <div class="icon-box">📢</div>
+          <!-- <div class="icon-box">📢</div> -->
           <h3>Communication Consultancy</h3>
           <span class="svc-tag">Building visibility, fostering trust, and lasting relationships.</span>
           <p>Institutions need clear positioning and genuine engagement with their local audiences to strengthen visibility, build trust and create sustainable long-term growth.</p>
@@ -351,7 +362,7 @@ footer a:hover{color:var(--red);}
         </div>
         <div class="svc-card fade-up" onclick="go('business-representation')" style="cursor:pointer;">
           <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">For Institutions</div>
-          <div class="icon-box">🤝</div>
+          <!-- <div class="icon-box">🤝</div> -->
           <h3>Business Representation</h3>
           <span class="svc-tag">Entering a new market requires a local presence.</span>
           <p>Without trusted networks and on-the-ground coordination, expansion remains limited. Entering a new market depends on reliable local relationships and cultural understanding.</p>
@@ -359,7 +370,7 @@ footer a:hover{color:var(--red);}
         </div>
         <div class="svc-card fade-up" onclick="go('career-orientation')" style="cursor:pointer;">
           <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">For Students</div>
-          <div class="icon-box">🎓</div>
+          <!-- <div class="icon-box">🎓</div> -->
           <h3>Career Orientation</h3>
           <span class="svc-tag">Students need clarity in an increasingly complex world.</span>
           <p>Choosing the right academic and career path requires guidance, insight into job market trends and alignment with each individual's strengths and aspirations.</p>
@@ -367,7 +378,7 @@ footer a:hover{color:var(--red);}
         </div>
         <div class="svc-card fade-up" onclick="go('skills-training')" style="cursor:pointer;">
           <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">For Students</div>
-          <div class="icon-box">🧠</div>
+          <!-- <div class="icon-box">🧠</div> -->
           <h3>Skills Training</h3>
           <span class="svc-tag">Preparing students for an evolving world of work.</span>
           <p>We design professional skills training programmes that help students build capability, adaptability, and critical thinking, supporting their progression from education to experience to exposure.</p>
@@ -508,17 +519,17 @@ footer a:hover{color:var(--red);}
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card-white fade-up">
-          <div class="icon-box">🌐</div>
+          <!-- <div class="icon-box">🌐</div> -->
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Globalised Standards</h3>
           <p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">International outlook with high-quality standards adapted to local realities. We bring the best of global practice to the nuanced contexts of Southeast Asia.</p>
         </div>
         <div class="card-white fade-up">
-          <div class="icon-box">⚖️</div>
+          <!-- <div class="icon-box">⚖️</div> -->
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Fairness</h3>
           <p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">Long-term partnerships built on consistency, loyalty, trust, and accountability. We are committed to working in an inclusive, respectful, and fair environment where individuals are valued for their talent, integrity, and potential.</p>
         </div>
         <div class="card-white fade-up">
-          <div class="icon-box">✅</div>
+          <!-- <div class="icon-box">✅</div> -->
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Ethical Integrity</h3>
           <p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;">Transparency, reliability, and beneficial outcomes through ethical implementation. We hold ourselves to the highest standards of conduct in every engagement.</p>
         </div>
@@ -828,17 +839,17 @@ footer a:hover{color:var(--red);}
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="card-white fade-up">
-          <div class="icon-box">💜</div>
+          <!-- <div class="icon-box">💜</div> -->
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">Who We Support</h3>
           <p style="font-size:0.83rem;color:rgba(9,24,81,0.55);line-height:1.75;">Young girls and women affected by Agent Orange who retain working capacity — supporting them to understand their potential and access sustainable livelihoods.</p>
         </div>
         <div class="card-white fade-up">
-          <div class="icon-box">📚</div>
+          <!-- <div class="icon-box">📚</div> -->
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">How We Help</h3>
           <p style="font-size:0.83rem;color:rgba(9,24,81,0.55);line-height:1.75;">Through skills training, career orientation, and connections to employment opportunities, we equip participants with the tools and confidence to take meaningful steps forward.</p>
         </div>
         <div class="card-white fade-up">
-          <div class="icon-box">🌱</div>
+          <!-- <div class="icon-box">🌱</div> -->
           <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;">The Outcome</h3>
           <p style="font-size:0.83rem;color:rgba(9,24,81,0.55);line-height:1.75;">Greater self-awareness, stronger employment prospects, and a more inclusive pathway into the economy for women who have faced significant barriers.</p>
         </div>
