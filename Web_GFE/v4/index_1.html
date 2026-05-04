@@ -6,19 +6,6 @@
 <title>GFE Company Limited</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-
-<!-- Google Translate -->
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,vi',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <style>
 :root{
   --red:#D2232A;
@@ -219,67 +206,6 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.28);margin-bottom:6px;letter
 footer a{font-size:0.7rem;color:rgba(255,255,255,0.28);transition:color 0.2s;}
 footer a:hover{color:var(--red);}
 
-/* ── HIDE GOOGLE TRANSLATE DEFAULT UI (But allow it to work) ── */
-#google_translate_element { 
-  position: fixed;
-  top: -9999px;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  pointer-events: none;
-}
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
-.skiptranslate { display: none !important; }
-iframe.goog-te-banner-frame { display: none !important; }
-
-/* Style Google Translate widget if visible */
-.goog-te-gadget { font-family: 'Montserrat', sans-serif !important; }
-.goog-te-gadget .goog-te-combo { padding: 5px 8px !important; }
-
-/* ── LANGUAGE SWITCHER ── */
-.lang-switcher {
-  position: relative;
-  display: inline-block;
-}
-.lang-current {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
-  color: var(--red); border: 1.5px solid var(--red);
-  padding: 5px 14px; border-radius: 4px;
-  cursor: pointer; transition: all 0.2s; background: transparent;
-  white-space: nowrap; user-select: none;
-}
-.lang-current:hover { background: var(--red); color: #fff; }
-.lang-current .lang-flag { font-size: 0.85rem; }
-.lang-dropdown-menu {
-  position: absolute; top: calc(100% + 6px); right: 0;
-  background: #fff; border-radius: 6px; min-width: 140px;
-  box-shadow: 0 8px 30px rgba(9,24,81,0.15);
-  border-top: 3px solid var(--red); overflow: hidden;
-  opacity: 0; visibility: hidden;
-  transform: translateY(-6px);
-  transition: all 0.2s;
-  z-index: 999;
-}
-.lang-switcher.open .lang-dropdown-menu {
-  opacity: 1; visibility: visible; transform: translateY(0);
-}
-.lang-option {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 16px;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
-  color: var(--grey); cursor: pointer;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  transition: all 0.15s;
-}
-.lang-option:last-child { border-bottom: none; }
-.lang-option:hover { background: var(--red); color: #fff; }
-.lang-option.active { color: var(--red); font-weight: 800; }
-.lang-option:hover.active { color: #fff; }
-.lang-option .lang-flag { font-size: 1rem; }
-
 /* LEARNING PATH */
 .path-step{position:relative;padding-left:2rem;}
 .path-step::before{content:'';position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);}
@@ -344,26 +270,7 @@ text-align: justify;
     </nav>
 
     <div class="flex items-center gap-3">
-      <!-- Hidden Google Translate element -->
-      <div id="google_translate_element"></div>
-
-      <!-- Custom Language Switcher -->
-      <div class="lang-switcher hidden lg:block" id="langSwitcher">
-        <div class="lang-current" onclick="toggleLangMenu()">
-          <span class="lang-flag" id="currentFlag">🇬🇧</span>
-          <span id="currentLang">EN</span>
-          <span style="font-size:0.5rem;">▼</span>
-        </div>
-        <div class="lang-dropdown-menu">
-          <div class="lang-option active" id="opt-en" onclick="switchLang('en')">
-            <span class="lang-flag">🇬🇧</span> English
-          </div>
-          <div class="lang-option" id="opt-vi" onclick="switchLang('vi')">
-            <span class="lang-flag">🇻🇳</span> Tiếng Việt
-          </div>
-        </div>
-      </div>
-
+      <button class="lbtn hidden lg:block">EN ▾</button>
       <button class="lg:hidden menu-btn p-1" onclick="mobToggle()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -400,15 +307,6 @@ text-align: justify;
       </div>
     </div>
     <div><div class="mob-parent" onclick="go('contact');mobToggle()">Contact</div></div>
-    <!-- Mobile Language Switcher -->
-    <div style="display:flex;gap:0;border-top:1px solid rgba(9,24,81,0.08);">
-      <div id="mob-opt-en" onclick="switchLang('en');mobToggle()" style="flex:1;padding:12px 20px;font-size:0.73rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--red);background:rgba(210,35,42,0.05);border-right:1px solid rgba(9,24,81,0.08);">
-        🇬🇧 EN
-      </div>
-      <div id="mob-opt-vi" onclick="switchLang('vi');mobToggle()" style="flex:1;padding:12px 20px;font-size:0.73rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;color:rgba(9,24,81,0.5);">
-        🇻🇳 VN
-      </div>
-    </div>
   </div>
 </header>
 
@@ -1386,114 +1284,6 @@ const obs=new IntersectionObserver(entries=>{
 
 function observe(c){c.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));}
 observe(document.querySelector('.page.active'));
-
-/* ── LANGUAGE SWITCHER ── */
-let currentLang = 'en';
-
-// Ensure Google Translate element is initialized when page loads
-window.addEventListener('load', function() {
-  // Check if Google Translate is ready
-  if (typeof google !== 'undefined' && google.translate) {
-    console.log('Google Translate loaded successfully');
-  } else {
-    console.log('Initializing Google Translate...');
-    if (typeof googleTranslateElementInit === 'function') {
-      googleTranslateElementInit();
-    }
-  }
-  
-  // Restore language from cookie
-  const cookieLang = getCookie('googtrans');
-  if (cookieLang && cookieLang.includes('/vi')) {
-    document.getElementById('currentFlag').textContent = '🇻🇳';
-    document.getElementById('currentLang').textContent = 'VN';
-    document.getElementById('opt-en').classList.remove('active');
-    document.getElementById('opt-vi').classList.add('active');
-    currentLang = 'vi';
-    const mobVi = document.getElementById('mob-opt-vi');
-    const mobEn = document.getElementById('mob-opt-en');
-    if (mobVi) { mobVi.style.color='var(--red)'; mobVi.style.fontWeight='800'; mobVi.style.background='rgba(210,35,42,0.05)'; }
-    if (mobEn) { mobEn.style.color='rgba(9,24,81,0.5)'; mobEn.style.fontWeight='700'; mobEn.style.background='transparent'; }
-  }
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-  const sw = document.getElementById('langSwitcher');
-  if (sw && !sw.contains(e.target)) {
-    sw.classList.remove('open');
-  }
-});
-
-function toggleLangMenu() {
-  const sw = document.getElementById('langSwitcher');
-  if (sw) sw.classList.toggle('open');
-}
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-  const sw = document.getElementById('langSwitcher');
-  if (sw && !sw.contains(e.target)) {
-    sw.classList.remove('open');
-  }
-});
-
-function switchLang(lang) {
-  currentLang = lang;
-
-  // Update desktop UI
-  const switcher = document.getElementById('langSwitcher');
-  if (switcher) switcher.classList.remove('open');
-
-  document.getElementById('currentFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
-  document.getElementById('currentLang').textContent = lang === 'vi' ? 'VN' : 'EN';
-
-  // Update active states desktop
-  document.getElementById('opt-en').classList.toggle('active', lang === 'en');
-  document.getElementById('opt-vi').classList.toggle('active', lang === 'vi');
-
-  // Update active states mobile
-  const mobEn = document.getElementById('mob-opt-en');
-  const mobVi = document.getElementById('mob-opt-vi');
-  if (mobEn) {
-    mobEn.style.color = lang === 'en' ? 'var(--red)' : 'rgba(9,24,81,0.5)';
-    mobEn.style.background = lang === 'en' ? 'rgba(210,35,42,0.05)' : 'transparent';
-    mobEn.style.fontWeight = lang === 'en' ? '800' : '700';
-  }
-  if (mobVi) {
-    mobVi.style.color = lang === 'vi' ? 'var(--red)' : 'rgba(9,24,81,0.5)';
-    mobVi.style.background = lang === 'vi' ? 'rgba(210,35,42,0.05)' : 'transparent';
-    mobVi.style.fontWeight = lang === 'vi' ? '800' : '700';
-  }
-
-  // Use cookie method + reload (reliable method for Google Translate)
-  const langCode = lang === 'vi' ? 'vi' : 'en';
-  const cookieValue = langCode === 'vi' ? '/en/vi' : '/en/en';
-  
-  setCookie('googtrans', cookieValue, 365);
-  setCookie('googtrans', cookieValue, 365, '.'+window.location.hostname);
-  
-  // Reload page to apply translation
-  window.location.reload();
-}
-
-function setCookie(name, value, days, domain) {
-  let expires = '';
-  if (days) {
-    const d = new Date();
-    d.setTime(d.getTime() + days*24*60*60*1000);
-    expires = '; expires=' + d.toUTCString();
-  }
-  const dom = domain ? '; domain=' + domain : '';
-  document.cookie = name + '=' + value + expires + dom + '; path=/';
-}
-
-function getCookie(name) {
-  const v = '; ' + document.cookie;
-  const parts = v.split('; ' + name + '=');
-  if (parts.length === 2) return parts.pop().split(';').shift();
-  return '';
-}
 </script>
 </body>
 </html>

@@ -6,19 +6,6 @@
 <title>GFE Company Limited</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-
-<!-- Google Translate -->
-<script type="text/javascript">
-function googleTranslateElementInit() {
-  new google.translate.TranslateElement({
-    pageLanguage: 'en',
-    includedLanguages: 'en,vi',
-    autoDisplay: false,
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-  }, 'google_translate_element');
-}
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <style>
 :root{
   --red:#D2232A;
@@ -219,67 +206,6 @@ footer p{font-size:0.72rem;color:rgba(255,255,255,0.28);margin-bottom:6px;letter
 footer a{font-size:0.7rem;color:rgba(255,255,255,0.28);transition:color 0.2s;}
 footer a:hover{color:var(--red);}
 
-/* ── HIDE GOOGLE TRANSLATE DEFAULT UI (But allow it to work) ── */
-#google_translate_element { 
-  position: fixed;
-  top: -9999px;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  pointer-events: none;
-}
-.goog-te-banner-frame { display: none !important; }
-body { top: 0 !important; }
-.skiptranslate { display: none !important; }
-iframe.goog-te-banner-frame { display: none !important; }
-
-/* Style Google Translate widget if visible */
-.goog-te-gadget { font-family: 'Montserrat', sans-serif !important; }
-.goog-te-gadget .goog-te-combo { padding: 5px 8px !important; }
-
-/* ── LANGUAGE SWITCHER ── */
-.lang-switcher {
-  position: relative;
-  display: inline-block;
-}
-.lang-current {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
-  color: var(--red); border: 1.5px solid var(--red);
-  padding: 5px 14px; border-radius: 4px;
-  cursor: pointer; transition: all 0.2s; background: transparent;
-  white-space: nowrap; user-select: none;
-}
-.lang-current:hover { background: var(--red); color: #fff; }
-.lang-current .lang-flag { font-size: 0.85rem; }
-.lang-dropdown-menu {
-  position: absolute; top: calc(100% + 6px); right: 0;
-  background: #fff; border-radius: 6px; min-width: 140px;
-  box-shadow: 0 8px 30px rgba(9,24,81,0.15);
-  border-top: 3px solid var(--red); overflow: hidden;
-  opacity: 0; visibility: hidden;
-  transform: translateY(-6px);
-  transition: all 0.2s;
-  z-index: 999;
-}
-.lang-switcher.open .lang-dropdown-menu {
-  opacity: 1; visibility: visible; transform: translateY(0);
-}
-.lang-option {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 16px;
-  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
-  color: var(--grey); cursor: pointer;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  transition: all 0.15s;
-}
-.lang-option:last-child { border-bottom: none; }
-.lang-option:hover { background: var(--red); color: #fff; }
-.lang-option.active { color: var(--red); font-weight: 800; }
-.lang-option:hover.active { color: #fff; }
-.lang-option .lang-flag { font-size: 1rem; }
-
 /* LEARNING PATH */
 .path-step{position:relative;padding-left:2rem;}
 .path-step::before{content:'';position:absolute;left:0;top:6px;width:12px;height:12px;border-radius:50%;background:var(--red);}
@@ -344,26 +270,7 @@ text-align: justify;
     </nav>
 
     <div class="flex items-center gap-3">
-      <!-- Hidden Google Translate element -->
-      <div id="google_translate_element"></div>
-
-      <!-- Custom Language Switcher -->
-      <div class="lang-switcher hidden lg:block" id="langSwitcher">
-        <div class="lang-current" onclick="toggleLangMenu()">
-          <span class="lang-flag" id="currentFlag">🇬🇧</span>
-          <span id="currentLang">EN</span>
-          <span style="font-size:0.5rem;">▼</span>
-        </div>
-        <div class="lang-dropdown-menu">
-          <div class="lang-option active" id="opt-en" onclick="switchLang('en')">
-            <span class="lang-flag">🇬🇧</span> English
-          </div>
-          <div class="lang-option" id="opt-vi" onclick="switchLang('vi')">
-            <span class="lang-flag">🇻🇳</span> Tiếng Việt
-          </div>
-        </div>
-      </div>
-
+      <button class="lbtn hidden lg:block">EN ▾</button>
       <button class="lg:hidden menu-btn p-1" onclick="mobToggle()">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -400,15 +307,6 @@ text-align: justify;
       </div>
     </div>
     <div><div class="mob-parent" onclick="go('contact');mobToggle()">Contact</div></div>
-    <!-- Mobile Language Switcher -->
-    <div style="display:flex;gap:0;border-top:1px solid rgba(9,24,81,0.08);">
-      <div id="mob-opt-en" onclick="switchLang('en');mobToggle()" style="flex:1;padding:12px 20px;font-size:0.73rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--red);background:rgba(210,35,42,0.05);border-right:1px solid rgba(9,24,81,0.08);">
-        🇬🇧 EN
-      </div>
-      <div id="mob-opt-vi" onclick="switchLang('vi');mobToggle()" style="flex:1;padding:12px 20px;font-size:0.73rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;color:rgba(9,24,81,0.5);">
-        🇻🇳 VN
-      </div>
-    </div>
   </div>
 </header>
 
@@ -423,7 +321,7 @@ text-align: justify;
     <div class="hero-content">
       <!-- <div class="hero-pill">Communication & Consulting · Education Industry</div> -->
       <h1>Bridging global institutions with Southeast Asia's education landscape</h1>
-      <p class="center-justified">GFE is a communication and consulting company dedicated to the education industry. We support international institutions, organizations, and partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia: while also providing students with tailored guidance for their academic and career journeys.</p>
+      <p class="center-justified">GFE is a communication and consulting company dedicated to the education industry. We support international institutions, organizations, and partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia — while also providing students with tailored guidance for their academic and career journeys.</p>
       <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
         <button class="btn-navy" onclick="go('who-we-are')">Learn More</button>
         <button class="btn-outline-white" onclick="go('contact')">Contact Us</button>
@@ -508,9 +406,9 @@ text-align: justify;
         <p style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:2rem;" class="center-justified-left">Our approach reflects a long-term commitment to building capabilities and enabling individuals to participate more fully in the evolving world of work.</p>
         <button class="btn-red" onclick="go('csr-projects')">Learn More</button>
       </div>
-      <div class="fade-up" style="border-radius:12px;overflow:hidden;height:340px;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+      <!-- <div class="fade-up" style="border-radius:12px;overflow:hidden;height:340px;box-shadow:0 20px 60px rgba(0,0,0,0.3);"> -->
         <!-- <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80" alt="CSR" style="width:100%;height:100%;object-fit:cover;"/> -->
-      </div>
+      <!-- </div> -->
     </div>
   </section>
 
@@ -520,7 +418,7 @@ text-align: justify;
       <div class="mb-12 fade-up">
         <div class="section-divider"></div>
         <h2 class="section-title">Our Team</h2>
-        <p class="section-sub center-justified-left">Our team is led by a multidisciplinary professional with expertise in education, communication, and market development. At GFE, we believe opportunity should be accessible to all.</p>
+        <p class="section-sub center-justified">Our team is led by a multidisciplinary professional with expertise in education, communication, and market development. At GFE, we believe opportunity should be accessible to all.</p>
       </div>
       <div class="grid md:grid-cols-2 gap-12 items-center max-w-4xl">
         <div class="pcard fade-up">
@@ -533,7 +431,7 @@ text-align: justify;
         </div>
         <div class="fade-up">
           <p style="font-size:0.88rem;color:rgba(9,24,81,0.6);line-height:1.9;margin-bottom:1.2rem;" class="center-justified-left">Ms. Hanh Nguyen is a multidisciplinary development professional with over 12 years of experience in project management, business development, and stakeholder engagement across Vietnam and international contexts.</p>
-          <p style="font-size:0.88rem;color:rgba(9,24,81,0.6);line-height:1.9;margin-bottom:1.5rem;" class="center-justified-left">She has worked extensively with public institutions, universities, and international organizations, supporting market entry, partnership development, and strategic initiatives across Southeast Asia: including managerial roles at the French Chamber of Commerce and Industry in Vietnam and the Enterprise Europe Network.</p>
+          <p style="font-size:0.88rem;color:rgba(9,24,81,0.6);line-height:1.9;margin-bottom:1.5rem;" class="center-justified-left">She has worked extensively with public institutions, universities, and international organizations, supporting market entry, partnership development, and strategic initiatives across Southeast Asia — including managerial roles at the French Chamber of Commerce and Industry in Vietnam and the Enterprise Europe Network.</p>
           <button class="btn-outline-red" onclick="go('our-team')">Meet the Team</button>
         </div>
       </div>
@@ -550,7 +448,7 @@ text-align: justify;
           <img src="partner/Logo_GPF.png" alt="GPF International Network" style="height:52px;width:auto;object-fit:contain;"/>
         </div>
         <div style="cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" onclick="go('hpdf')">
-          <img src="partner/Logo_HPDF.png" alt="HPDF: Ho Chi Minh City" style="height:52px;width:auto;object-fit:contain;"/>
+          <img src="partner/Logo_HPDF.png" alt="HPDF – Ho Chi Minh City" style="height:52px;width:auto;object-fit:contain;"/>
         </div>
         <div style="cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" onclick="go('vpc')">
           <!-- <span style="color:rgba(9,24,81,0.5);font-size:0.85rem;font-weight:700;letter-spacing:0.06em;">Viet Nam Peace Committee</span> -->
@@ -569,7 +467,7 @@ text-align: justify;
     </div>
   </section>
 
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -611,7 +509,7 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -651,7 +549,7 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -691,7 +589,7 @@ text-align: justify;
       <p style="font-size:0.9rem;color:var(--navy);text-align:center;line-height:1.9;font-style:italic;max-width:700px;margin:0 auto;">At GFE, we believe opportunity should be accessible to all. We are committed to working in an inclusive, respectful, and fair environment where individuals are valued for their talent, integrity, and potential.</p>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -736,7 +634,7 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -781,7 +679,7 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -799,7 +697,7 @@ text-align: justify;
         <div class="section-divider"></div>
         <h2 class="section-title">Our Approach</h2>
         <p class="section-sub mb-5">We provide personalized guidance to support students in defining their academic pathways and career directions. Our approach combines individual counselling, programme matching, and insights into international education and evolving workforce trends.</p>
-        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">We help students make decisions that are both informed and aligned with their long-term goals: bridging the gap between where they are today and where they aspire to be.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">We help students make decisions that are both informed and aligned with their long-term goals — bridging the gap between where they are today and where they aspire to be.</p>
         <div style="margin-bottom:2rem;">
           <h3 style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Who We Work With</h3>
           <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);line-height:1.8;">Pupils, students, and parents seeking a clearer understanding of academic options, career pathways, and the skills required to succeed in international and regional contexts, particularly in Vietnam and Southeast Asia.</p>
@@ -825,7 +723,7 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -909,7 +807,7 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -933,7 +831,7 @@ text-align: justify;
         <h2 class="section-title">Applying Education Expertise to Social Impact</h2>
         <p style="font-size:0.9rem;font-weight:700;color:var(--red);font-style:italic;margin-bottom:1.2rem;line-height:1.7;">Applying education and career expertise to support inclusive development</p>
         <p class="section-sub mb-4">GFE's CSR initiatives are designed as an extension of our core expertise in education, career orientation, and skills development.</p>
-        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">We focus on enabling individuals to better understand their potential, navigate career pathways, and access opportunities: particularly in contexts where access to guidance and resources remains limited.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">We focus on enabling individuals to better understand their potential, navigate career pathways, and access opportunities — particularly in contexts where access to guidance and resources remains limited.</p>
         <div style="background:#f7f8fc;border-radius:8px;padding:1.5rem;margin-bottom:1.5rem;">
           <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">Focus Areas</div>
           <div class="check-item"><span class="dot"></span><span>Career orientation and pathway development</span></div>
@@ -942,7 +840,7 @@ text-align: justify;
           <div class="check-item"><span class="dot"></span><span>Long-term integration into the workforce</span></div>
         </div>
         <div class="quote-block fade-up">
-          "At GFE, we believe opportunity should be accessible to all: and we act on that belief through concrete, community-focused initiatives."
+          "At GFE, we believe opportunity should be accessible to all — and we act on that belief through concrete, community-focused initiatives."
         </div>
       </div>
       <div class="fade-up csr-hero-image">
@@ -988,11 +886,11 @@ text-align: justify;
         <div class="section-divider"></div>
         <h2 class="section-title" style="font-size:clamp(1.5rem,2.5vw,2.2rem);">What Our Initiatives Involve</h2>
         <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1.5rem;">Our programmes are designed to be practical, empowering, and grounded in the real needs of participants. We combine awareness-building with hands-on training and structured pathways to employment.</p>
-        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Awareness &amp; potential discovery</strong>: helping participants understand their own strengths and capacities</span></div>
-        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Practical skills workshops</strong>: developing vocational and professional competencies</span></div>
-        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Career orientation sessions</strong>: exploring realistic and meaningful employment paths</span></div>
-        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Employment connections</strong>: linking participants with relevant opportunities and employers</span></div>
-        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Mentorship &amp; follow-up</strong>: ongoing support to ensure sustainable integration</span></div>
+        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Awareness &amp; potential discovery</strong> — helping participants understand their own strengths and capacities</span></div>
+        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Practical skills workshops</strong> — developing vocational and professional competencies</span></div>
+        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Career orientation sessions</strong> — exploring realistic and meaningful employment paths</span></div>
+        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Employment connections</strong> — linking participants with relevant opportunities and employers</span></div>
+        <div class="check-item mb-2"><span class="dot"></span><span style="font-size:0.85rem;"><strong>Mentorship &amp; follow-up</strong> — ongoing support to ensure sustainable integration</span></div>
       </div>
     </div>
   </section>
@@ -1003,20 +901,20 @@ text-align: justify;
       <div class="fade-up">
         <div style="width:44px;height:3px;background:var(--red);border-radius:2px;margin-bottom:1.2rem;"></div>
         <h2 style="font-weight:800;font-size:clamp(1.6rem,3vw,2.2rem);color:#fff;margin-bottom:1rem;">Our Approach to CSR</h2>
-        <p style="font-size:0.87rem;color:rgba(255,255,255,0.65);line-height:1.9;margin-bottom:1.5rem;">We approach our CSR work with the same principles that guide our business: fairness, ethical integrity, and a genuine commitment to impact. Our initiatives are not symbolic: they are purposeful, measurable, and connected to the communities we serve.</p>
+        <p style="font-size:0.87rem;color:rgba(255,255,255,0.65);line-height:1.9;margin-bottom:1.5rem;">We approach our CSR work with the same principles that guide our business: fairness, ethical integrity, and a genuine commitment to impact. Our initiatives are not symbolic — they are purposeful, measurable, and connected to the communities we serve.</p>
         <p style="font-size:0.87rem;color:rgba(255,255,255,0.65);line-height:1.9;">We partner with local organisations, leveraging our networks and expertise in education and communication to extend our reach and ensure that our efforts create lasting, meaningful change.</p>
       </div>
       <div class="fade-up">
         <div class="grid grid-cols-1 gap-4">
           <div class="impact-card">
             <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.5rem;">Our Guiding Principle</div>
-            <p style="font-size:0.88rem;color:rgba(255,255,255,0.8);line-height:1.75;font-style:italic;">"At GFE, we believe opportunity should be accessible to all: regardless of background, circumstance, or condition."</p>
+            <p style="font-size:0.88rem;color:rgba(255,255,255,0.8);line-height:1.75;font-style:italic;">"At GFE, we believe opportunity should be accessible to all — regardless of background, circumstance, or condition."</p>
           </div>
           <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.5rem;">
             <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1rem;">Aligned With Our Values</div>
-            <div class="check-item" style="color:rgba(255,255,255,0.7);margin-bottom:6px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span><strong style="color:#fff;">Fairness</strong>: equitable access and inclusive participation</span></div>
-            <div class="check-item" style="color:rgba(255,255,255,0.7);margin-bottom:6px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span><strong style="color:#fff;">Ethical Integrity</strong>: transparent, respectful, and beneficial outcomes</span></div>
-            <div class="check-item" style="color:rgba(255,255,255,0.7);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span><strong style="color:#fff;">Globalised Standards</strong>: international quality adapted to local needs</span></div>
+            <div class="check-item" style="color:rgba(255,255,255,0.7);margin-bottom:6px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span><strong style="color:#fff;">Fairness</strong> — equitable access and inclusive participation</span></div>
+            <div class="check-item" style="color:rgba(255,255,255,0.7);margin-bottom:6px;"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span><strong style="color:#fff;">Ethical Integrity</strong> — transparent, respectful, and beneficial outcomes</span></div>
+            <div class="check-item" style="color:rgba(255,255,255,0.7);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span><strong style="color:#fff;">Globalised Standards</strong> — international quality adapted to local needs</span></div>
           </div>
         </div>
       </div>
@@ -1027,12 +925,12 @@ text-align: justify;
   <section style="background:var(--red);padding:70px 24px;text-align:center;">
     <div class="max-w-2xl mx-auto fade-up">
       <h2 style="font-weight:800;font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;margin-bottom:1rem;">Interested in Supporting Our Mission?</h2>
-      <p style="font-size:0.9rem;color:rgba(255,255,255,0.78);margin-bottom:2.5rem;line-height:1.8;">Whether you are an organisation, institution, or individual who shares our commitment to inclusion and opportunity: we'd love to connect.</p>
+      <p style="font-size:0.9rem;color:rgba(255,255,255,0.78);margin-bottom:2.5rem;line-height:1.8;">Whether you are an organisation, institution, or individual who shares our commitment to inclusion and opportunity — we'd love to connect.</p>
       <button class="btn-navy" onclick="go('contact')">Get in Touch</button>
     </div>
   </section>
 
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -1056,7 +954,7 @@ text-align: justify;
         <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">GPF focuses on strengthening economic and institutional collaboration through four key areas: supporting commercial initiatives and business connections, promoting investment and economic development across francophone countries, providing access to economic intelligence and institutional networks, and connecting organizations through the shared language and culture of the francophone world.</p>
         <div style="background:rgba(210,35,42,0.04);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1.2rem 1.5rem;margin-bottom:2rem;">
           <p style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;">GFE's Role</p>
-          <p style="font-size:0.82rem;color:rgba(9,24,81,0.6);line-height:1.75;">Through its leadership, GFE is engaged within the GPF network, contributing to initiatives that strengthen connections between Vietnam and the francophone world: supporting partnerships between institutions, universities, and organizations, while facilitating dialogue and collaboration across economic, educational, and cultural sectors.</p>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.6);line-height:1.75;">Through its leadership, GFE is engaged within the GPF network, contributing to initiatives that strengthen connections between Vietnam and the francophone world — supporting partnerships between institutions, universities, and organizations, while facilitating dialogue and collaboration across economic, educational, and cultural sectors.</p>
         </div>
         <a href="https://www.gpf-int.org/nouvelle-page-64" target="_blank" class="btn-navy" style="text-decoration:none;">Visit GPF Website →</a>
       </div>
@@ -1112,9 +1010,7 @@ text-align: justify;
     </div>
   </section>
 
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p>
-    <div style="display:flex;justify-content:center;gap:16px;margin-top:4px;">
-      <a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -1133,7 +1029,7 @@ text-align: justify;
         <h2 class="section-title">HPDF</h2>
         <p class="section-sub mb-4">HPDF is a non-profit organization established by the Ho Chi Minh City People's Committee and operating within the framework of the Ho Chi Minh City Union of Friendship Organizations.</p>
         <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">HPDF is part of a broader tradition of peace and development initiatives in Vietnam, inspired by the Vietnam Peace and Development Foundation, founded in 2003 by Mme. Nguyen Thi Binh, former Vice President of Vietnam. HPDF is now led by Mme. Ton Nu Thi Ninh, a prominent diplomat and advocate for international cooperation, whose leadership has shaped the Foundation's vision of dialogue, inclusivity, and global engagement.</p>
-        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">The Foundation promotes peace, friendship, cooperation, and sustainable development, while strengthening Vietnam's engagement with international partners and communities. Building on this foundation, HPDF focuses on fostering inclusive development, cultural identity, and dialogue across local and global contexts: promoting education, community engagement, and sustainable societal development while connecting a broad network of professionals, institutions, and international partners.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">The Foundation promotes peace, friendship, cooperation, and sustainable development, while strengthening Vietnam's engagement with international partners and communities. Building on this foundation, HPDF focuses on fostering inclusive development, cultural identity, and dialogue across local and global contexts — promoting education, community engagement, and sustainable societal development while connecting a broad network of professionals, institutions, and international partners.</p>
         <div style="background:rgba(210,35,42,0.04);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1.2rem 1.5rem;margin-bottom:2rem;">
           <p style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;">GFE's Role</p>
           <p style="font-size:0.82rem;color:rgba(9,24,81,0.6);line-height:1.75;">GFE is represented at the Board of Trustees of HPDF, with its founder among the youngest members invited to contribute to the Foundation's governance. In this capacity, GFE contributes to initiatives that support education, foster community development, and promote Vietnamese cultural identity, while engaging with a diverse network of local and international stakeholders.</p>
@@ -1158,12 +1054,12 @@ text-align: justify;
       <div style="border-radius:12px;overflow:hidden;height:480px;box-shadow:0 20px 60px rgba(9,24,81,0.14);position:relative;">
         <img
           src="images/HDPF/290446640710722788422.jpg"
-          alt="HPDF: Ho Chi Minh City Peace and Development Foundation"
+          alt="HPDF – Ho Chi Minh City Peace and Development Foundation"
           style="width:100%;height:100%;object-fit:cover;object-position:center;"
         />
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,24,81,0.55) 0%,transparent 50%);pointer-events:none;"></div>
         <div style="position:absolute;bottom:28px;left:32px;">
-          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);">HPDF: Ho Chi Minh City</span>
+          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);">HPDF — Ho Chi Minh City</span>
           <p style="font-size:1rem;font-weight:700;color:#fff;margin-top:4px;">Building inclusive communities through education and culture</p>
         </div>
       </div>
@@ -1213,11 +1109,11 @@ text-align: justify;
       </div>
     </div>
   </section>
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
-     VPC: VIET NAM PEACE COMMITTEE
+     VPC – VIET NAM PEACE COMMITTEE
 ═══════════════════════════════════════ -->
 <div id="p-vpc" class="page">
   <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
@@ -1253,7 +1149,7 @@ text-align: justify;
     </div>
   </section>
 
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -1300,7 +1196,7 @@ text-align: justify;
     </div>
   </section>
 
-  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -1317,7 +1213,7 @@ text-align: justify;
       <div class="fade-up">
         <div class="section-divider"></div>
         <h2 class="section-title" style="font-size:1.6rem;">Contact Us</h2>
-        <p style="font-size:0.85rem;color:rgba(9,24,81,0.5);line-height:1.85;margin-bottom:2rem;">Whether you represent an institution looking to grow in Southeast Asia, or a student seeking guidance: we'd love to hear from you.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.5);line-height:1.85;margin-bottom:2rem;">Whether you represent an institution looking to grow in Southeast Asia, or a student seeking guidance — we'd love to hear from you.</p>
         <div style="display:flex;flex-direction:column;gap:1.2rem;">
           <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">📍</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Address</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">Ho Chi Minh City, Vietnam</div></div></div>
           <div style="display:flex;gap:14px;align-items:flex-start;"><div style="width:38px;height:38px;background:rgba(210,35,42,0.08);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem;">✉️</div><div><div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.38);margin-bottom:3px;">Email</div><div style="font-size:0.83rem;color:var(--navy);font-weight:600;">contact@gfe-company.com</div></div></div>
@@ -1335,8 +1231,8 @@ text-align: justify;
         <div style="display:flex;justify-content:flex-end;"><button class="btn-navy">Send Message →</button></div>
       </div>
     </div>
-  </section><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p>
-  <footer><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+  </section>
+  <footer><p>© 2026 – GFE COMPANY LIMITED – All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -1386,114 +1282,6 @@ const obs=new IntersectionObserver(entries=>{
 
 function observe(c){c.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));}
 observe(document.querySelector('.page.active'));
-
-/* ── LANGUAGE SWITCHER ── */
-let currentLang = 'en';
-
-// Ensure Google Translate element is initialized when page loads
-window.addEventListener('load', function() {
-  // Check if Google Translate is ready
-  if (typeof google !== 'undefined' && google.translate) {
-    console.log('Google Translate loaded successfully');
-  } else {
-    console.log('Initializing Google Translate...');
-    if (typeof googleTranslateElementInit === 'function') {
-      googleTranslateElementInit();
-    }
-  }
-  
-  // Restore language from cookie
-  const cookieLang = getCookie('googtrans');
-  if (cookieLang && cookieLang.includes('/vi')) {
-    document.getElementById('currentFlag').textContent = '🇻🇳';
-    document.getElementById('currentLang').textContent = 'VN';
-    document.getElementById('opt-en').classList.remove('active');
-    document.getElementById('opt-vi').classList.add('active');
-    currentLang = 'vi';
-    const mobVi = document.getElementById('mob-opt-vi');
-    const mobEn = document.getElementById('mob-opt-en');
-    if (mobVi) { mobVi.style.color='var(--red)'; mobVi.style.fontWeight='800'; mobVi.style.background='rgba(210,35,42,0.05)'; }
-    if (mobEn) { mobEn.style.color='rgba(9,24,81,0.5)'; mobEn.style.fontWeight='700'; mobEn.style.background='transparent'; }
-  }
-});
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-  const sw = document.getElementById('langSwitcher');
-  if (sw && !sw.contains(e.target)) {
-    sw.classList.remove('open');
-  }
-});
-
-function toggleLangMenu() {
-  const sw = document.getElementById('langSwitcher');
-  if (sw) sw.classList.toggle('open');
-}
-
-// Close dropdown when clicking outside
-document.addEventListener('click', function(e) {
-  const sw = document.getElementById('langSwitcher');
-  if (sw && !sw.contains(e.target)) {
-    sw.classList.remove('open');
-  }
-});
-
-function switchLang(lang) {
-  currentLang = lang;
-
-  // Update desktop UI
-  const switcher = document.getElementById('langSwitcher');
-  if (switcher) switcher.classList.remove('open');
-
-  document.getElementById('currentFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
-  document.getElementById('currentLang').textContent = lang === 'vi' ? 'VN' : 'EN';
-
-  // Update active states desktop
-  document.getElementById('opt-en').classList.toggle('active', lang === 'en');
-  document.getElementById('opt-vi').classList.toggle('active', lang === 'vi');
-
-  // Update active states mobile
-  const mobEn = document.getElementById('mob-opt-en');
-  const mobVi = document.getElementById('mob-opt-vi');
-  if (mobEn) {
-    mobEn.style.color = lang === 'en' ? 'var(--red)' : 'rgba(9,24,81,0.5)';
-    mobEn.style.background = lang === 'en' ? 'rgba(210,35,42,0.05)' : 'transparent';
-    mobEn.style.fontWeight = lang === 'en' ? '800' : '700';
-  }
-  if (mobVi) {
-    mobVi.style.color = lang === 'vi' ? 'var(--red)' : 'rgba(9,24,81,0.5)';
-    mobVi.style.background = lang === 'vi' ? 'rgba(210,35,42,0.05)' : 'transparent';
-    mobVi.style.fontWeight = lang === 'vi' ? '800' : '700';
-  }
-
-  // Use cookie method + reload (reliable method for Google Translate)
-  const langCode = lang === 'vi' ? 'vi' : 'en';
-  const cookieValue = langCode === 'vi' ? '/en/vi' : '/en/en';
-  
-  setCookie('googtrans', cookieValue, 365);
-  setCookie('googtrans', cookieValue, 365, '.'+window.location.hostname);
-  
-  // Reload page to apply translation
-  window.location.reload();
-}
-
-function setCookie(name, value, days, domain) {
-  let expires = '';
-  if (days) {
-    const d = new Date();
-    d.setTime(d.getTime() + days*24*60*60*1000);
-    expires = '; expires=' + d.toUTCString();
-  }
-  const dom = domain ? '; domain=' + domain : '';
-  document.cookie = name + '=' + value + expires + dom + '; path=/';
-}
-
-function getCookie(name) {
-  const v = '; ' + document.cookie;
-  const parts = v.split('; ' + name + '=');
-  if (parts.length === 2) return parts.pop().split(';').shift();
-  return '';
-}
 </script>
 </body>
 </html>
