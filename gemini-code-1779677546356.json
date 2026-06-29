@@ -1,0 +1,398 @@
+{
+  "project": "GFE_Bilingual_Website",
+  "meta": {
+    "description": "Dữ liệu nội dung website để chuyển đổi thành cấu trúc song ngữ (Việt - Anh)."
+  },
+  "global": {
+    "buttons": {
+      "learn_more": "Tìm hiểu thêm",
+      "learn_more_gfe": "Tìm hiểu thêm về GFE",
+      "contact_gfe": "Liên hệ với GFE",
+      "view_projects": "Xem các dự án của GFE"
+    }
+  },
+  "pages": {
+    "home": {
+      "hero_section": {
+        "headline": "Kết nối các tổ chức giáo dục quốc tế với hệ sinh thái giáo dục Đông Nam Á",
+        "description": [
+          "GFE là đơn vị tư vấn truyền thông và phát triển chuyên sâu trong lĩnh vực giáo dục.",
+          "Chúng tôi hỗ trợ các tổ chức, cơ quan và đối tác quốc tế tăng cường nhận diện, mở rộng thị trường và kết nối với đúng đối tượng mục tiêu tại Việt Nam và Đông Nam Á.",
+          "Bên cạnh đó, GFE đồng hành cùng học sinh, sinh viên trong hành trình định hướng học tập, nghề nghiệp và phát triển năng lực cho tương lai."
+        ]
+      },
+      "who_we_are_summary": {
+        "title": "Chúng tôi là ai",
+        "paragraphs": [
+          "GFE là đối tác tin cậy trong truyền thông chiến lược và phát triển thị trường cho lĩnh vực giáo dục quốc tế.",
+          "Chúng tôi đồng hành cùng thế hệ tài năng tương lai trong hành trình học tập, nghề nghiệp và phát triển năng lực.",
+          "Thông qua các hoạt động của mình, GFE mong muốn đóng góp vào sự phát triển bền vững của giáo dục và cộng đồng.",
+          "GFE là đơn vị tư vấn truyền thông và phát triển thị trường trong lĩnh vực giáo dục. Chúng tôi hỗ trợ các đối tác giáo dục quốc tế nâng cao nhận diện, mở rộng hiện diện và kết nối hiệu quả với đúng đối tượng tại Việt Nam và Đông Nam Á.",
+          "Với sự am hiểu sâu sắc về các tiêu chuẩn quốc tế và bối cảnh địa phương, GFE mang đến các giải pháp được thiết kế riêng, thực tiễn và định hướng kết quả, nhằm hỗ trợ tăng trưởng bền vững trong lĩnh vực giáo dục."
+        ]
+      },
+      "services_summary": {
+        "title": "Dịch vụ của chúng tôi",
+        "intro": "Để phát triển hiệu quả tại Đông Nam Á, các tổ chức giáo dục không chỉ cần được biết đến mà còn cần định vị rõ ràng, có thông điệp phù hợp và có sự am hiểu thị trường địa phương. GFE cung cấp các giải pháp tư vấn truyền thông, đại diện phát triển thị trường, định hướng nghề nghiệp và đào tạo kỹ năng, được thiết kế riêng cho lĩnh vực giáo dục.",
+        "items": [
+          {
+            "name": "TƯ VẤN TRUYỀN THÔNG",
+            "short_desc": "Giúp tổ chức giáo dục được nhận diện rõ hơn, tạo dựng niềm tin và phát triển quan hệ lâu dài.",
+            "full_desc": "GFE hỗ trợ các tổ chức giáo dục xây dựng định vị, thông điệp và kế hoạch truyền thông phù hợp với thị trường địa phương. Qua đó, thương hiệu có thể tiếp cận đúng đối tượng, tăng mức độ tin cậy và tạo nền tảng cho sự phát triển bền vững."
+          },
+          {
+            "name": "ĐẠI DIỆN PHÁT TRIỂN THỊ TRƯỜNG",
+            "short_desc": "Giúp tổ chức quốc tế xây dựng sự hiện diện và kết nối tại thị trường mới.",
+            "full_desc": "GFE đóng vai trò là đầu mối địa phương, hỗ trợ kết nối với trường học, đối tác, tổ chức và các bên liên quan tại Việt Nam và Đông Nam Á. Chúng tôi giúp quá trình thâm nhập thị trường diễn ra thuận lợi, hiệu quả và phù hợp với bối cảnh địa phương."
+          },
+          {
+            "name": "ĐỊNH HƯỚNG HỌC TẬP VÀ NGHỀ NGHIỆP",
+            "short_desc": "Giúp học sinh, sinh viên lựa chọn lộ trình học tập và nghề nghiệp rõ ràng hơn.",
+            "full_desc": "GFE đồng hành cùng học sinh, sinh viên và phụ huynh trong việc hiểu rõ năng lực, sở thích, xu hướng nghề nghiệp và các lựa chọn học tập phù hợp. Từ đó, người học có thêm sự tự tin khi đưa ra quyết định cho tương lai."
+          },
+          {
+            "name": "ĐÀO TẠO KỸ NĂNG",
+            "short_desc": "Trang bị cho học sinh, sinh viên những kỹ năng cần thiết để sẵn sàng cho tương lai.",
+            "full_desc": "GFE thiết kế các chương trình đào tạo kỹ năng giúp người học phát triển tư duy phản biện, khả năng thích ứng, giao tiếp và giải quyết vấn đề. Các chương trình hướng tới việc giúp học sinh, sinh viên không chỉ học tốt, mà còn biết cách ứng dụng kiến thức vào môi trường học tập, công việc và đời sống thực tế."
+          }
+        ]
+      },
+      "csr_summary": {
+        "title": "TRÁCH NHIỆM XÃ HỘI",
+        "subtitle": "Mở rộng cơ hội học tập và nghề nghiệp một cách bền vững",
+        "content": [
+          "Tại GFE, các hoạt động trách nhiệm xã hội gắn liền với chuyên môn của chúng tôi trong giáo dục, định hướng nghề nghiệp và phát triển kỹ năng.",
+          "Chúng tôi tập trung hỗ trợ những cá nhân gặp rào cản trong việc tiếp cận thông tin, định hướng, giáo dục và việc làm. Thông qua tư vấn, kết nối và phát triển năng lực, GFE giúp họ hiểu rõ hơn về bản thân, xác định hướng đi phù hợp và từng bước tiếp cận những cơ hội có ý nghĩa.",
+          "Đây là cam kết lâu dài của GFE trong việc phát triển năng lực con người, giúp mỗi cá nhân có thể tham gia tốt hơn vào thị trường lao động đang không ngừng thay đổi."
+        ]
+      },
+      "team_summary": {
+        "title": "ĐỘI NGŨ CỦA CHÚNG TÔI",
+        "intro": [
+          "Đội ngũ GFE được dẫn dắt bởi chuyên gia đa lĩnh vực, có kinh nghiệm trong giáo dục, truyền thông và phát triển thị trường.",
+          "Tại GFE, chúng tôi tin rằng cơ hội nên được mở ra cho mọi người. Vì vậy, chúng tôi cam kết xây dựng một môi trường làm việc cởi mở, tôn trọng và công bằng, nơi mỗi cá nhân được ghi nhận bởi năng lực, sự chính trực và tiềm năng phát triển."
+        ],
+        "members": [
+          {
+            "name": "Bà Nguyễn Minh Hạnh",
+            "role": "Nhà sáng lập & Giám đốc điều hành",
+            "bio": "Bà Hạnh Nguyễn là chuyên gia phát triển đa lĩnh vực với hơn 12 năm kinh nghiệm trong việc quản lý dự án, phát triển kinh doanh và kết nối đối tác tại Việt Nam và quốc tế. Bà đã làm việc với nhiều cơ quan nhà nước, trường đại học và tổ chức quốc tế, hỗ trợ các hoạt động mở rộng thị trường, phát triển quan hệ đối tác và triển khai các sáng kiến chiến lược tại Đông Nam Á. Trong đó, bà từng đảm nhiệm các vị trí quản lý tại Phòng Thương mại và Công nghiệp Pháp tại Việt Nam và mạng lưới Enterprise Europe Network."
+          }
+        ]
+      },
+      "partners_logo_section": {
+        "title": "Partners Logo"
+      },
+      "bottom_banner": {
+        "headline": "Mở rộng dấu ấn giáo dục của bạn tại Đông Nam Á",
+        "description": "GFE đồng hành cùng các tổ chức giáo dục quốc tế xây dựng hiện diện, kết nối đúng đối tượng và phát triển bền vững tại Việt Nam và Đông Nam Á."
+      }
+    },
+    "about_us": {
+      "title": "Về GFE",
+      "who_we_are": {
+        "title": "2.1. Chúng tôi là ai",
+        "subtitle": "Công ty TNHH GFE",
+        "content": "GFE là công ty tư vấn truyền thông và phát triển thị trường trong lĩnh vực giáo dục. Chúng tôi đồng hành cùng các đối tác giáo dục quốc tế trong việc xây dựng hình ảnh, mở rộng hiện diện và kết nối với đúng đối tượng tại Việt Nam và Đông Nam Á. Với sự am hiểu về tiêu chuẩn quốc tế và bối cảnh địa phương, GFE mang đến các giải pháp phù hợp, thực tế và hướng đến kết quả rõ ràng, giúp các tổ chức giáo dục phát triển bền vững. Bên cạnh đó, GFE cũng hỗ trợ học sinh, sinh viên trong quá trình định hướng học tập và nghề nghiệp, góp phần phát triển thế hệ tài năng trẻ và mở rộng cơ hội giáo dục tại các khu vực mà chúng tôi hoạt động."
+      },
+      "core_values": {
+        "title": "2.2. Giá trị cốt lõi",
+        "intro": "Ba giá trị nền tảng của GFE. GFE làm việc dựa trên ba giá trị cốt lõi, giúp chúng tôi xây dựng mối quan hệ bền vững với khách hàng, đối tác và cộng đồng.",
+        "values": [
+          {
+            "name": "Tiêu chuẩn quốc tế",
+            "description": "Chúng tôi làm việc theo các tiêu chuẩn quốc tế, đồng thời linh hoạt điều chỉnh để phù hợp với thực tế tại Việt Nam và Đông Nam Á."
+          },
+          {
+            "name": "Công bằng",
+            "description": "Chúng tôi xây dựng quan hệ hợp tác lâu dài dựa trên sự tin cậy, trách nhiệm và tôn trọng lẫn nhau. GFE đề cao một môi trường làm việc công bằng, nơi mỗi cá nhân được ghi nhận qua năng lực, sự chính trực và tiềm năng phát triển."
+          },
+          {
+            "name": "Chính trực",
+            "description": "Chúng tôi làm việc minh bạch, có trách nhiệm và tuân thủ các chuẩn mực đạo đức trong từng dự án. Mục tiêu của GFE là tạo ra kết quả thực chất và mang lại giá trị cho các bên liên quan."
+          }
+        ]
+      },
+      "team": {
+        "title": "2.3. Đội ngũ",
+        "intro": "Kinh nghiệm trong giáo dục, truyền thông và phát triển thị trường tại Đông Nam Á. GFE quy tụ đội ngũ có kinh nghiệm trong lĩnh vực giáo dục, truyền thông và phát triển thị trường. Chúng tôi hỗ trợ các tổ chức giáo dục quốc tế hiểu rõ bối cảnh địa phương và triển khai hiệu quả các hoạt động tại Đông Nam Á.",
+        "members": [
+          {
+            "name": "Bà Nguyễn Minh Hạnh",
+            "role": "Nhà sáng lập & Giám đốc điều hành",
+            "full_bio": [
+              "Bà Nguyễn Minh Hạnh là chuyên gia phát triển đa lĩnh vực với hơn 12 năm kinh nghiệm trong quản lý dự án, phát triển kinh doanh và kết nối đối tác tại Việt Nam và quốc tế.",
+              "Bà đã làm việc với nhiều cơ quan nhà nước, trường đại học và tổ chức quốc tế, hỗ trợ các hoạt động mở rộng thị trường, phát triển quan hệ đối tác và triển khai các sáng kiến chiến lược tại Đông Nam Á. Bà từng giữ vai trò quản lý tại Phòng Thương mại và Công nghiệp Pháp tại Việt Nam và mạng lưới Enterprise Europe Network, nơi bà phụ trách các dự án đa quốc gia và đa văn hóa.",
+              "Bên cạnh công việc chuyên môn, bà Hạnh cũng tham gia tích cực trong lĩnh vực giáo dục và phát triển xã hội, hiện là giảng viên tại Đại học RMIT Việt Nam và tham gia các sáng kiến thúc đẩy giáo dục công bằng, tạo cơ hội cho nhiều đối tượng hơn.",
+              "Tại GFE, bà Hạnh phụ trách định hướng phát triển chung, tập trung vào tư vấn giáo dục, phát triển thị trường và xây dựng các kết nối có ý nghĩa giữa tổ chức, đối tác và người học."
+            ]
+          }
+        ]
+      }
+    },
+    "services_detail": {
+      "title": "Dịch vụ",
+      "services_list": [
+        {
+          "name": "TƯ VẤN TRUYỀN THÔNG",
+          "tagline": "Truyền thông chiến lược giúp tổ chức giáo dục xây dựng định vị rõ ràng và kết nối hiệu quả tại Đông Nam Á.",
+          "approach": {
+            "title": "Cách tiếp cận",
+            "content": "GFE thiết kế và triển khai các giải pháp truyền thông, marketing dành riêng cho lĩnh vực giáo dục. Chúng tôi tập trung vào việc xây dựng định vị rõ ràng, thông điệp nhất quán và cách tiếp cận phù hợp với học sinh, phụ huynh, nhà trường và các bên liên quan tại Việt Nam và Đông Nam Á. Các hoạt động bao gồm định vị thương hiệu, chiến lược PR, phát triển nội dung, chiến dịch truyền thông số và tổ chức sự kiện, luôn được điều chỉnh theo mục tiêu của từng tổ chức và bối cảnh thị trường."
+          },
+          "target_audience": {
+            "title": "Dịch vụ này dành cho:",
+            "content": "Các trường đại học, tổ chức giáo dục đại học và đơn vị giáo dục quốc tế mong muốn tăng cường hình ảnh thương hiệu và kết nối hiệu quả hơn với thị trường Đông Nam Á."
+          },
+          "benefits": {
+            "title": "Giá trị mang lại",
+            "items": [
+              "Tăng mức độ nhận diện và uy tín tại thị trường địa phương",
+              "Thông điệp truyền thông rõ ràng, nhất quán và phù hợp với đúng đối tượng",
+              "Tăng cơ hội tương tác với học sinh, sinh viên và hỗ trợ tuyển sinh",
+              "Định vị khác biệt hơn trong một thị trường giáo dục cạnh tranh"
+            ]
+          }
+        },
+        {
+          "name": "ĐẠI DIỆN PHÁT TRIỂN THỊ TRƯỜNG",
+          "tagline": "Đưa các tổ chức giáo dục đến gần hơn với thị trường thông qua sự hiện diện địa phương và mạng lưới đối tác phù hợp.",
+          "approach": {
+            "title": "Cách tiếp cận",
+            "content": "GFE đóng vai trò là đại diện địa phương cho các tổ chức giáo dục quốc tế, hỗ trợ quá trình thâm nhập và phát triển thị trường tại Việt Nam và Đông Nam Á. Chúng tôi tập trung vào việc xây dựng quan hệ đối tác, kết nối với các bên liên quan và điều phối các hoạt động tại thị trường để tạo sự hiện diện hiệu quả, bền vững. GFE hỗ trợ kết nối với trường học, đại lý giáo dục, tổ chức, đối tác và các đơn vị liên quan trong hệ sinh thái giáo dục, giúp thu hẹp khoảng cách giữa tổ chức quốc tế và thị trường địa phương."
+          },
+          "target_audience": {
+            "title": "Dịch vụ này dành cho:",
+            "content": "Các tổ chức và đơn vị giáo dục quốc tế đang muốn thiết lập hoặc mở rộng hiện diện tại Đông Nam Á nhưng chưa có hạ tầng hoặc đội ngũ địa phương."
+          },
+          "benefits": {
+            "title": "Giá trị mang lại",
+            "items": [
+              "Thâm nhập thị trường nhanh hơn và có cấu trúc hơn",
+              "Tiếp cận mạng lưới đối tác địa phương đáng tin cậy",
+              "Tăng cường mức độ hiện diện và uy tín tại thị trường",
+              "Tiết kiệm thời gian và nguồn lực nhờ chuyên môn địa phương"
+            ]
+          }
+        },
+        {
+          "name": "ĐỊNH HƯỚNG HỌC TẬP VÀ NGHỀ NGHIỆP",
+          "tagline": "Giúp người học nhìn rõ hơn con đường từ giáo dục đến nghề nghiệp.",
+          "approach": {
+            "title": "Cách tiếp cận",
+            "content": "GFE cung cấp dịch vụ định hướng cá nhân hóa, giúp học sinh, sinh viên xác định lộ trình học tập và định hướng nghề nghiệp phù hợp. Cách tiếp cận của chúng tôi kết hợp tư vấn cá nhân, gợi ý chương trình học phù hợp và cập nhật các xu hướng giáo dục quốc tế, thị trường lao động đang thay đổi. Mục tiêu là giúp người học đưa ra quyết định có cơ sở, phù hợp với năng lực, sở thích và mục tiêu dài hạn của mình."
+          },
+          "target_audience": {
+            "title": "Dịch vụ này dành cho:",
+            "content": "Học sinh, sinh viên và phụ huynh mong muốn hiểu rõ hơn về lựa chọn học tập, định hướng nghề nghiệp và những kỹ năng cần thiết để phát triển trong môi trường quốc tế và khu vực, đặc biệt tại Việt Nam và Đông Nam Á."
+          },
+          "benefits": {
+            "title": "Giá trị mang lại",
+            "items": [
+              "Hiểu rõ hơn về lộ trình học tập và nghề nghiệp phù hợp",
+              "Kết nối tốt hơn giữa năng lực, sở thích cá nhân và chương trình học",
+              "Tự tin hơn khi đưa ra quyết định cho tương lai",
+              "Tiếp cận các cơ hội giáo dục quốc tế phù hợp hơn"
+            ]
+          }
+        },
+        {
+          "name": "ĐÀO TẠO KỸ NĂNG",
+          "tagline": "Trang bị cho học sinh, sinh viên những kỹ năng cần thiết để thích ứng với thế giới việc làm đang thay đổi.",
+          "approach": {
+            "title": "Cách tiếp cận",
+            "content": "GFE phát triển các chương trình đào tạo kỹ năng nhằm bổ trợ cho giáo dục học thuật và chuẩn bị cho học sinh, sinh viên trong hành trình học tập, nghề nghiệp tương lai.",
+            "core_competencies": [
+              {
+                "name": "Năng lực ứng dụng",
+                "desc": "Phát triển các kỹ năng phù hợp cho học tập và công việc."
+              },
+              {
+                "name": "Khả năng thích ứng",
+                "desc": "Có khả năng phản ứng và điều chỉnh trước những thay đổi của môi trường xung quanh."
+              },
+              {
+                "name": "Tư duy phản biện",
+                "desc": "Có khả năng phân tích, đánh giá thông tin và đưa ra quyết định có cơ sở."
+              },
+              {
+                "name": "Giải quyết vấn đề",
+                "desc": "Có khả năng chuyển hóa ý tưởng và phân tích thành giải pháp thực tế."
+              }
+            ],
+            "note": "GFE đặc biệt nhấn mạnh tư duy phản biện ở lứa tuổi THCS và THPT, giúp học sinh hình thành khả năng đặt câu hỏi, đánh giá thông tin và đưa ra lựa chọn đúng đắn từ sớm."
+          },
+          "roadmap": {
+            "title": "Lộ trình phát triển năng lực",
+            "intro": "GFE xây dựng lộ trình phát triển theo từng giai đoạn, giúp người học chuẩn bị tốt hơn cho học tập và nghề nghiệp.",
+            "stages": [
+              {
+                "phase": "Giai đoạn nền tảng – Lớp 8 đến lớp 10",
+                "desc": "Xây dựng kỹ năng học tập, thói quen học tập, nhận thức bản thân và tư duy phản biện."
+              },
+              {
+                "phase": "Giai đoạn trải nghiệm – Lớp 11 đến lớp 12",
+                "desc": "Rèn luyện qua thực hành, dự án và các hoạt động có định hướng để chuẩn bị cho môi trường đại học."
+              },
+              {
+                "phase": "Giai đoạn mở rộng – Từ lớp 12 trở lên và bậc đại học",
+                "desc": "Mở rộng góc nhìn thông qua định hướng nghề nghiệp, trải nghiệm thực tế và kết nối với các cơ hội phù hợp."
+              }
+            ]
+          },
+          "target_audience": {
+            "title": "Dịch vụ này dành cho:",
+            "content": "Học sinh THCS, học sinh THPT, sinh viên đại học và các tổ chức giáo dục mong muốn chuẩn bị tốt hơn cho người học trước yêu cầu của học tập và công việc trong tương lai."
+          },
+          "benefits": {
+            "title": "Giá trị mang lại",
+            "items": [
+              "Sẵn sàng bước vào giáo dục đại học và nghề nghiệp tương lai",
+              "Cải thiện tư duy phản biện và khả năng ra quyết định độc lập",
+              "Tăng khả năng thích ứng trong môi trường nhiều biến động",
+              "Hình thành những cá nhân tự tin, có năng lực và sẵn sàng phát triển lâu dài"
+            ]
+          }
+        }
+      ]
+    },
+    "partners": {
+      "title": "5. Đối tác",
+      "items": [
+        {
+          "title": "5.1. Groupement Patronal Francophone (GPF)",
+          "content": "Được thành lập năm 1987, Groupement Patronal Francophone (GPF) là mạng lưới các tổ chức doanh nghiệp trong cộng đồng Pháp ngữ, kết nối hơn 3 triệu doanh nghiệp trên toàn thế giới. GPF hoạt động như một nền tảng thúc đẩy hợp tác kinh tế, giúp các doanh nghiệp kết nối với nhau, mở rộng cơ hội hợp tác và chia sẻ kinh nghiệm giữa các khu vực. Tổ chức này quy tụ các doanh nghiệp, tổ chức và đối tác tại châu Âu, châu Phi và châu Á, góp phần xây dựng một mạng lưới kinh tế Pháp ngữ có tính kết nối toàn cầu.",
+          "key_activities": [
+            "Hỗ trợ kết nối và hợp tác giữa các doanh nghiệp",
+            "Thúc đẩy đầu tư và phát triển kinh tế trong cộng đồng Pháp ngữ",
+            "Cung cấp thông tin thị trường và kết nối với các tổ chức liên quan",
+            "Tăng cường liên kết thông qua ngôn ngữ và văn hóa chung"
+          ],
+          "gfe_role": {
+            "title": "Vai trò của GFE",
+            "content": "Thông qua vai trò của mình, GFE tham gia vào mạng lưới GPF, góp phần thúc đẩy kết nối giữa Việt Nam và các quốc gia trong cộng đồng Pháp ngữ. Trong đó, GFE hỗ trợ xây dựng quan hệ hợp tác giữa các tổ chức, trường đại học và doanh nghiệp, đồng thời thúc đẩy các hoạt động trao đổi và kết nối trong các lĩnh vực kinh tế, giáo dục và văn hóa.",
+            "areas": [
+              "Kết nối và hợp tác quốc tế",
+              "Hợp tác trong giáo dục",
+              "Giao lưu và kết nối văn hóa",
+              "Kết nối giữa châu Á và các quốc gia Pháp ngữ"
+            ]
+          }
+        },
+        {
+          "title": "5.2. Quỹ Hòa bình và Phát triển TP.HCM (HPDF)",
+          "content": "HPDF là tổ chức phi lợi nhuận do Ủy ban Nhân dân TP.HCM thành lập, hoạt động trong hệ thống Liên hiệp các tổ chức hữu nghị TP.HCM. Quỹ kế thừa tinh thần từ các hoạt động vì hòa bình và phát triển tại Việt Nam, trong đó có Quỹ Hòa bình và Phát triển Việt Nam do bà Nguyễn Thị Bình (nguyên Phó Chủ tịch nước) sáng lập năm 2003. Hiện nay, HPDF do bà Tôn Nữ Thị Ninh - một nhà ngoại giao uy tín - dẫn dắt và định hướng hoạt động. HPDF hướng tới việc thúc đẩy hòa bình, hợp tác và phát triển bền vững, đồng thời tăng cường kết nối giữa Việt Nam với các đối tác quốc tế. Trên nền tảng đó, Quỹ tập trung vào các lĩnh vực như giáo dục, phát triển cộng đồng, gìn giữ bản sắc văn hóa và thúc đẩy đối thoại giữa Việt Nam và thế giới.",
+          "key_activities": [
+            "Thúc đẩy hòa bình và hợp tác giữa các cộng đồng",
+            "Phát triển bền vững gắn với xã hội và môi trường",
+            "Gìn giữ và phát huy bản sắc văn hóa",
+            "Kết nối các chuyên gia, tổ chức và đối tác trong nước và quốc tế"
+          ],
+          "gfe_role": {
+            "title": "Vai trò của GFE",
+            "content": "Nhà sáng lập GFE là một trong những thành viên trẻ nhất được mời tham gia Hội đồng Quỹ HPDF. Trong vai trò này, GFE tham gia vào các hoạt động liên quan đến giáo dục, phát triển cộng đồng và kết nối văn hóa, đồng thời làm việc cùng mạng lưới đối tác trong và ngoài nước.",
+            "areas": [
+              "Giáo dục và chia sẻ tri thức",
+              "Phát triển và gắn kết cộng đồng",
+              "Bản sắc văn hóa và đối thoại quốc tế",
+              "Kết nối đối tác và các bên liên quan"
+            ]
+          }
+        },
+        {
+          "title": "5.3. Ủy Ban Hòa Bình Việt Nam (VPC)",
+          "content": "Ủy ban Hòa bình Việt Nam là một trong những tổ chức ra đời sớm và có vai trò quan trọng trong hoạt động đối ngoại nhân dân và thúc đẩy hòa bình của Việt Nam. Được thành lập ngày 19/11/1950 theo sáng kiến của Chủ tịch Hồ Chí Minh, Ủy ban ra đời trong bối cảnh Việt Nam tham gia phong trào hòa bình thế giới và các hoạt động đoàn kết quốc tế. Việt Nam cũng là một trong những thành viên sáng lập của Hội đồng Hòa bình Thế giới. Hiện nay, Ủy ban hoạt động trong hệ thống Liên hiệp các tổ chức hữu nghị Việt Nam, đóng vai trò kết nối Việt Nam với các đối tác quốc tế, thúc đẩy hợp tác thông qua các hoạt động đối thoại và trao đổi. Ủy ban hướng tới việc tăng cường hòa bình, thúc đẩy hợp tác giữa các quốc gia và góp phần nâng cao sự hiểu biết lẫn nhau thông qua đối ngoại nhân dân.",
+          "gfe_role": {
+            "title": "Vai trò của GFE",
+            "content": "GFE có sự gắn kết với các tổ chức như Ủy ban Hòa bình Việt Nam thông qua các mục tiêu chung về hòa bình, hợp tác quốc tế và phát triển bền vững. Thông qua đó, GFE tham gia các hoạt động kết nối, chia sẻ và hợp tác giữa Việt Nam với các đối tác quốc tế, đặc biệt trong các lĩnh vực giáo dục, phát triển cộng đồng và giao lưu văn hóa.",
+            "areas": [
+              "Kết nối và hợp tác quốc tế",
+              "Giáo dục và chia sẻ tri thức",
+              "Phát triển cộng đồng",
+              "Giao lưu văn hóa và kết nối quốc tế"
+            ]
+          }
+        }
+      ]
+    },
+    "csr": {
+      "title": "4. Trách nhiệm xã hội",
+      "subtitle": "Mở rộng cơ hội học tập và nghề nghiệp một cách bền vững",
+      "approach": {
+        "title": "Cách tiếp cận",
+        "content": "Các hoạt động trách nhiệm xã hội của GFE được phát triển dựa trên chuyên môn của chúng tôi trong lĩnh vực giáo dục, định hướng nghề nghiệp và đào tạo kỹ năng. Chúng tôi tập trung hỗ trợ những cá nhân gặp rào cản trong việc tiếp cận thông tin, định hướng, giáo dục và việc làm. Thông qua các hoạt động tư vấn, kết nối và phát triển năng lực, GFE giúp họ hiểu rõ hơn về bản thân, xác định hướng đi phù hợp và từng bước tiếp cận những cơ hội có ý nghĩa."
+      },
+      "focus_areas": {
+        "title": "Lĩnh vực trọng tâm",
+        "items": [
+          "Định hướng nghề nghiệp và xây dựng lộ trình phát triển",
+          "Phát triển kỹ năng cần thiết cho học tập và công việc",
+          "Mở rộng cơ hội tiếp cận giáo dục và việc làm",
+          "Hỗ trợ hội nhập lâu dài vào thị trường lao động"
+        ]
+      },
+      "projects": [
+        {
+          "id": "4.1",
+          "name_en": "Project 1: Career pathways for girls and women affected by Agent Orange - Pathways to Potential",
+          "name_vi": "Định hướng nghề nghiệp cho nữ sinh và phụ nữ bị ảnh hưởng bởi chất độc da cam",
+          "context": "Nhiều nữ sinh và phụ nữ bị ảnh hưởng bởi chất độc da cam tại Việt Nam vẫn có khả năng lao động, nhưng gặp khó khăn trong việc tiếp cận thông tin, định hướng và các cơ hội nghề nghiệp phù hợp.",
+          "methodology": {
+            "title": "Phương pháp tiếp cận",
+            "content": "Dự án tập trung hỗ trợ người tham gia xác định rõ hơn định hướng nghề nghiệp và tiếp cận các cơ hội phù hợp với năng lực. Chương trình bắt đầu từ hoạt động định hướng nghề nghiệp và kết nối với doanh nghiệp, tổ chức, giúp người tham gia hiểu rõ hơn về điểm mạnh của bản thân và các hướng đi khả thi. Trong các giai đoạn tiếp theo, dự án sẽ được phát triển thêm các nội dung đào tạo kỹ năng, phù hợp với nhu cầu của thị trường lao động."
+          },
+          "key_activities": {
+            "title": "Hoạt động chính",
+            "items": [
+              "Định hướng nghề nghiệp và xây dựng lộ trình phát triển",
+              "Kết nối với doanh nghiệp và cơ hội việc làm",
+              "Tư vấn và hỗ trợ trong quá trình ra quyết định"
+            ]
+          },
+          "benefits": {
+            "title": "Giá trị mang lại",
+            "items": [
+              "Định hướng nghề nghiệp rõ ràng hơn",
+              "Tăng khả năng tiếp cận việc làm",
+              "Nâng cao sự tự tin và khả năng ra quyết định",
+              "Thúc đẩy sự tham gia vào thị trường lao động"
+            ]
+          }
+        }
+      ]
+    },
+    "contact": {
+      "title": "6. Liên hệ",
+      "headline": "Mở rộng hoạt động của bạn tại Đông Nam Á cùng GFE",
+      "description": "GFE đồng hành cùng các tổ chức giáo dục xây dựng kết nối hiệu quả và phát triển bền vững tại khu vực.",
+      "intro": "Dù bạn là tổ chức đang muốn phát triển tại Đông Nam Á, hay là học sinh, sinh viên cần định hướng học tập và nghề nghiệp, GFE luôn sẵn sàng lắng nghe và hỗ trợ.",
+      "info": {
+        "title": "Thông tin liên hệ",
+        "address": "TP. Hồ Chí Minh, Việt Nam",
+        "email": "contact@gfe-company.com",
+        "working_area": "Việt Nam · Đông Nam Á"
+      },
+      "form": {
+        "title": "Gửi thông tin cho chúng tôi",
+        "fields": {
+          "name": {
+            "label": "Họ và tên *",
+            "placeholder": "(Nhập họ và tên của bạn)"
+          },
+          "email": {
+            "label": "Email *",
+            "placeholder": "(you@institution.com)"
+          },
+          "interest": {
+            "label": "Nội dung quan tâm *",
+            "placeholder": "Ví dụ: Hợp tác, tư vấn, định hướng học tập..."
+          },
+          "message": {
+            "label": "Tin nhắn *",
+            "placeholder": "Vui lòng chia sẻ chi tiết nhu cầu hoặc câu hỏi của bạn…"
+          }
+        }
+      }
+    }
+  }
+}
