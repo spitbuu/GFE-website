@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>GFE Company Limited</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+
+<style>
+:root{
+  --red:#D2232A;
+  --red-dark:#b01e24;
+  --navy:#091851;
+  --navy-light:#0d2265;
+  --grey:#231F20;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:#fff;color:var(--grey);overflow-x:hidden;}
+p{text-align:justify;}
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:#f0f0f0;}
+::-webkit-scrollbar-thumb{background:var(--red);border-radius:3px;}
+
+/* BILINGUAL SYSTEM */
+body.lang-en .vi { display: none !important; }
+body.lang-vi .en { display: none !important; }
+
+/* PAGE SYSTEM */
+.page{display:none;min-height:100vh;}
+.page.active{display:block;}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:200;background:#fff;box-shadow:0 2px 20px rgba(9,24,81,0.08);}
+.logo-wrap{display:flex;align-items:center;cursor:pointer;}
+
+/* NAV */
+.nav-item{position:relative;}
+.nav-link{
+  display:flex;align-items:center;gap:4px;
+  font-size:0.72rem;font-weight:700;letter-spacing:0.1em;
+  color:var(--red);text-transform:uppercase;
+  padding:8px 2px;cursor:pointer;white-space:nowrap;
+  transition:color 0.2s;border:none;background:none;
+  border-bottom:2px solid transparent;
+}
+.nav-link:hover,.nav-link.act{color:var(--red-dark);border-bottom-color:var(--red);}
+.arrow{font-size:0.52rem;margin-top:1px;transition:transform 0.2s;}
+
+/* DROPDOWN */
+.dropdown{
+  position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#fff;border-radius:6px;min-width:260px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.18);
+  opacity:0;visibility:hidden;transition:all 0.22s;
+  border-top:3px solid var(--red);overflow:hidden;pointer-events:none;
+}
+.nav-item:hover .dropdown{opacity:1;visibility:visible;top:calc(100% + 2px);pointer-events:auto;}
+.nav-item:hover .arrow{transform:rotate(180deg);}
+.drop-item{
+  display:block;padding:11px 20px;
+  font-size:0.71rem;font-weight:600;letter-spacing:0.06em;
+  color:var(--grey);text-transform:uppercase;
+  transition:all 0.15s;cursor:pointer;
+  border-bottom:1px solid rgba(0,0,0,0.05);
+}
+.drop-item:last-child{border-bottom:none;}
+.drop-item:hover{background:var(--red);color:#fff;padding-left:26px;}
+
+/* BUTTONS */
+.btn-navy{
+  display:inline-block;background:var(--navy);color:#fff;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:all 0.25s;box-shadow:0 4px 16px rgba(9,24,81,0.3);
+}
+.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(9,24,81,0.4);}
+.btn-navy-sm{padding:9px 22px;font-size:0.68rem;}
+.btn-red{
+  display:inline-block;background:var(--red);color:#fff;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:13px 32px;border-radius:4px;border:none;cursor:pointer;
+  transition:all 0.25s;box-shadow:0 4px 16px rgba(210,35,42,0.3);
+}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px);}
+.btn-outline-white{
+  display:inline-block;background:transparent;color:#fff;
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:12px 30px;border-radius:4px;border:2px solid rgba(255,255,255,0.45);cursor:pointer;transition:all 0.25s;
+}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,0.1);}
+.btn-outline-red{
+  display:inline-block;background:transparent;color:var(--red);
+  font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:12px 30px;border-radius:4px;border:2px solid var(--red);cursor:pointer;transition:all 0.25s;
+}
+.btn-outline-red:hover{background:var(--red);color:#fff;}
+
+/* HERO */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(140deg,rgba(210,35,42,0.93) 0%,rgba(170,18,24,0.82) 40%,rgba(9,24,81,0.88) 100%),
+    url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1600&q=80') center/cover;
+}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.06) 0%,transparent 70%);bottom:-200px;right:-150px;pointer-events:none;}
+.hero-content{position:relative;text-align:center;max-width:1280px;padding:0 1.5rem;}
+.hero h1{font-weight:900;font-size:clamp(2rem,4.5vw,3.6rem);line-height:1.12;color:#fff;margin-bottom:1.5rem;text-shadow:0 2px 30px rgba(0,0,0,0.25);}
+.hero p{font-size:0.93rem;color:rgba(255,255,255,0.78);line-height:1.9;margin-bottom:2.5rem;max-width:660px;margin-left:auto;margin-right:auto;}
+
+/* SECTIONS */
+.section-divider{width:44px;height:3px;background:var(--red);border-radius:2px;margin-bottom:1.2rem;}
+.section-title{font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--navy);margin-bottom:0.6rem;}
+.section-sub{font-size:0.88rem;color:rgba(9,24,81,0.58);line-height:1.85;max-width:640px;}
+
+/* INNER HERO */
+.inner-hero{background:var(--red);padding:90px 24px 70px;position:relative;overflow:hidden;}
+.inner-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(170,18,24,0.95),rgba(9,24,81,0.72));}
+.ihgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:50px 50px;}
+.ihc{position:relative;}
+.breadcrumb{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:0.8rem;}
+.breadcrumb span{color:rgba(255,255,255,0.88);}
+.inner-hero h1{font-weight:800;font-size:clamp(2rem,4vw,3.2rem);color:#fff;line-height:1.15;}
+.inner-hero p{font-size:0.9rem;color:rgba(255,255,255,0.68);margin-top:1rem;max-width:580px;line-height:1.8;}
+
+/* CARDS */
+.card-white{background:#fff;border-radius:8px;padding:2rem;border:1px solid rgba(9,24,81,0.08);box-shadow:0 4px 20px rgba(9,24,81,0.06);transition:all 0.3s;position:relative;overflow:hidden;}
+.card-white::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.card-white:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(9,24,81,0.13);}
+.card-white:hover::before{transform:scaleX(1);}
+
+/* SERVICE CARD */
+.svc-card{background:#fff;border-radius:8px;padding:2rem;border:1px solid rgba(9,24,81,0.08);box-shadow:0 4px 20px rgba(9,24,81,0.06);transition:all 0.3s;display:flex;flex-direction:column;}
+.svc-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(9,24,81,0.14);border-color:rgba(210,35,42,0.18);}
+.svc-card h3{font-size:0.9rem;font-weight:800;color:var(--navy);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.05em;}
+.svc-card .svc-tag{font-size:0.78rem;font-weight:600;color:var(--red);font-style:italic;margin-bottom:0.9rem;display:block;}
+.svc-card p{font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.75;margin-bottom:1.4rem;flex:1;}
+.check-item{display:flex;align-items:flex-start;gap:10px;font-size:0.8rem;color:var(--grey);padding:5px 0;line-height:1.5;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;}
+
+/* PROFILE */
+.pcard{border-radius:8px;overflow:hidden;transition:all 0.3s;}
+.pcard:hover{transform:translateY(-6px);}
+.pimg{overflow:hidden;}
+.pimg img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius: 50%;}
+.pinfo{padding:1.5rem 1.5rem 2rem;}
+.pname{font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;}
+.prole{font-size:0.72rem;color:rgba(9,24,81,0.55);letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem;font-weight:700;}
+
+/* FORM */
+.flabel{display:block;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.5);margin-bottom:6px;}
+.finput,.ftextarea{width:100%;background:#f7f8fc;color:var(--grey);border:1.5px solid rgba(9,24,81,0.1);border-radius:5px;padding:12px 16px;font-family:'Montserrat',sans-serif;font-size:0.85rem;outline:none;transition:all 0.2s;}
+.finput:focus,.ftextarea:focus{border-color:var(--red);background:#fff;box-shadow:0 0 0 3px rgba(210,35,42,0.07);}
+.ftextarea{resize:vertical;min-height:150px;}
+
+/* MOBILE NAV */
+#mob-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid rgba(9,24,81,0.08);}
+#mob-menu.open{display:flex;}
+.mob-parent{padding:12px 20px;font-size:0.73rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(9,24,81,0.08);}
+.mob-children{display:none;background:#f7f8fc;}
+.mob-children.open{display:block;}
+.mob-child{display:block;padding:10px 32px;font-size:0.71rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--red-dark);cursor:pointer;border-bottom:1px solid rgba(9,24,81,0.06);transition:color 0.15s;}
+
+/* FADE */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.fade-up.vis{opacity:1;transform:translateY(0);}
+
+/* LANG SWITCHER */
+.lang-switcher { position: relative; display: inline-block; }
+.lang-current {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  color: var(--red); border: 1.5px solid var(--red);
+  padding: 5px 14px; border-radius: 4px;
+  cursor: pointer; transition: all 0.2s; background: transparent; user-select: none;
+}
+.lang-current:hover { background: var(--red); color: #fff; }
+.lang-dropdown-menu {
+  position: absolute; top: calc(100% + 6px); right: 0;
+  background: #fff; border-radius: 6px; min-width: 140px;
+  box-shadow: 0 8px 30px rgba(9,24,81,0.15);
+  border-top: 3px solid var(--red); overflow: hidden;
+  opacity: 0; visibility: hidden; transform: translateY(-6px);
+  transition: all 0.2s; z-index: 999;
+}
+.lang-switcher.open .lang-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.lang-option {
+  display: flex; align-items: center; gap: 10px; padding: 10px 16px;
+  font-size: 0.72rem; font-weight: 700; color: var(--grey); cursor: pointer;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+.lang-option:hover { background: var(--red); color: #fff; }
+
+.center-justified { text-align: justify; text-align-last: center; }
+.center-justified-left { text-align: justify; }
+</style>
+</head>
+<body class="lang-en">
+
+<!-- ═══ HEADER ═══ -->
+<header>
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between gap-6">
+    <div class="logo-wrap" onclick="go('home')">
+      <img id="logo" src="GFE-Tagline_Center.svg" alt="Logo GFE COMPANY LIMITED" class="w-60"/>
+    </div>
+
+    <nav class="hidden lg:flex items-center gap-7">
+      <div class="nav-item">
+        <button class="nav-link" onclick="go('home')">
+          <span class="en">Home</span><span class="vi">Trang chủ</span>
+        </button>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link">
+          <span class="en">The Company</span><span class="vi">Công ty</span> <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown">
+          <div class="drop-item" onclick="go('who-we-are')">
+            <span class="en">Who We Are</span><span class="vi">Về chúng tôi</span>
+          </div>
+          <div class="drop-item" onclick="go('our-values')">
+            <span class="en">Our Values</span><span class="vi">Giá trị cốt lõi</span>
+          </div>
+          <div class="drop-item" onclick="go('our-team')">
+            <span class="en">Our Team</span><span class="vi">Đội ngũ</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link">
+          <span class="en">Services</span><span class="vi">Dịch vụ</span> <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown">
+          <div class="drop-item" onclick="go('communication-consultancy')">
+            <span class="en">Communication Consultancy</span><span class="vi">Tư vấn truyền thông</span>
+          </div>
+          <div class="drop-item" onclick="go('business-representation')">
+            <span class="en">Business Representation</span><span class="vi">Đại diện thương mại</span>
+          </div>
+          <div class="drop-item" onclick="go('career-orientation')">
+            <span class="en">Career Orientation</span><span class="vi">Định hướng nghề nghiệp</span>
+          </div>
+          <div class="drop-item" onclick="go('skills-training')">
+            <span class="en">Skills Training</span><span class="vi">Đào tạo kỹ năng</span>
+          </div>
+          <div class="drop-item" onclick="go('cross-cultural')">
+            <span class="en">Cross-Cultural Comm & Editorial</span><span class="vi">Truyền thông đa văn hóa & Biên tập</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link">
+          <span class="en">Partners</span><span class="vi">Đối tác</span> <span class="arrow">▼</span>
+        </button>
+        <div class="dropdown">
+          <div class="drop-item" onclick="go('gpf')">GPF</div>
+          <!-- <div class="drop-item" onclick="go('hpdf')">HPDF</div>
+          <div class="drop-item" onclick="go('vpc')">
+            <span class="en">Viet Nam Peace Committee</span><span class="vi">Uỷ ban Hoà bình Việt Nam</span>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link" onclick="go('csr-projects')">
+          <span class="en">CSR Projects</span><span class="vi">Dự án CSR</span>
+        </button>
+      </div>
+
+      <div class="nav-item">
+        <button class="nav-link" onclick="go('contact')">
+          <span class="en">Contact</span><span class="vi">Liên hệ</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <!-- Native Language Switcher -->
+      <div class="lang-switcher hidden lg:block" id="langSwitcher">
+        <div class="lang-current" onclick="toggleLangMenu()">
+          <span class="lang-flag" id="currentFlag">🇬🇧</span>
+          <span id="currentLang">EN</span>
+          <span style="font-size:0.5rem;">▼</span>
+        </div>
+        <div class="lang-dropdown-menu">
+          <div class="lang-option active" id="opt-en" onclick="switchLang('en')">
+            <span class="lang-flag">🇬🇧</span> English
+          </div>
+          <div class="lang-option" id="opt-vi" onclick="switchLang('vi')">
+            <span class="lang-flag">🇻🇳</span> Tiếng Việt
+          </div>
+        </div>
+      </div>
+
+      <button class="lg:hidden menu-btn p-1" onclick="mobToggle()">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mob-menu">
+    <div>
+      <div class="mob-parent" onclick="go('home');mobToggle()">
+        <span class="en">Home</span><span class="vi">Trang chủ</span>
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="mobSub(this)">
+        <span class="en">The Company</span><span class="vi">Công ty</span> <span>▼</span>
+      </div>
+      <div class="mob-children">
+        <div class="mob-child" onclick="go('who-we-are');mobToggle()"><span class="en">Who We Are</span><span class="vi">Về chúng tôi</span></div>
+        <div class="mob-child" onclick="go('our-values');mobToggle()"><span class="en">Our Values</span><span class="vi">Giá trị</span></div>
+        <div class="mob-child" onclick="go('our-team');mobToggle()"><span class="en">Our Team</span><span class="vi">Đội ngũ</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="mobSub(this)">
+        <span class="en">Services</span><span class="vi">Dịch vụ</span> <span>▼</span>
+      </div>
+      <div class="mob-children">
+        <div class="mob-child" onclick="go('communication-consultancy');mobToggle()"><span class="en">Communication Consultancy</span><span class="vi">Tư vấn truyền thông</span></div>
+        <div class="mob-child" onclick="go('business-representation');mobToggle()"><span class="en">Business Representation</span><span class="vi">Đại diện thương mại</span></div>
+        <div class="mob-child" onclick="go('career-orientation');mobToggle()"><span class="en">Career Orientation</span><span class="vi">Định hướng nghề nghiệp</span></div>
+        <div class="mob-child" onclick="go('skills-training');mobToggle()"><span class="en">Skills Training</span><span class="vi">Đào tạo kỹ năng</span></div>
+        <div class="mob-child" onclick="go('cross-cultural');mobToggle()"><span class="en">Cross-Cultural Comm & Editorial</span><span class="vi">Truyền thông đa văn hóa & Biên tập</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="go('csr-projects');mobToggle()">
+        <span class="en">CSR Projects</span><span class="vi">Dự án CSR</span>
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="mobSub(this)">
+        <span class="en">Partners</span><span class="vi">Đối tác</span> <span>▼</span>
+      </div>
+      <div class="mob-children">
+        <div class="mob-child" onclick="go('gpf');mobToggle()">GPF</div>
+        <!-- <div class="mob-child" onclick="go('hpdf');mobToggle()">HPDF</div>
+        <div class="mob-child" onclick="go('vpc');mobToggle()"><span class="en">Viet Nam Peace Committee</span><span class="vi">Uỷ ban Hoà bình VN</span></div> -->
+      </div>
+    </div>
+    <div>
+      <div class="mob-parent" onclick="go('contact');mobToggle()">
+        <span class="en">Contact</span><span class="vi">Liên hệ</span>
+      </div>
+    </div>
+    <!-- Mobile Lang Toggle -->
+    <div style="display:flex;gap:0;border-top:1px solid rgba(9,24,81,0.08);">
+      <div id="mob-opt-en" onclick="switchLang('en');mobToggle()" style="flex:1;padding:12px 20px;font-size:0.73rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;color:var(--red);background:rgba(210,35,42,0.05);border-right:1px solid rgba(9,24,81,0.08);">🇬🇧 EN</div>
+      <div id="mob-opt-vi" onclick="switchLang('vi');mobToggle()" style="flex:1;padding:12px 20px;font-size:0.73rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:8px;color:rgba(9,24,81,0.5);">🇻🇳 VN</div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HOME
+═══════════════════════════════════════ -->
+<div id="p-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div><div class="hero-grid"></div><div class="hero-glow"></div>
+    <div class="hero-content">
+      <h1>
+        <span class="en">Bridging global institutions with Southeast Asia's education landscape</span>
+        <span class="vi">Kết nối các tổ chức toàn cầu với bức tranh giáo dục Đông Nam Á</span>
+      </h1>
+      <p class="center-justified">
+        <span class="en">GFE is a communication and consulting company dedicated to the education industry. We support international institutions, organizations, and partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia: while also providing students with tailored guidance for their academic and career journeys.</span>
+        <span class="vi">GFE là công ty tư vấn và truyền thông chuyên biệt trong lĩnh vực giáo dục. Chúng tôi hỗ trợ các tổ chức, đối tác quốc tế tăng cường nhận diện, mở rộng sự hiện diện và kết nối đúng đối tượng tại Việt Nam và Đông Nam Á. Đồng thời, chúng tôi cung cấp định hướng chuyên sâu cho học sinh, sinh viên trên hành trình học thuật và nghề nghiệp.</span>
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <button class="btn-navy" onclick="go('who-we-are')">
+          <span class="en">Learn More</span><span class="vi">Tìm hiểu thêm</span>
+        </button>
+        <button class="btn-outline-white" onclick="go('contact')">
+          <span class="en">Contact Us</span><span class="vi">Liên hệ</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE ARE teaser -->
+  <section class="py-24 px-6" style="background:#fff;">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">
+          <span class="en">Who We Are</span><span class="vi">Về Chúng Tôi</span>
+        </h2>
+        <p style="font-size:1.2rem;font-weight:700;color:var(--red);font-style:italic;margin-bottom:1rem;text-align: justify">
+          <span class="en">A trusted partner in strategic communication and development for international education. A reliable guide for future talents and leaders. A contributor to community growth.</span>
+          <span class="vi">Đối tác đáng tin cậy trong truyền thông chiến lược và phát triển giáo dục quốc tế. Người dẫn đường tận tâm cho các tài năng tương lai. Nhân tố đóng góp cho sự phát triển cộng đồng.</span>
+        </p>
+        <button class="btn-navy" onclick="go('who-we-are')">
+          <span class="en">Discover GFE</span><span class="vi">Khám phá GFE</span>
+        </button>
+      </div>
+      <div class="fade-up" style="border-radius:12px;overflow:hidden;height:400px;box-shadow:0 20px 60px rgba(9,24,81,0.14);">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&q=80" alt="Education" style="width:100%;height:100%;object-fit:cover;"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES teaser -->
+  <section class="py-24 px-6" style="background:#f7f8fc;">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-10 fade-up">
+        <div class="section-divider mx-auto"></div>
+        <h2 class="section-title">
+          <span class="en">Our Services</span><span class="vi">Dịch Vụ Của Chúng Tôi</span>
+        </h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <div class="svc-card fade-up" onclick="go('communication-consultancy')" style="cursor:pointer;">
+          <div style="font-size:0.65rem;font-weight:700;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">FOR INSTITUTIONS</div>
+          <h3><span class="en">Communication Consultancy</span><span class="vi">Tư Vấn Truyền Thông</span></h3>
+          <span class="svc-tag">
+            <span class="en">Building visibility, fostering trust, and lasting relationships.</span>
+            <span class="vi">Xây dựng nhận diện, tạo dựng niềm tin và quan hệ bền vững.</span>
+          </span>
+          <p class="center-justified-left">
+            <span class="en">Institutions need clear positioning and genuine engagement with their local audiences to strengthen visibility, build trust and create sustainable long-term growth.</span>
+            <span class="vi">Các tổ chức cần định vị rõ ràng và gắn kết chân thực với khán giả địa phương để tăng cường nhận diện và tạo ra sự phát triển bền vững.</span>
+          </p>
+          <button class="btn-navy btn-navy-sm" style="align-self:flex-start;" onclick="event.stopPropagation();go('communication-consultancy')">
+            <span class="en">Learn More</span><span class="vi">Tìm Hiểu Thêm</span>
+          </button>
+        </div>
+
+        <div class="svc-card fade-up" onclick="go('business-representation')" style="cursor:pointer;">
+          <div style="font-size:0.65rem;font-weight:700;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">FOR INSTITUTIONS</div>
+          <h3><span class="en">Business Representation</span><span class="vi">Đại Diện Thương Mại</span></h3>
+          <span class="svc-tag">
+            <span class="en">Entering a new market requires a local presence.</span>
+            <span class="vi">Gia nhập thị trường mới cần sự hiện diện tại địa phương.</span>
+          </span>
+          <p class="center-justified-left">
+            <span class="en">Entering a new market depends on reliable local relationships, cultural understanding and the ability to navigate target publics with confidence.</span>
+            <span class="vi">Việc mở rộng phụ thuộc vào các mối quan hệ địa phương đáng tin cậy, hiểu biết văn hóa và khả năng điều hướng công chúng mục tiêu một cách tự tin.</span>
+          </p>
+          <button class="btn-navy btn-navy-sm" style="align-self:flex-start;" onclick="event.stopPropagation();go('business-representation')">
+            <span class="en">Learn More</span><span class="vi">Tìm Hiểu Thêm</span>
+          </button>
+        </div>
+
+        <div class="svc-card fade-up" onclick="go('career-orientation')" style="cursor:pointer;">
+          <div style="font-size:0.65rem;font-weight:700;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">FOR STUDENTS</div>
+          <h3><span class="en">Career Orientation</span><span class="vi">Định Hướng Nghề Nghiệp</span></h3>
+          <span class="svc-tag">
+            <span class="en">Students need clarity in an increasingly complex world.</span>
+            <span class="vi">Học sinh cần sự rõ ràng trong một thế giới ngày càng phức tạp.</span>
+          </span>
+          <p class="center-justified-left">
+            <span class="en">Choosing the right academic and career path requires guidance, insight into job market trends and alignment with each individual's strengths.</span>
+            <span class="vi">Chọn đúng con đường học vấn và sự nghiệp đòi hỏi sự định hướng và cái nhìn sâu sắc về thị trường lao động phù hợp với thế mạnh cá nhân.</span>
+          </p>
+          <button class="btn-navy btn-navy-sm" style="align-self:flex-start;" onclick="event.stopPropagation();go('career-orientation')">
+            <span class="en">Learn More</span><span class="vi">Tìm Hiểu Thêm</span>
+          </button>
+        </div>
+
+        <div class="svc-card fade-up" onclick="go('skills-training')" style="cursor:pointer;">
+          <div style="font-size:0.65rem;font-weight:700;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">FOR STUDENTS</div>
+          <h3><span class="en">Skills Training</span><span class="vi">Đào Tạo Kỹ Năng</span></h3>
+          <span class="svc-tag">
+            <span class="en">Preparing students for an evolving world of work.</span>
+            <span class="vi">Chuẩn bị cho học sinh trước một thế giới công việc đang thay đổi.</span>
+          </span>
+          <p class="center-justified-left">
+            <span class="en">We design professional skills training programmes that help students build capability, adaptability, and critical thinking.</span>
+            <span class="vi">Chúng tôi thiết kế các chương trình đào tạo kỹ năng chuyên nghiệp giúp học sinh xây dựng năng lực, khả năng thích ứng và tư duy phản biện.</span>
+          </p>
+          <button class="btn-navy btn-navy-sm" style="align-self:flex-start;" onclick="event.stopPropagation();go('skills-training')">
+            <span class="en">Learn More</span><span class="vi">Tìm Hiểu Thêm</span>
+          </button>
+        </div>
+
+        <!-- NEW SERVICE -->
+        <div class="svc-card fade-up md:col-span-2" onclick="go('cross-cultural')" style="cursor:pointer; border-left: 4px solid var(--red);">
+          <div style="font-size:0.65rem;font-weight:700;color:rgba(9,24,81,0.4);margin-bottom:0.8rem;">FOR INSTITUTIONS & PARTNERS</div>
+          <h3><span class="en">Cross-Cultural Communication & Editorial</span><span class="vi">Truyền Thông Đa Văn Hóa & Dịch Vụ Biên Tập</span></h3>
+          <span class="svc-tag">
+            <span class="en">Supporting multilingual communication, content development, and cross-cultural collaboration.</span>
+            <span class="vi">Hỗ trợ phiên dịch đa ngôn ngữ, phát triển nội dung và kết nối hợp tác trong môi trường quốc tế.</span>
+          </span>
+          <p class="center-justified-left">
+            <span class="en">GFE provides translation, interpretation, moderation, editorial, and publishing support across English, Vietnamese, and French for education, business, and project-based initiatives.</span>
+            <span class="vi">GFE cung cấp dịch vụ biên phiên dịch Anh–Việt, Pháp–Việt, điều phối thảo luận, hỗ trợ biên tập và xuất bản nội dung cho các hoạt động giáo dục, kinh doanh và dự án đa ngành.</span>
+          </p>
+          <button class="btn-navy btn-navy-sm" style="align-self:flex-start;" onclick="event.stopPropagation();go('cross-cultural')">
+            <span class="en">Learn More</span><span class="vi">Tìm Hiểu Thêm</span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CSR teaser -->
+  <section class="py-20 px-6" style="background:var(--navy);">
+    <div class="max-w-7xl mx-auto grid items-center gap-16" style="grid-template-columns:25% 75%;">
+      <div class="fade-up">
+        <div style="width:44px;height:3px;background:var(--red);border-radius:2px;margin-bottom:1.2rem;"></div>
+        <h2 style="font-weight:800;font-size:clamp(1.8rem,3.5vw,2.6rem);color:#fff;margin-bottom:1rem;">
+          <span class="en">Our CSR</span><span class="vi">Trách Nhiệm Xã Hội (CSR)</span>
+        </h2>
+        <p style="font-weight:700;color:var(--red);font-style:italic;font-size:0.9rem;margin-bottom:1rem;">
+          <span class="en">Extending our expertise to create inclusive access to opportunity</span>
+          <span class="vi">Mở rộng chuyên môn để tạo cơ hội tiếp cận công bằng cho mọi người</span>
+        </p>
+        <p style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.85;margin-bottom:2rem;" class="center-justified-left">
+          <span class="en">At GFE, our CSR initiatives are closely aligned with our work in education, career orientation, and skills development. We focus on supporting individuals who face barriers to accessing education and employment.</span>
+          <span class="vi">Tại GFE, các sáng kiến CSR gắn liền với chuyên môn giáo dục, định hướng nghề nghiệp và phát triển kỹ năng. Chúng tôi tập trung hỗ trợ những cá nhân gặp rào cản trong việc tiếp cận giáo dục và việc làm.</span>
+        </p>
+        <button class="btn-red" onclick="go('csr-projects')">
+          <span class="en">Learn More</span><span class="vi">Tìm Hiểu Thêm</span>
+        </button>
+      </div>
+      <!-- UPDATED CSR IMAGE -->
+      <div class="fade-up" style="border-radius:12px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+        <img src="images\OurGFE.jpg" alt="CSR Event" style="width:100%;height:auto;display:block;"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR TEAM teaser -->
+  <section class="py-24 px-6" style="background:#fff;">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-14 fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title"><span class="en">Our Team</span><span class="vi">Đội Ngũ Của Chúng Tôi</span></h2>
+        <p class="section-sub" style="margin-top:0.5rem;">
+          <span class="en">Our team combines expertise in education, communication, and market development.</span>
+          <span class="vi">Đội ngũ GFE kết hợp chuyên môn về giáo dục, truyền thông và phát triển thị trường.</span>
+        </p>
+      </div>
+
+      <!-- 3-member grid -->
+      <div class="grid md:grid-cols-3 gap-10 mb-12">
+
+        <!-- Member 1 — Ms. Hanh Nguyen -->
+        <div class="fade-up" style="text-align:center;">
+          <!-- Avatar circle with red backdrop -->
+          <div style="position:relative;width:200px;height:200px;margin:0 auto 1.5rem;border-radius:50%;background:var(--red);overflow:hidden;box-shadow:0 8px 30px rgba(210,35,42,0.25);">
+            <img src="avatar/MsHanh.jpg" alt="Ms. Hanh Nguyen"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"/>
+          </div>
+          <div style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;">Ms. Hanh Nguyen</div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.55);margin-bottom:1rem;">
+            <span class="en">Founder &amp; CEO</span><span class="vi">Nhà Sáng Lập &amp; Giám Đốc</span>
+          </div>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.58);line-height:1.8;text-align:justify;">
+            <span class="en">Multidisciplinary development professional with over 12 years of experience in project management, business development, and stakeholder engagement across Vietnam and international contexts.</span>
+            <span class="vi">Chuyên gia phát triển đa ngành với hơn 12 năm kinh nghiệm trong quản lý dự án, phát triển kinh doanh và gắn kết các bên liên quan tại Việt Nam và môi trường quốc tế.</span>
+          </p>
+        </div>
+
+        <!-- Member 2 — placeholder -->
+        <div class="fade-up" style="text-align:center;">
+          <div style="position:relative;width:200px;height:200px;margin:0 auto 1.5rem;border-radius:50%;background:rgba(9,24,81,0.08);overflow:hidden;box-shadow:0 8px 30px rgba(9,24,81,0.1);display:flex;align-items:center;justify-content:center;">
+            <img src="avatar/MsQuynhAnh.jpg" alt="Team Member"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"
+                 onerror="this.style.display='none';this.parentElement.querySelector('.placeholder-icon').style.display='flex'"/>
+            <div class="placeholder-icon" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:rgba(9,24,81,0.06);">
+              <svg style="width:64px;height:64px;fill:rgba(9,24,81,0.2);" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+          </div>
+          <div style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;">
+            <span class="en">Ms. Quynh Anh</span><span class="vi">Ms. Quynh Anh</span>
+          </div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.55);margin-bottom:1rem;">
+            <span class="en">Marketing Consultant</span><span class="vi">Marketing Consultant</span>
+          </div>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.58);line-height:1.8;text-align:justify;">
+            <span class="en">Communications, Translation, and Partnership professional with over 10 years of experience driving strategic communications, stakeholder engagement, and impactful multi-sector collaborations across international NGOs and the private sector.</span>
+            <span class="vi">Chuyên gia Truyền thông, Dịch thuật và Phát triển Đối tác với hơn 10 năm kinh nghiệm thúc đẩy truyền thông chiến lược, gắn kết các bên liên quan và hợp tác đa phương hiệu quả tại các tổ chức phi chính phủ quốc tế và khối tư nhân.</span>
+          </p>
+        </div>
+
+        <!-- Member 3 — placeholder -->
+        <div class="fade-up" style="text-align:center;">
+          <div style="position:relative;width:200px;height:200px;margin:0 auto 1.5rem;border-radius:50%;background:rgba(9,24,81,0.08);overflow:hidden;box-shadow:0 8px 30px rgba(9,24,81,0.1);display:flex;align-items:center;justify-content:center;">
+            <img src="avatar/KhangLe_circle.png" alt="Team Member"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"
+                 onerror="this.style.display='none';this.parentElement.querySelector('.placeholder-icon').style.display='flex'"/>
+            <div class="placeholder-icon" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:rgba(9,24,81,0.06);">
+              <svg style="width:64px;height:64px;fill:rgba(9,24,81,0.2);" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+          </div>
+          <div style="font-size:1rem;font-weight:700;color:var(--red);margin-bottom:4px;">
+            <span class="en">Mr. Khang Le</span><span class="vi">Mr. Khang Lê</span>
+          </div>
+          <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.55);margin-bottom:1rem;">
+            <span class="en">AI Management Consultant</span><span class="vi">AI Management Consultant</span>
+          </div>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.58);line-height:1.8;text-align:justify;">
+           <span class="en">IT specialist combining deep technical expertise in enterprise systems, machine learning, and cybersecurity with practical problem-solving to help organizations enhance decision-making and operational efficiency.</span>
+           <span class="vi">Chuyên gia CNTT kết hợp chuyên môn sâu rộng về hệ thống doanh nghiệp, học máy và an ninh mạng với tư duy giải quyết vấn đề thực tế, giúp các tổ chức nâng cao hiệu quả vận hành và năng lực ra quyết định.</span>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="fade-up">
+        <button class="btn-outline-red" onclick="go('our-team')">
+          <span class="en">Meet the Team</span><span class="vi">Xem Đội Ngũ</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners strip -->
+  <section style="background:#f7f8fc;padding:60px 24px;border-top:1px solid rgba(9,24,81,0.06);">
+    <div class="max-w-7xl mx-auto text-center fade-up">
+      <h2 class="section-title"><span class="en">Our Partners</span><span class="vi">Đối Tác Của Chúng Tôi</span></h2>
+      <div class="flex flex-wrap items-center justify-center gap-12 mt-8">
+        <div style="cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" onclick="go('gpf')">
+          <img src="partner/Logo_GPF.png" alt="GPF International Network" style="height:52px;width:auto;object-fit:contain;"/>
+        </div>
+        <div style="cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" onclick="go('hpdf')">
+          <img src="partner/Logo_HPDF.png" alt="HPDF: Ho Chi Minh City" style="height:52px;width:auto;object-fit:contain;"/>
+        </div>
+        <div style="cursor:pointer;opacity:0.7;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'" onclick="go('vpc')">
+          <img src="partner/Logo_VPC.png" alt="Viet Nam Peace Committee" style="height:52px;width:auto;object-fit:contain;"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section style="background:var(--red);padding:80px 24px;text-align:center;">
+    <div class="max-w-2xl mx-auto fade-up">
+      <h2 style="font-weight:800;font-size:clamp(1.6rem,3vw,2.4rem);color:#fff;margin-bottom:1rem;">
+        <span class="en">Let's build your presence in Southeast Asia</span>
+        <span class="vi">Cùng xây dựng sự hiện diện của bạn tại Đông Nam Á</span>
+      </h2>
+      <button class="btn-navy mt-4" onclick="go('contact')">
+        <span class="en">Contact Us</span><span class="vi">Liên Hệ Ngay</span>
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     WHO WE ARE
+═══════════════════════════════════════ -->
+<div id="p-who-we-are" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div>
+    <div class="ihc max-w-7xl mx-auto px-6">
+      <div class="breadcrumb"><span class="en">Home › The Company › <span>Who We Are</span></span><span class="vi">Trang chủ › Công ty › <span>Về Chúng Tôi</span></span></div>
+      <h1><span class="en">Who We Are</span><span class="vi">Về Chúng Tôi</span></h1>
+    </div>
+  </div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">GFE Company Limited</h2>
+        <p class="section-sub mb-5 center-justified-left">
+          <span class="en">GFE is a communication and consulting company dedicated to the education industry. We support international education partners in strengthening their visibility, expanding their presence, and connecting with the right audiences across Vietnam and Southeast Asia.</span>
+          <span class="vi">GFE là công ty tư vấn và truyền thông chuyên biệt cho ngành giáo dục. Chúng tôi hỗ trợ các đối tác giáo dục quốc tế tăng cường nhận diện, mở rộng sự hiện diện và kết nối với đúng đối tượng mục tiêu trên toàn Việt Nam và Đông Nam Á.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     OUR VALUES
+═══════════════════════════════════════ -->
+<div id="p-our-values" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div>
+    <div class="ihc max-w-7xl mx-auto px-6">
+      <div class="breadcrumb"><span class="en">Home › The Company › <span>Our Values</span></span><span class="vi">Trang chủ › Công ty › <span>Giá Trị</span></span></div>
+      <h1><span class="en">Our Values</span><span class="vi">Giá Trị Cốt Lõi</span></h1>
+    </div>
+  </div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="card-white fade-up">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;"><span class="en">Globalised Standards</span><span class="vi">Tiêu Chuẩn Toàn Cầu</span></h3>
+      </div>
+      <div class="card-white fade-up">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;"><span class="en">Fairness</span><span class="vi">Công Bằng</span></h3>
+      </div>
+      <div class="card-white fade-up">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;"><span class="en">Ethical Integrity</span><span class="vi">Đạo Đức Chuẩn Mực</span></h3>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     OUR TEAM
+═══════════════════════════════════════ -->
+<div id="p-our-team" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div>
+    <div class="ihc max-w-7xl mx-auto px-6">
+      <div class="breadcrumb"><span class="en">Home › The Company › <span>Our Team</span></span><span class="vi">Trang chủ › Công ty › <span>Đội Ngũ</span></span></div>
+      <h1><span class="en">Our Team</span><span class="vi">Đội Ngũ</span></h1>
+      <p>
+        <span class="en">Expertise in education, communication, and market development across Southeast Asia.</span>
+        <span class="vi">Chuyên môn về giáo dục, truyền thông và phát triển thị trường tại Đông Nam Á.</span>
+      </p>
+    </div>
+  </div>
+
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- 3-member grid -->
+      <div class="grid md:grid-cols-3 gap-12">
+
+        <!-- ── Member 1: Ms. Hanh Nguyen ── -->
+        <div class="fade-up">
+          <!-- Avatar -->
+          <div style="width:200px;height:200px;margin:0 auto 1.8rem;border-radius:50%;background:var(--red);overflow:hidden;box-shadow:0 12px 40px rgba(210,35,42,0.25);">
+            <img src="avatar/MsHanh.jpg" alt="Ms. Hanh Nguyen"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"/>
+          </div>
+          <!-- Name & role -->
+          <div style="text-align:left;">
+            <div style="font-size:1.05rem;font-weight:700;color:var(--red);margin-bottom:5px;">Ms. Hanh Nguyen</div>
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.5);margin-bottom:1.2rem;">
+              <span class="en">Founder &amp; CEO</span><span class="vi">Nhà Sáng Lập &amp; Giám Đốc</span>
+            </div>
+            <p style="font-size:0.83rem;color:rgba(9,24,81,0.58);line-height:1.85;margin-bottom:0.9rem;">
+              <span class="en">Ms. Hanh Nguyen is a multidisciplinary development professional with over 12 years of experience in project management, business development, and stakeholder engagement across Vietnam and international contexts.</span>
+              <span class="vi">Bà Hạnh Nguyễn là chuyên gia phát triển đa ngành với hơn 12 năm kinh nghiệm trong quản lý dự án, phát triển kinh doanh và gắn kết các bên liên quan tại Việt Nam và môi trường quốc tế.</span>
+            </p>
+            <p style="font-size:0.83rem;color:rgba(9,24,81,0.58);line-height:1.85;margin-bottom:0.9rem;">
+              <span class="en">She has worked extensively with public institutions, universities, and international organizations, supporting market entry, partnership development, and strategic initiatives across Southeast Asia, including managerial roles at the French Chamber of Commerce and Industry in Vietnam and the Enterprise Europe Network.</span>
+              <span class="vi">Bà đã làm việc rộng rãi với các tổ chức công, trường đại học và tổ chức quốc tế, hỗ trợ thâm nhập thị trường, phát triển quan hệ đối tác và các sáng kiến chiến lược tại Đông Nam Á, bao gồm các vai trò quản lý tại Phòng Thương mại và Công nghiệp Pháp tại Việt Nam và Enterprise Europe Network.</span>
+            </p>
+            <p style="font-size:0.83rem;color:rgba(9,24,81,0.58);line-height:1.85;">
+              <span class="en">Alongside her professional work, she is actively engaged in education and social development, serving as a lecturer at RMIT University Vietnam.</span>
+              <span class="vi">Bên cạnh công việc chuyên môn, bà tích cực tham gia vào lĩnh vực giáo dục và phát triển xã hội, giảng dạy tại Đại học RMIT Việt Nam.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- ── Member 2: placeholder ── -->
+        <div class="fade-up">
+          <div style="width:200px;height:200px;margin:0 auto 1.8rem;border-radius:50%;background:rgba(9,24,81,0.07);overflow:hidden;box-shadow:0 12px 40px rgba(9,24,81,0.08);display:flex;align-items:center;justify-content:center;">
+            <img src="avatar/MsQuynhAnh.jpg" alt="Team Member"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
+              <svg style="width:72px;height:72px;fill:rgba(9,24,81,0.18);" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+          </div>
+          <div style="text-align:left;">
+            <div style="font-size:1.05rem;font-weight:700;color:var(--red);margin-bottom:5px;">
+              <span class="en">Ms. Quynh Anh</span><span class="vi">Ms. Quynh Anh</span>
+            </div>
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.5);margin-bottom:1.2rem;">
+              <span class="en">MARKETING CONSULTANT/span><span class="vi">MARKETING CONSULTANT</span>
+            </div>
+            <p style="font-size:0.83rem;color:rgba(9,24,81,0.58);line-height:1.85;">
+              <span class="en">Communications, Translation and Partnership professional with over 10 years of experience across international NGOs and the private sector. Specialized in strategic communications, stakeholder engagement, donor relations, cross-cultural communication, and the localization of global knowledge products. Proven track record of building effective partnerships and facilitating collaboration among international organizations, government agencies, businesses, media, and local communities. Adept at translating complex technical information into clear, engaging communication that supports advocacy, education, conservation, child protection, and sustainable development initiatives. Recognized for delivering high-quality communication strategies, fostering trusted stakeholder relationships, and driving meaningful social impact.</span>
+              <span class="vi">Với hơn 10 năm kinh nghiệm trong lĩnh vực truyền thông chiến lược, phát triển quan hệ đối tác và giao tiếp liên văn hóa, Quỳnh Anh Nguyễn đã đồng hành cùng các tổ chức phi chính phủ quốc tế, doanh nghiệp và các đối tác phát triển trong việc xây dựng chiến lược truyền thông, kết nối các bên liên quan và thúc đẩy hợp tác đa ngành. Chuyên môn bao gồm phát triển quan hệ đối tác, quan hệ với nhà tài trợ, biên phiên dịch Anh – Việt và chuyển ngữ các sản phẩm tri thức toàn cầu. Thông qua việc chuyển hóa những nội dung chuyên môn thành các sản phẩm truyền thông dễ tiếp cận và có sức lan tỏa, Quỳnh Anh góp phần thúc đẩy các sáng kiến về giáo dục, bảo vệ trẻ em, bảo tồn thiên nhiên và phát triển bền vững, với định hướng tạo dựng những kết nối có ý nghĩa và giá trị lâu dài cho cộng đồng.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- ── Member 3: placeholder ── -->
+        <div class="fade-up">
+          <div style="width:200px;height:200px;margin:0 auto 1.8rem;border-radius:50%;background:rgba(9,24,81,0.07);overflow:hidden;box-shadow:0 12px 40px rgba(9,24,81,0.08);display:flex;align-items:center;justify-content:center;">
+            <img src="avatar/member3.jpg" alt="Team Member"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+            <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;">
+              <svg style="width:72px;height:72px;fill:rgba(9,24,81,0.18);" viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+          </div>
+          <div style="text-align:left;">
+            <div style="font-size:1.05rem;font-weight:700;color:var(--red);margin-bottom:5px;">
+              <span class="en">Mr. Khang Le</span><span class="vi">Mr. Khang Le</span>
+            </div>
+            <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(9,24,81,0.5);margin-bottom:1.2rem;">
+              <span class="en">AI MANAGEMENT CONSULTANT</span><span class="vi">AI MANAGEMENT CONSULTANT</span>
+            </div>
+            <p style="font-size:0.83rem;color:rgba(9,24,81,0.58);line-height:1.85;">
+              <span class="en">Network Engineering and Information Technology professional with extensive experience across enterprise infrastructure, systems administration, and cybersecurity. Specialized in network architecture management, data systems optimization, AI-driven applications, and cyber resilience. Proven track record of designing secure, scalable IT ecosystems and resolving complex technical challenges to drive operational efficiency and informed decision-making within diverse corporate environments. Recognized as a Google for Education Certified Educator, Khang is adept at translating robust engineering practices and technical know-how into accessible digital transformation strategies. He is deeply committed to ethical AI integration, robust data privacy, and empowering organizations and educational communities to adopt innovative technologies securely and sustainably.</span>
+              <span class="vi">Với nhiều năm kinh nghiệm trong lĩnh vực hạ tầng công nghệ thông tin, quản trị mạng và bảo mật hệ thống, Khang Lê đã đồng hành cùng các doanh nghiệp, tổ chức và cộng đồng giáo dục trong việc thiết lập, tối ưu hóa và vận hành các giải pháp công nghệ an toàn, tin cậy. Chuyên môn của anh bao gồm quản trị kiến trúc mạng doanh nghiệp, quản lý dữ liệu, triển khai các giải pháp dựa trên trí tuệ nhân tạo và nâng cao năng lực an ninh mạng. Thông qua việc biến các bài toán kỹ thuật phức tạp thành các hệ thống vận hành trơn tru và hiệu quả, anh Khang góp phần thúc đẩy chuyển đổi số đổi mới, bảo vệ tài nguyên thông tin quan trọng và tối ưu hóa quy trình ra quyết định. Là một Nhà giáo dục, anh luôn tận tâm chia sẻ tri thức kỹ thuật, hỗ trợ cộng đồng ứng dụng công nghệ một cách chuẩn mực, an toàn và có trách nhiệm nhằm mang lại những giá trị phát triển bền vững cho tổ chức.</span>
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /grid -->
+
+      <!-- Team note -->
+      <div class="fade-up" style="margin-top:4rem;padding:2rem;background:#f7f8fc;border-radius:8px;border-left:4px solid var(--red);">
+        <p style="font-size:0.88rem;color:rgba(9,24,81,0.6);line-height:1.85;font-style:italic;">
+          <span class="en">"At GFE, we believe opportunity should be accessible to all. We are committed to working in an inclusive, respectful, and fair environment where individuals are valued for their talent, integrity, and potential."</span>
+          <span class="vi">"Tại GFE, chúng tôi tin rằng cơ hội nên được tiếp cận bình đẳng cho tất cả mọi người. Chúng tôi cam kết xây dựng môi trường làm việc bao trùm, tôn trọng và công bằng, nơi mỗi cá nhân được đánh giá qua tài năng, sự chính trực và tiềm năng của họ."</span>
+        </p>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════
+     COMMUNICATION CONSULTANCY
+═══════════════════════════════════════ -->
+<div id="p-communication-consultancy" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb">Home › Services › <span>Communication Consultancy</span></div>
+    <h1>Communication Consultancy</h1>
+    <p>Strategic communication to strengthen positioning and engagement in Southeast Asia.</p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Our Approach</h2>
+        <p class="section-sub mb-5">We design and deliver strategic communication and marketing solutions tailored to the education sector. Our approach focuses on defining clear positioning, building consistent messaging, and enabling meaningful engagement with local audiences across Vietnam and Southeast Asia.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">This includes brand positioning, PR strategy, content development, digital campaigns, and event activation, all aligned with institutional objectives and market context.</p>
+        <div style="margin-bottom:2rem;">
+          <h3 style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Who We Work With</h3>
+          <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);line-height:1.8;">International universities, higher education institutions, and education organizations seeking to strengthen their brand presence and engage effectively with target audiences in Southeast Asia.</p>
+        </div>
+        <button class="btn-navy" onclick="go('contact')">Request a Consultation</button>
+      </div>
+      <div class="fade-up">
+        <div style="background:#f7f8fc;border-radius:8px;padding:2rem;margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">Services Include</div>
+          <div class="check-item"><span class="dot"></span><span>Brand positioning &amp; identity in local markets</span></div>
+          <div class="check-item"><span class="dot"></span><span>PR strategy &amp; media relations</span></div>
+          <div class="check-item"><span class="dot"></span><span>Content development &amp; storytelling</span></div>
+          <div class="check-item"><span class="dot"></span><span>Digital campaigns &amp; social media management</span></div>
+          <div class="check-item"><span class="dot"></span><span>Event activation &amp; education fairs</span></div>
+          <div class="check-item"><span class="dot"></span><span>Student recruitment communication</span></div>
+        </div>
+        <div style="background:var(--navy);border-radius:8px;padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">The Impact</div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Stronger brand visibility and credibility in local markets</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Clear and consistent communication aligned with the right audiences</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Increased student engagement and recruitment opportunities</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>More differentiated positioning in a competitive education landscape</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BUSINESS REPRESENTATION
+═══════════════════════════════════════ -->
+<div id="p-business-representation" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb">Home › Services › <span>Business Representation</span></div>
+    <h1>Business Representation</h1>
+    <p>Bringing institutions closer to the market through local presence and partnerships.</p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Our Approach</h2>
+        <p class="section-sub mb-5">We act as a local representative for international institutions, supporting market entry and development in Vietnam and Southeast Asia. Our work focuses on building partnerships, engaging key stakeholders, and coordinating on-the-ground activities to ensure effective and sustainable market presence.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">We facilitate connections with schools, agents, institutions, and relevant partners across the education ecosystem, bridging the gap between global institutions and local markets.</p>
+        <div style="margin-bottom:2rem;">
+          <h3 style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Who We Work With</h3>
+          <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);line-height:1.8;">International institutions and organizations looking to establish or expand their presence in Southeast Asia without immediate local infrastructure.</p>
+        </div>
+        <button class="btn-navy" onclick="go('contact')">Request a Consultation</button>
+      </div>
+      <div class="fade-up">
+        <div style="background:#f7f8fc;border-radius:8px;padding:2rem;margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">Services Include</div>
+          <div class="check-item"><span class="dot"></span><span>Local market representation &amp; liaison</span></div>
+          <div class="check-item"><span class="dot"></span><span>Partnership development with schools &amp; agents</span></div>
+          <div class="check-item"><span class="dot"></span><span>Stakeholder engagement &amp; relationship management</span></div>
+          <div class="check-item"><span class="dot"></span><span>On-the-ground coordination &amp; logistics</span></div>
+          <div class="check-item"><span class="dot"></span><span>Market entry strategy &amp; implementation</span></div>
+          <div class="check-item"><span class="dot"></span><span>Reporting &amp; institutional account management</span></div>
+        </div>
+        <div style="background:var(--navy);border-radius:8px;padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">The Impact</div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Faster and more structured market entry</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Access to trusted local networks and partners</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Stronger institutional visibility and credibility on the ground</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>More efficient use of time and resources through local expertise</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CAREER ORIENTATION
+═══════════════════════════════════════ -->
+<div id="p-career-orientation" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb">Home › Services › <span>Career Orientation</span></div>
+    <h1>Career Orientation</h1>
+    <p>Enabling clearer pathways from education to career.</p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">Our Approach</h2>
+        <p class="section-sub mb-5">We provide personalized guidance to support students in defining their academic pathways and career directions. Our approach combines individual counselling, programme matching, and insights into international education and evolving workforce trends.</p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">We help students make decisions that are both informed and aligned with their long-term goals: bridging the gap between where they are today and where they aspire to be.</p>
+        <div style="margin-bottom:2rem;">
+          <h3 style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Who We Work With</h3>
+          <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);line-height:1.8;">Pupils, students, and parents seeking a clearer understanding of academic options, career pathways, and the skills required to succeed in international and regional contexts, particularly in Vietnam and Southeast Asia.</p>
+        </div>
+        <button class="btn-navy" onclick="go('contact')">Get in Touch</button>
+      </div>
+      <div class="fade-up">
+        <div style="background:#f7f8fc;border-radius:8px;padding:2rem;margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">Services Include</div>
+          <div class="check-item"><span class="dot"></span><span>Individual academic &amp; career counselling</span></div>
+          <div class="check-item"><span class="dot"></span><span>Programme matching &amp; university selection</span></div>
+          <div class="check-item"><span class="dot"></span><span>Job market insights &amp; workforce trend analysis</span></div>
+          <div class="check-item"><span class="dot"></span><span>Strengths &amp; interest assessment</span></div>
+          <div class="check-item"><span class="dot"></span><span>International education pathway guidance</span></div>
+        </div>
+        <div style="background:var(--navy);border-radius:8px;padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">The Impact</div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>A clearer understanding of suitable academic and career pathways</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Stronger alignment between individual profiles, interests, and programmes</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Increased confidence in decision-making</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Better access to relevant international education opportunities</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SKILLS TRAINING
+═══════════════════════════════════════ -->
+<div id="p-skills-training" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb">Home › Services › <span>Skills Training</span></div>
+    <h1>Skills Training</h1>
+    <p>Preparing students with the skills needed for an evolving world of work.</p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-start mb-16">
+        <div class="fade-up">
+          <div class="section-divider"></div>
+          <h2 class="section-title">Our Approach</h2>
+          <p class="section-sub mb-5">GFE develops professional skills training programmes designed to complement academic education and prepare students for future academic and career pathways.</p>
+          <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">We place particular emphasis on critical thinking at the lower and upper secondary levels, helping students build the foundation to question, assess information, and make informed choices early in their development.</p>
+          <div style="margin-bottom:2rem;">
+            <h3 style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.8rem;text-transform:uppercase;letter-spacing:0.08em;">Who We Work With</h3>
+            <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);line-height:1.8;">Secondary school students, high school students, university students, and education institutions seeking to better prepare learners for the demands of future study and work.</p>
+          </div>
+          <button class="btn-navy" onclick="go('contact')">Get in Touch</button>
+        </div>
+        <div class="fade-up">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">Core Capabilities We Build</div>
+          <div class="grid grid-cols-2 gap-4">
+            <div style="background:#f7f8fc;border-radius:8px;padding:1.2rem;border-left:3px solid var(--red);">
+              <div style="font-weight:700;font-size:0.82rem;color:var(--navy);margin-bottom:4px;">Capability</div>
+              <div style="font-size:0.78rem;color:rgba(9,24,81,0.55);">Developing relevant skills for study and work</div>
+            </div>
+            <div style="background:#f7f8fc;border-radius:8px;padding:1.2rem;border-left:3px solid var(--navy);">
+              <div style="font-weight:700;font-size:0.82rem;color:var(--navy);margin-bottom:4px;">Adaptability</div>
+              <div style="font-size:0.78rem;color:rgba(9,24,81,0.55);">Responding effectively to changing environments</div>
+            </div>
+            <div style="background:#f7f8fc;border-radius:8px;padding:1.2rem;border-left:3px solid var(--red);">
+              <div style="font-weight:700;font-size:0.82rem;color:var(--navy);margin-bottom:4px;">Critical Thinking</div>
+              <div style="font-size:0.78rem;color:rgba(9,24,81,0.55);">Analysing, evaluating, and making informed decisions</div>
+            </div>
+            <div style="background:#f7f8fc;border-radius:8px;padding:1.2rem;border-left:3px solid var(--navy);">
+              <div style="font-weight:700;font-size:0.82rem;color:var(--navy);margin-bottom:4px;">Problem Solving</div>
+              <div style="font-size:0.78rem;color:rgba(9,24,81,0.55);">Translating ideas into practical solutions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learning Pathway -->
+      <div class="fade-up" style="background:#f7f8fc;border-radius:12px;padding:2.5rem;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">Learning Pathway</div>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);margin-bottom:2rem;line-height:1.8;">Our model follows a progressive development pathway designed to meet students at each stage of their journey:</p>
+        <div style="display:flex;flex-direction:column;gap:2rem;">
+          <div class="path-step">
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px;">Education · Grades 8 to 10</div>
+            <div style="font-weight:700;font-size:0.9rem;color:var(--navy);margin-bottom:4px;">Building Foundations</div>
+            <div style="font-size:0.83rem;color:rgba(9,24,81,0.55);line-height:1.7;">Foundational skills, learning habits, self-awareness, and critical thinking.</div>
+          </div>
+          <div class="path-step">
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px;">Experience · Grades 11 to 12</div>
+            <div style="font-weight:700;font-size:0.9rem;color:var(--navy);margin-bottom:4px;">Applying Knowledge</div>
+            <div style="font-size:0.83rem;color:rgba(9,24,81,0.55);line-height:1.7;">Applying knowledge through guided practice, projects, and preparation for higher education.</div>
+          </div>
+          <div class="path-step">
+            <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:4px;">Exposure · Grade 12 &amp; Above</div>
+            <div style="font-weight:700;font-size:0.9rem;color:var(--navy);margin-bottom:4px;">Expanding Perspectives</div>
+            <div style="font-size:0.83rem;color:rgba(9,24,81,0.55);line-height:1.7;">Career orientation, real-world insights, and engagement with opportunities.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact -->
+      <div class="fade-up" style="background:var(--navy);border-radius:12px;padding:2.5rem;margin-top:2rem;">
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">The Impact</div>
+        <div class="grid md:grid-cols-2 gap-3">
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Stronger readiness for higher education and future careers</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Improved critical thinking and independent decision-making</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>Greater adaptability in uncertain and changing environments</span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span style="width:7px;height:7px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px;display:block;"></span><span>More confident and capable young individuals prepared for long-term success</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer><p class="center-justified">© 2026 - GFE COMPANY LIMITED - All rights reserved.</p><div style="display:flex;justify-content:center;gap:16px;margin-top:4px;"><a href="#">Legal Notice</a><span style="color:rgba(255,255,255,0.1)">|</span><a href="#">Privacy Policy</a></div></footer>
+</div>
+
+<!-- NEW SERVICE: CROSS-CULTURAL COMMUNICATION -->
+<div id="p-cross-cultural" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb">
+      <span class="en">Home › Services › <span>Cross-Cultural Communication & Editorial</span></span>
+      <span class="vi">Trang chủ › Dịch vụ › <span>Truyền thông đa văn hóa & Biên tập</span></span>
+    </div>
+    <h1>
+      <span class="en">Cross-Cultural Communication & Editorial Support</span>
+      <span class="vi">Truyền Thông Đa Văn Hóa & Hỗ Trợ Biên Tập</span>
+    </h1>
+    <p>
+      <span class="en">Supporting multilingual communication, facilitation, and content refinement in international contexts.</span>
+      <span class="vi">Hỗ trợ giao tiếp đa ngôn ngữ, điều phối trao đổi và hoàn thiện nội dung trong môi trường quốc tế.</span>
+    </p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title"><span class="en">Our Approach</span><span class="vi">Cách Tiếp Cận</span></h2>
+        <p class="section-sub mb-4">
+          <span class="en">GFE provides translation, interpretation, facilitation, moderation, and editorial support for education, business, and multi-industry project settings.</span>
+          <span class="vi">GFE cung cấp dịch vụ biên phiên dịch, điều phối giao tiếp, dẫn dắt thảo luận và hỗ trợ biên tập nội dung cho các hoạt động giáo dục, kinh doanh và dự án đa ngành.</span>
+        </p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">
+          <span class="en">We go beyond language transfer. GFE helps stakeholders communicate clearly, understand context, and navigate cultural nuances in multilingual environments. In meetings, negotiations, events, and project-based collaboration, we support clear communication and effective engagement among different parties.</span>
+          <span class="vi">Chúng tôi không chỉ chuyển ngữ, mà còn hỗ trợ các bên hiểu đúng bối cảnh, sắc thái văn hóa và mục tiêu trao đổi. Trong các cuộc họp, đàm phán, sự kiện hoặc dự án có nhiều bên tham gia, GFE giúp thông tin được truyền đạt rõ ràng, mạch lạc và phù hợp với từng nhóm đối tượng.</span>
+        </p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1.5rem;">
+          <span class="en">For content-related projects, GFE supports the refinement of written materials to ensure clarity, consistency, professionalism, and alignment with the intended audience.</span>
+          <span class="vi">Với các dự án nội dung, GFE hỗ trợ rà soát, biên tập và hoàn thiện tài liệu để đảm bảo sự rõ ràng, nhất quán, chuyên nghiệp và phù hợp với người đọc mục tiêu.</span>
+        </p>
+        <div style="margin-bottom:2rem;">
+          <h3 style="font-size:0.85rem;font-weight:700;color:var(--navy);margin-bottom:0.6rem;text-transform:uppercase;letter-spacing:0.08em;">
+            <span class="en">Who We Work With</span><span class="vi">Dịch Vụ Này Dành Cho</span>
+          </h3>
+          <p style="font-size:0.85rem;color:rgba(9,24,81,0.55);line-height:1.8;">
+            <span class="en">Education institutions, businesses, international organizations, development projects, research teams, content teams, and event organizers seeking professional multilingual and cross-cultural communication support.</span>
+            <span class="vi">Các tổ chức giáo dục, doanh nghiệp, tổ chức quốc tế, dự án phát triển, nhóm nghiên cứu, đội ngũ nội dung và đơn vị tổ chức sự kiện cần hỗ trợ giao tiếp chuyên nghiệp bằng tiếng Anh, tiếng Việt và tiếng Pháp.</span>
+          </p>
+        </div>
+        <button class="btn-navy" onclick="go('contact')">
+          <span class="en">Discuss Your Communication Needs</span><span class="vi">Trao Đổi Với GFE</span>
+        </button>
+      </div>
+      <div class="fade-up">
+        <div style="background:#f7f8fc;border-radius:8px;padding:2rem;margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">
+            <span class="en">Services Include</span><span class="vi">Dịch Vụ Bao Gồm</span>
+          </div>
+          <div class="check-item"><span class="dot"></span><span>
+            <span class="en"><strong>Translation and interpretation</strong> — English–Vietnamese, French–Vietnamese, and vice versa for documents, meetings, events, and project-based work.</span>
+            <span class="vi"><strong>Biên phiên dịch đa ngôn ngữ</strong> — Anh–Việt, Pháp–Việt và ngược lại cho tài liệu, cuộc họp, hội thảo, sự kiện và dự án.</span>
+          </span></div>
+          <div class="check-item"><span class="dot"></span><span>
+            <span class="en"><strong>Business negotiation and project meeting support</strong> — Interpretation and communication support for business discussions, partnership meetings, negotiations, and stakeholder engagement.</span>
+            <span class="vi"><strong>Hỗ trợ đàm phán kinh doanh & họp dự án</strong> — Hỗ trợ phiên dịch và điều phối giao tiếp trong các cuộc họp kinh doanh, thương thảo hợp tác, làm việc với đối tác và các bên liên quan.</span>
+          </span></div>
+          <div class="check-item"><span class="dot"></span><span>
+            <span class="en"><strong>MC, moderation, and facilitation</strong> — Support for conferences, panel discussions, workshops, roundtables, and thematic events.</span>
+            <span class="vi"><strong>MC, dẫn dắt và điều phối</strong> — Dẫn chương trình, điều phối tọa đàm, hội thảo, workshop và các phiên thảo luận chuyên đề.</span>
+          </span></div>
+          <div class="check-item"><span class="dot"></span><span>
+            <span class="en"><strong>Editorial support and content refinement</strong> — Reviewing, editing, and improving bilingual or multilingual content, including profiles, reports, communication materials, articles, proposals, and project documents.</span>
+            <span class="vi"><strong>Hỗ trợ biên tập & hoàn thiện nội dung</strong> — Rà soát, biên tập và cải thiện nội dung song ngữ hoặc đa ngôn ngữ, bao gồm hồ sơ, báo cáo, tài liệu truyền thông, bài viết, đề xuất hợp tác và tài liệu dự án.</span>
+          </span></div>
+          <div class="check-item"><span class="dot"></span><span>
+            <span class="en"><strong>Cross-cultural communication support</strong> — Helping stakeholders work more effectively across languages, cultures, and communication styles.</span>
+            <span class="vi"><strong>Hỗ trợ giao tiếp đa văn hóa</strong> — Giúp các bên làm việc hiệu quả hơn trong môi trường quốc tế, nơi khác biệt về ngôn ngữ, văn hóa và cách diễn đạt có thể ảnh hưởng đến kết quả hợp tác.</span>
+          </span></div>
+        </div>
+        <div style="background:var(--navy);border-radius:8px;padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">
+            <span class="en">The Impact</span><span class="vi">Giá Trị Mang Lại</span>
+          </div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Clearer communication across languages and cultures</span><span class="vi">Giao tiếp rõ ràng hơn giữa các bên</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">More effective meetings, negotiations, events, and stakeholder discussions</span><span class="vi">Cuộc họp, đàm phán, sự kiện và thảo luận với đối tác được điều phối hiệu quả hơn</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Reduced misunderstanding in multilingual and multicultural settings</span><span class="vi">Hạn chế hiểu nhầm trong bối cảnh đa ngôn ngữ, đa văn hóa</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">More polished, consistent, and audience-appropriate content</span><span class="vi">Nội dung được hoàn thiện chuyên nghiệp, nhất quán và phù hợp với người đọc</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Stronger connections between organizations, partners, and international communities</span><span class="vi">Tăng chất lượng kết nối giữa tổ chức, đối tác và cộng đồng quốc tế</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CSR PROJECTS
+═══════════════════════════════════════ -->
+<div id="p-csr-projects" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb"><span class="en">Home › <span>CSR Projects</span></span><span class="vi">Trang chủ › <span>Dự Án CSR</span></span></div>
+    <h1><span class="en">CSR Projects</span><span class="vi">Dự Án CSR</span></h1>
+    <p>
+      <span class="en">Applying our education and career expertise to support inclusive development across communities in Vietnam.</span>
+      <span class="vi">Ứng dụng chuyên môn về giáo dục và định hướng nghề nghiệp để hỗ trợ phát triển bao trùm cho các cộng đồng tại Việt Nam.</span>
+    </p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-16 items-start mb-16">
+        <div class="fade-up">
+          <div class="section-divider"></div>
+          <h2 class="section-title">
+            <span class="en">Our Approach</span><span class="vi">Cách Tiếp Cận</span>
+          </h2>
+          <p class="section-sub mb-4">
+            <span class="en">GFE's CSR initiatives are designed as an extension of our core expertise in education, career orientation, and skills development.</span>
+            <span class="vi">Các sáng kiến CSR của GFE được thiết kế như sự mở rộng từ chuyên môn cốt lõi của chúng tôi về giáo dục, định hướng nghề nghiệp và phát triển kỹ năng.</span>
+          </p>
+          <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;">
+            <span class="en">We focus on enabling individuals to better understand their potential, navigate career pathways, and access opportunities, particularly in contexts where access to guidance and resources remains limited.</span>
+            <span class="vi">Chúng tôi tập trung giúp các cá nhân hiểu rõ hơn về năng lực của mình, định hướng lộ trình nghề nghiệp và tiếp cận các cơ hội, đặc biệt trong những bối cảnh còn hạn chế về hướng dẫn và nguồn lực.</span>
+          </p>
+        </div>
+        <div class="fade-up">
+          <div style="background:#f7f8fc;border-radius:8px;padding:2rem;">
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">
+              <span class="en">Focus Areas</span><span class="vi">Lĩnh Vực Trọng Tâm</span>
+            </div>
+            <div class="check-item"><span class="dot"></span><span><span class="en">Career orientation and pathway development</span><span class="vi">Định hướng và xây dựng lộ trình nghề nghiệp</span></span></div>
+            <div class="check-item"><span class="dot"></span><span><span class="en">Skills and capability building</span><span class="vi">Phát triển kỹ năng và năng lực</span></span></div>
+            <div class="check-item"><span class="dot"></span><span><span class="en">Access to education and employment opportunities</span><span class="vi">Tiếp cận cơ hội giáo dục và việc làm</span></span></div>
+            <div class="check-item"><span class="dot"></span><span><span class="en">Long-term integration into the workforce</span><span class="vi">Hội nhập lâu dài vào lực lượng lao động</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-10 fade-up">
+        <h2 class="section-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);">
+          <span class="en">Our Projects</span><span class="vi">Các Dự Án</span>
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="fade-up" style="background:#fff;border:1px solid rgba(9,24,81,0.08);border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(9,24,81,0.06);transition:all 0.3s;cursor:pointer;" onclick="go('csr-project1')" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 16px 40px rgba(9,24,81,0.13)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(9,24,81,0.06)'">
+          <div style="height:200px;overflow:hidden;background:linear-gradient(135deg,var(--red),var(--navy));display:flex;align-items:center;justify-content:center;">
+            <span style="color:rgba(255,255,255,0.85);font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;">
+              <span class="en">Project 01</span><span class="vi">Dự Án 01</span>
+            </span>
+          </div>
+          <div style="padding:1.8rem;">
+            <h3 style="font-size:1.1rem;font-weight:800;color:var(--navy);margin-bottom:0.5rem;">
+              <span class="en">Pathways to Potential</span><span class="vi">Hành Trình Khai Mở Tiềm Năng</span>
+            </h3>
+            <p style="font-size:0.82rem;color:rgba(9,24,81,0.55);line-height:1.7;margin-bottom:1rem;">
+              <span class="en">Career pathways for girls and women affected by Agent Orange.</span>
+              <span class="vi">Lộ trình nghề nghiệp cho trẻ em gái và phụ nữ bị ảnh hưởng bởi chất độc da cam.</span>
+            </p>
+            <span class="btn-outline-red btn-navy-sm" style="display:inline-block;">
+              <span class="en">Learn More →</span><span class="vi">Xem Thêm →</span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="p-csr-project1" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb"><span class="en">Home › CSR Projects › <span>Pathways to Potential</span></span><span class="vi">Trang chủ › Dự Án CSR › <span>Hành Trình Khai Mở Tiềm Năng</span></span></div>
+    <h1><span class="en">Pathways to Potential</span><span class="vi">Hành Trình Khai Mở Tiềm Năng</span></h1>
+    <p>
+      <span class="en">Career pathways for girls and women affected by Agent Orange.</span>
+      <span class="vi">Lộ trình nghề nghiệp cho trẻ em gái và phụ nữ bị ảnh hưởng bởi chất độc da cam.</span>
+    </p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);">
+          <span class="en">The Challenge</span><span class="vi">Thách Thức</span>
+        </h2>
+        <p class="section-sub mb-6">
+          <span class="en">Many girls and women affected by Agent Orange in Vietnam retain the ability to work but face challenges in accessing guidance, opportunities, and appropriate career pathways.</span>
+          <span class="vi">Nhiều trẻ em gái và phụ nữ bị ảnh hưởng bởi chất độc da cam tại Việt Nam vẫn còn khả năng lao động, nhưng gặp khó khăn trong việc tiếp cận hướng dẫn, cơ hội và lộ trình nghề nghiệp phù hợp.</span>
+        </p>
+
+        <h2 class="section-title" style="font-size:clamp(1.5rem,2.8vw,2.2rem);">
+          <span class="en">Our Approach</span><span class="vi">Cách Tiếp Cận</span>
+        </h2>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">
+          <span class="en">This initiative focuses on supporting girls and women in building clearer career direction and accessing suitable opportunities.</span>
+          <span class="vi">Sáng kiến này tập trung hỗ trợ trẻ em gái và phụ nữ xây dựng định hướng nghề nghiệp rõ ràng hơn và tiếp cận các cơ hội phù hợp.</span>
+        </p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">
+          <span class="en">The programme begins with career orientation and connection to employers and organisations, helping participants better understand their strengths and potential pathways.</span>
+          <span class="vi">Chương trình bắt đầu với định hướng nghề nghiệp và kết nối với nhà tuyển dụng, tổ chức, giúp người tham gia hiểu rõ hơn về điểm mạnh và các lộ trình tiềm năng của mình.</span>
+        </p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:2rem;">
+          <span class="en">It is designed to evolve to include skills development and training, aligned with labour market needs.</span>
+          <span class="vi">Chương trình được thiết kế để phát triển thêm các hoạt động đào tạo và phát triển kỹ năng, gắn liền với nhu cầu của thị trường lao động.</span>
+        </p>
+        <button class="btn-navy" onclick="go('contact')">
+          <span class="en">Support This Project</span><span class="vi">Đồng Hành Cùng Dự Án</span>
+        </button>
+      </div>
+      <div class="fade-up">
+        <div style="background:#f7f8fc;border-radius:8px;padding:2rem;margin-bottom:1.5rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">
+            <span class="en">Key Activities</span><span class="vi">Hoạt Động Chính</span>
+          </div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">Career orientation and pathway guidance</span><span class="vi">Định hướng và tư vấn lộ trình nghề nghiệp</span></span></div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">Connection to employers and job opportunities</span><span class="vi">Kết nối với nhà tuyển dụng và cơ hội việc làm</span></span></div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">Coaching and support in decision making</span><span class="vi">Huấn luyện và hỗ trợ ra quyết định</span></span></div>
+        </div>
+        <div style="background:var(--navy);border-radius:8px;padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.2rem;">
+            <span class="en">The Impact</span><span class="vi">Giá Trị Mang Lại</span>
+          </div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Clearer career direction</span><span class="vi">Định hướng nghề nghiệp rõ ràng hơn</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Improved access to employment</span><span class="vi">Tiếp cận việc làm tốt hơn</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Stronger confidence and decision making</span><span class="vi">Tự tin hơn trong việc ra quyết định</span></span></div>
+          <div class="check-item" style="color:rgba(255,255,255,0.75);"><span class="dot"></span><span><span class="en">Increased participation in the workforce</span><span class="vi">Tăng khả năng tham gia vào lực lượng lao động</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="px-6 pb-16">
+    <div class="max-w-7xl mx-auto fade-up text-center">
+      <button class="btn-outline-red" onclick="go('csr-projects')">
+        <span class="en">← Back to CSR Projects</span><span class="vi">← Quay Lại Dự Án CSR</span>
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PARTNERS: GPF
+═══════════════════════════════════════ -->
+<div id="p-gpf" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <div class="breadcrumb"><span class="en">Home › Partners › <span>GPF</span></span><span class="vi">Trang chủ › Đối tác › <span>GPF</span></span></div>
+    <h1>GPF</h1>
+    <p>
+      <span class="en">Groupement Patronal Francophone (GPF)</span>
+      <span class="vi">Liên đoàn Doanh nghiệp Pháp ngữ (GPF)</span>
+    </p>
+  </div></div>
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+      <div class="fade-up">
+        <div class="section-divider"></div>
+        <h2 class="section-title">GPF</h2>
+        <p class="mb-4 text-sm font-bold text-[var(--red)] underline">
+          <a href="https://www.gpf-int.org/nouvelle-page-64" target="_blank">Mme. Hanh Nguyen — Groupement du Patronat Francophone</a>
+        </p>
+        <p style="font-size:0.85rem;color:rgba(9,24,81,0.48);line-height:1.85;margin-bottom:1rem;">
+          <span class="en">Founded in 1987, the Groupement Patronal Francophone (GPF) is a federation of business organizations representing a network of over 3 million companies across the francophone world.<br><br>GPF operates as a platform for economic cooperation, facilitating connections between francophone businesses, promoting trade exchanges, and supporting the sharing of best practices across regions. It brings together institutions, companies, and stakeholders across Europe, Africa, and Asia, contributing to the development of a globally connected francophone economic ecosystem.</span>
+          <span class="vi">Được thành lập năm 1987, Groupement Patronal Francophone (GPF) là một liên đoàn các tổ chức doanh nghiệp đại diện cho mạng lưới hơn 3 triệu công ty trên toàn thế giới Pháp ngữ.<br><br>GPF hoạt động như một nền tảng hợp tác kinh tế, tạo điều kiện kết nối giữa các doanh nghiệp khối Pháp ngữ, thúc đẩy trao đổi thương mại và hỗ trợ chia sẻ thực tiễn tốt nhất giữa các khu vực. Tổ chức kết nối các thể chế, doanh nghiệp và các bên liên quan trên khắp Châu Âu, Châu Phi và Châu Á, góp phần phát triển một hệ sinh thái kinh tế Pháp ngữ kết nối toàn cầu.</span>
+        </p>
+        <div style="background:rgba(210,35,42,0.04);border-left:4px solid var(--red);border-radius:0 8px 8px 0;padding:1.2rem 1.5rem;margin-bottom:2rem;">
+          <p style="font-size:0.82rem;font-weight:700;color:var(--navy);margin-bottom:0.4rem;">
+            <span class="en">GFE's Role</span><span class="vi">Vai trò của GFE</span>
+          </p>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.6);line-height:1.75;margin-bottom:0.9rem;">
+            <span class="en">Ms. Hanh Nguyen serves as Ambassador to Vietnam for the Groupement Patronal Francophone (GPF), representing the organization and supporting the development of connections between Vietnam and the global Francophone business community.</span>
+            <span class="vi">Bà Hạnh Nguyễn giữ vai trò Đại sứ tại Việt Nam của Groupement Patronal Francophone (GPF), đại diện cho tổ chức và hỗ trợ phát triển kết nối giữa Việt Nam và cộng đồng doanh nghiệp Pháp ngữ toàn cầu.</span>
+          </p>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.6);line-height:1.75;margin-bottom:0.9rem;">
+            <span class="en">This engagement reflects GFE's commitment to fostering international cooperation, building meaningful partnerships, and creating opportunities for dialogue and knowledge exchange between Vietnam, Southeast Asia, and Francophone countries.</span>
+            <span class="vi">Sự tham gia này thể hiện cam kết của GFE trong việc thúc đẩy hợp tác quốc tế, xây dựng các quan hệ đối tác ý nghĩa và tạo cơ hội đối thoại, trao đổi kiến thức giữa Việt Nam, Đông Nam Á và các quốc gia Pháp ngữ.</span>
+          </p>
+          <p style="font-size:0.82rem;color:rgba(9,24,81,0.6);line-height:1.75;">
+            <span class="en">Through the GPF network, GFE actively supports collaboration among educational institutions, businesses, and organizations, helping to connect local and international stakeholders across diverse sectors.</span>
+            <span class="vi">Thông qua mạng lưới GPF, GFE chủ động hỗ trợ hợp tác giữa các tổ chức giáo dục, doanh nghiệp và đơn vị, góp phần kết nối các bên liên quan trong nước và quốc tế trên nhiều lĩnh vực.</span>
+          </p>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div style="background:#f7f8fc;border-radius:8px;padding:2rem;">
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--red);margin-bottom:1.5rem;">
+            <span class="en">Key Areas of Engagement</span><span class="vi">Lĩnh vực hợp tác chính</span>
+          </div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">International dialogue and cooperation</span><span class="vi">Đối thoại và hợp tác quốc tế</span></span></div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">Education and institutional partnerships</span><span class="vi">Quan hệ đối tác giáo dục và thể chế</span></span></div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">Cross-cultural engagement</span><span class="vi">Gắn kết đa văn hóa</span></span></div>
+          <div class="check-item"><span class="dot"></span><span><span class="en">Connectivity between Asia and Francophone countries</span><span class="vi">Kết nối giữa Châu Á và các nước Pháp ngữ</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hình Ảnh -->
+  <!-- LARGE HERO IMAGE -->
+  <section class="px-6 pb-6">
+    <div class="max-w-7xl mx-auto fade-up">
+      <div style="border-radius:12px;overflow:hidden;height:480px;box-shadow:0 20px 60px rgba(9,24,81,0.14);position:relative;">
+        <img src="images/GPF/15559593919612752715.jpg" alt="GPF International Network" style="width:100%;height:100%;object-fit:cover;object-position:center;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(9,24,81,0.55) 0%,transparent 50%);pointer-events:none;"></div>
+        <div style="position:absolute;bottom:28px;left:32px;">
+          <span style="font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);">GPF</span>
+          <p style="font-size:1rem;font-weight:700;color:#fff;margin-top:4px;">Connecting francophone nations across continents</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SMALL IMAGES GALLERY -->
+  <section class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-3 gap-4 fade-up">
+        <div style="border-radius:8px;overflow:hidden;height:220px;position:relative;box-shadow:0 8px 24px rgba(9,24,81,0.1);">
+          <img src="images/GPF/16257838726496296662.jpg" alt="International conference" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(9,24,81,0.75),transparent);">
+            <p style="font-size:0.68rem;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;">International Dialogue</p>
+          </div>
+        </div>
+        <div style="border-radius:8px;overflow:hidden;height:220px;position:relative;box-shadow:0 8px 24px rgba(9,24,81,0.1);">
+          <img src="images/GPF/43456384552701106471.jpg" alt="Education partnership" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(9,24,81,0.75),transparent);">
+            <p style="font-size:0.68rem;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;">Education Partnerships</p>
+          </div>
+        </div>
+        <div style="border-radius:8px;overflow:hidden;height:220px;position:relative;box-shadow:0 8px 24px rgba(9,24,81,0.1);">
+          <img src="images/GPF/5302727917213503103.jpg" alt="Cross-cultural engagement" style="width:100%;height:100%;object-fit:cover;transition:transform 0.4s;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"/>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 14px;background:linear-gradient(to top,rgba(9,24,81,0.75),transparent);">
+            <p style="font-size:0.68rem;font-weight:700;color:#fff;letter-spacing:0.06em;text-transform:uppercase;">Regional Connectivity</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════ -->
+<div id="p-contact" class="page">
+  <div class="inner-hero"><div class="ihgrid"></div><div class="ihc max-w-7xl mx-auto px-6">
+    <h1><span class="en">Contact</span><span class="vi">Liên Hệ</span></h1>
+  </div></div>
+  <section class="py-20 px-6 max-w-7xl mx-auto"><div class="fade-up"><p class="text-center"><span class="en">Contact form coming soon.</span><span class="vi">Biểu mẫu liên hệ đang hoàn thiện.</span></p></div></section>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SCRIPT
+═══════════════════════════════════════ -->
+<script>
+const pageMap={
+  'home':'p-home',
+  'who-we-are':'p-who-we-are',
+  'our-values':'p-our-values',
+  'our-team':'p-our-team',
+  'communication-consultancy':'p-communication-consultancy',
+  'business-representation':'p-business-representation',
+  'career-orientation':'p-career-orientation',
+  'skills-training':'p-skills-training',
+  'cross-cultural':'p-cross-cultural',
+  'csr-projects':'p-csr-projects',
+  'csr-project1':'p-csr-project1',
+  'gpf':'p-gpf',
+  'hpdf':'p-hpdf',
+  'vpc':'p-vpc',
+  'contact':'p-contact'
+};
+
+function go(key){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const t=document.getElementById(pageMap[key]);
+  if(t){
+    t.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    t.querySelectorAll('.fade-up').forEach(el=>el.classList.remove('vis'));
+    setTimeout(()=>observe(t),60);
+  }
+}
+
+function mobToggle(){document.getElementById('mob-menu').classList.toggle('open');}
+function mobSub(el){
+  const s=el.nextElementSibling;
+  s.classList.toggle('open');
+  el.querySelector('span:last-child').textContent=s.classList.contains('open')?'▲':'▼';
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting) setTimeout(()=>e.target.classList.add('vis'),i*80);
+  });
+},{threshold:0.08});
+
+function observe(c){c.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));}
+observe(document.querySelector('.page.active'));
+
+/* ── NATIVE LANGUAGE SWITCHER ── */
+let currentLang = localStorage.getItem('gfe_lang') || 'en';
+
+window.addEventListener('load', function() {
+  switchLang(currentLang);
+});
+
+function toggleLangMenu() {
+  const sw = document.getElementById('langSwitcher');
+  if (sw) sw.classList.toggle('open');
+}
+
+document.addEventListener('click', function(e) {
+  const sw = document.getElementById('langSwitcher');
+  if (sw && !sw.contains(e.target)) {
+    sw.classList.remove('open');
+  }
+});
+
+function switchLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('gfe_lang', lang);
+  
+  // Set class on body to trigger CSS toggles (.en / .vi)
+  document.body.className = 'lang-' + lang;
+
+  // Update desktop UI switcher text
+  const switcher = document.getElementById('langSwitcher');
+  if (switcher) switcher.classList.remove('open');
+
+  document.getElementById('currentFlag').textContent = lang === 'vi' ? '🇻🇳' : '🇬🇧';
+  document.getElementById('currentLang').textContent = lang === 'vi' ? 'VN' : 'EN';
+
+  // Update active states desktop
+  const optEn = document.getElementById('opt-en');
+  const optVi = document.getElementById('opt-vi');
+  if (optEn) optEn.classList.toggle('active', lang === 'en');
+  if (optVi) optVi.classList.toggle('active', lang === 'vi');
+
+  // Update active states mobile
+  const mobEn = document.getElementById('mob-opt-en');
+  const mobVi = document.getElementById('mob-opt-vi');
+  if (mobEn) {
+    mobEn.style.color = lang === 'en' ? 'var(--red)' : 'rgba(9,24,81,0.5)';
+    mobEn.style.background = lang === 'en' ? 'rgba(210,35,42,0.05)' : 'transparent';
+    mobEn.style.fontWeight = lang === 'en' ? '800' : '700';
+  }
+  if (mobVi) {
+    mobVi.style.color = lang === 'vi' ? 'var(--red)' : 'rgba(9,24,81,0.5)';
+    mobVi.style.background = lang === 'vi' ? 'rgba(210,35,42,0.05)' : 'transparent';
+    mobVi.style.fontWeight = lang === 'vi' ? '800' : '700';
+  }
+}
+</script>
+</body>
+</html>
